@@ -1,0 +1,423 @@
+{
+  "categories": [
+    {
+      "name": "Chinese Educational Mission",
+      "color": "#fe640b",
+      "hue": "Peach",
+      "topics": [
+        {
+          "id": "cem_chinese_educational_mission",
+          "label": "Chinese Educational Mission",
+          "color": "#fe640b",
+          "deduped_topic_id": "topic_17",
+          "all_topic_id": null,
+          "weight": 0.2963,
+          "exclude": false
+        },
+        {
+          "id": "cem_government_policy_institutional_recall",
+          "label": "CEM: Government Policy & Institutional Recall",
+          "color": "#ef9f76",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_24",
+          "weight": 0.1328,
+          "exclude": false
+        },
+        {
+          "id": "cem_student_lives_personal_narratives",
+          "label": "CEM: Student Lives & Personal Narratives",
+          "color": "#fab387",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_14",
+          "weight": 0.0411,
+          "exclude": false
+        },
+        {
+          "id": "cem_students_cross_cultural_marriage",
+          "label": "CEM: Students & Cross-Cultural Marriage",
+          "color": "#e64553",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_0",
+          "weight": 0.028,
+          "exclude": false
+        },
+        {
+          "id": "cem_political_controversy",
+          "label": "CEM: Political Controversy",
+          "color": "#ea999c",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_17",
+          "weight": 0.0205,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Education & Schools",
+      "color": "#209fb5",
+      "hue": "Sapphire",
+      "topics": [
+        {
+          "id": "es_classroom_instruction",
+          "label": "Classroom Instruction",
+          "color": "#209fb5",
+          "deduped_topic_id": "topic_7",
+          "all_topic_id": "topic_3",
+          "weight": 0.1286,
+          "exclude": false
+        },
+        {
+          "id": "es_public_school_admission",
+          "label": "Public School Admission",
+          "color": "#85c1dc",
+          "deduped_topic_id": "topic_8",
+          "all_topic_id": "topic_2",
+          "weight": 0.1284,
+          "exclude": false
+        },
+        {
+          "id": "es_missionary_church_schools",
+          "label": "Missionary & Church Schools",
+          "color": "#74c7ec",
+          "deduped_topic_id": "topic_13",
+          "all_topic_id": "topic_16",
+          "weight": 0.1144,
+          "exclude": false
+        },
+        {
+          "id": "es_mission_school_directories_schedules",
+          "label": "Mission School Directories & Schedules",
+          "color": "#99d1db",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_18",
+          "weight": 0.0331,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Children & Family",
+      "color": "#40a02b",
+      "hue": "Green",
+      "topics": [
+        {
+          "id": "cf_children_family_life",
+          "label": "Children & Family Life",
+          "color": "#40a02b",
+          "deduped_topic_id": "topic_18",
+          "all_topic_id": "topic_6",
+          "weight": 0.2734,
+          "exclude": false
+        },
+        {
+          "id": "cf_confucian_family_ethics",
+          "label": "Confucian Family Ethics",
+          "color": "#a6d189",
+          "deduped_topic_id": "topic_6",
+          "all_topic_id": "topic_8",
+          "weight": 0.0249,
+          "exclude": false
+        },
+        {
+          "id": "cf_childhood_conditions_moral_commentary",
+          "label": "Childhood Conditions & Moral Commentary",
+          "color": "#a6e3a1",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_12",
+          "weight": 0.0228,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Law, Politics & Exclusion",
+      "color": "#8839ef",
+      "hue": "Mauve",
+      "topics": [
+        {
+          "id": "lpe_exclusion_legislation",
+          "label": "Exclusion Legislation",
+          "color": "#8839ef",
+          "deduped_topic_id": "topic_24",
+          "all_topic_id": "topic_1",
+          "weight": 0.0594,
+          "exclude": false
+        },
+        {
+          "id": "lpe_criminal_cases_court_proceedings",
+          "label": "Criminal Cases & Court Proceedings",
+          "color": "#ca9ee6",
+          "deduped_topic_id": "topic_16",
+          "all_topic_id": null,
+          "weight": 0.0763,
+          "exclude": false
+        },
+        {
+          "id": "lpe_criminal_cases_court_proceedings_trials",
+          "label": "Criminal Cases & Court Proceedings (Trials)",
+          "color": "#ca9ee6",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_5",
+          "weight": 0.0238,
+          "exclude": false
+        },
+        {
+          "id": "lpe_criminal_cases_court_proceedings_police",
+          "label": "Criminal Cases & Court Proceedings (Police)",
+          "color": "#cba6f7",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_19",
+          "weight": 0.0564,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Violence & War",
+      "color": "#d20f39",
+      "hue": "Red",
+      "topics": [
+        {
+          "id": "vw_anti_chinese_violence",
+          "label": "Anti-Chinese Violence",
+          "color": "#d20f39",
+          "deduped_topic_id": "topic_22",
+          "all_topic_id": "topic_10",
+          "weight": 0.0426,
+          "exclude": false
+        },
+        {
+          "id": "vw_sino_french_war",
+          "label": "Sino-French War",
+          "color": "#e78284",
+          "deduped_topic_id": "topic_20",
+          "all_topic_id": null,
+          "weight": 0.0336,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Commerce & Material Culture",
+      "color": "#179299",
+      "hue": "Teal",
+      "topics": [
+        {
+          "id": "cmc_east_asian_consumer_goods",
+          "label": "East Asian Consumer Goods",
+          "color": "#179299",
+          "deduped_topic_id": "topic_21",
+          "all_topic_id": "topic_23",
+          "weight": 0.0201,
+          "exclude": false
+        },
+        {
+          "id": "cmc_trade_in_chinese_goods_furnishings",
+          "label": "Trade in Chinese Goods & Furnishings",
+          "color": "#81c8be",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_21",
+          "weight": 0.0249,
+          "exclude": false
+        },
+        {
+          "id": "cmc_social_dining_interior_spaces",
+          "label": "Social Dining & Interior Spaces",
+          "color": "#94e2d5",
+          "deduped_topic_id": "topic_14",
+          "all_topic_id": null,
+          "weight": 0.0327,
+          "exclude": false
+        },
+        {
+          "id": "cmc_clothing_physical_description",
+          "label": "Clothing & Physical Description",
+          "color": "#89dceb",
+          "deduped_topic_id": "topic_10",
+          "all_topic_id": null,
+          "weight": 0.0385,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Daily Life & Urban Space",
+      "color": "#1e66f5",
+      "hue": "Blue",
+      "topics": [
+        {
+          "id": "dlus_routine_press_reporting",
+          "label": "Routine Press Reporting",
+          "color": "#1e66f5",
+          "deduped_topic_id": "topic_9",
+          "all_topic_id": null,
+          "weight": 0.1926,
+          "exclude": false
+        },
+        {
+          "id": "dlus_chinatown_spatial_narratives",
+          "label": "Chinatown Spatial Narratives",
+          "color": "#8caaee",
+          "deduped_topic_id": "topic_23",
+          "all_topic_id": null,
+          "weight": 0.0375,
+          "exclude": false
+        },
+        {
+          "id": "dlus_domestic_employment",
+          "label": "Domestic Employment",
+          "color": "#89b4fa",
+          "deduped_topic_id": "topic_0",
+          "all_topic_id": "topic_22",
+          "weight": 0.0322,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Land, Migration & Labor",
+      "color": "#df8e1d",
+      "hue": "Yellow",
+      "topics": [
+        {
+          "id": "lml_hawaii_pacific_migration",
+          "label": "Hawaii & Pacific Migration",
+          "color": "#df8e1d",
+          "deduped_topic_id": "topic_15",
+          "all_topic_id": "topic_11",
+          "weight": 0.0794,
+          "exclude": false
+        },
+        {
+          "id": "lml_agriculture_land_use",
+          "label": "Agriculture & Land Use",
+          "color": "#e5c890",
+          "deduped_topic_id": "topic_11",
+          "all_topic_id": null,
+          "weight": 0.0151,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Culture, Perception & Acculturation",
+      "color": "#ea76cb",
+      "hue": "Pink",
+      "topics": [
+        {
+          "id": "cpa_public_gatherings_lectures",
+          "label": "Public Gatherings & Lectures",
+          "color": "#ea76cb",
+          "deduped_topic_id": "topic_4",
+          "all_topic_id": null,
+          "weight": 0.0192,
+          "exclude": false
+        },
+        {
+          "id": "cpa_physical_appearance_curiosity_narratives",
+          "label": "Physical Appearance & Curiosity Narratives",
+          "color": "#f4b8e4",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_20",
+          "weight": 0.0166,
+          "exclude": false
+        },
+        {
+          "id": "cpa_language_learning_cultural_adjustment",
+          "label": "Language Learning & Cultural Adjustment",
+          "color": "#f5c2e7",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_15",
+          "weight": 0.0149,
+          "exclude": false
+        },
+        {
+          "id": "cpa_opium_moral_degradation",
+          "label": "Opium & Moral Degradation",
+          "color": "#dd7878",
+          "deduped_topic_id": "topic_12",
+          "all_topic_id": null,
+          "weight": 0.0232,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "Diplomacy",
+      "color": "#7287fd",
+      "hue": "Lavender",
+      "topics": [
+        {
+          "id": "dip_diplomacy_ceremonial_events",
+          "label": "Diplomacy & Ceremonial Events",
+          "color": "#7287fd",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_9",
+          "weight": 0.0464,
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "name": "NOISE",
+      "color": "#dc8a78",
+      "hue": "Rosewater",
+      "topics": [
+        {
+          "id": "noi_ocr_artifacts",
+          "label": "NOISE: OCR Artifacts",
+          "color": "#dc8a78",
+          "deduped_topic_id": "topic_19",
+          "all_topic_id": "topic_13",
+          "weight": 0.0201,
+          "exclude": true
+        },
+        {
+          "id": "noi_commercial_advertising",
+          "label": "NOISE: Commercial Advertising",
+          "color": "#f2d5cf",
+          "deduped_topic_id": "topic_3",
+          "all_topic_id": "topic_7",
+          "weight": 0.0264,
+          "exclude": true
+        },
+        {
+          "id": "noi_church_directories",
+          "label": "NOISE: Church Directories",
+          "color": "#f5e0dc",
+          "deduped_topic_id": null,
+          "all_topic_id": "topic_4",
+          "weight": 0.0147,
+          "exclude": true
+        },
+        {
+          "id": "noi_orientalist_ocr_debris",
+          "label": "NOISE: Orientalist & OCR Debris",
+          "color": "#eebebe",
+          "deduped_topic_id": "topic_1",
+          "all_topic_id": null,
+          "weight": 0.0227,
+          "exclude": true
+        },
+        {
+          "id": "noi_mixed_newspaper_chaff",
+          "label": "NOISE: Mixed Newspaper Chaff",
+          "color": "#f4dedb",
+          "deduped_topic_id": "topic_2",
+          "all_topic_id": null,
+          "weight": 0.023,
+          "exclude": true
+        },
+        {
+          "id": "noi_commercial_ads_classifieds",
+          "label": "NOISE: Commercial Ads & Classifieds",
+          "color": "#f0c9c0",
+          "deduped_topic_id": "topic_5",
+          "all_topic_id": null,
+          "weight": 0.0083,
+          "exclude": true
+        }
+      ]
+    }
+  ]
+}

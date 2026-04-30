@@ -1,0 +1,23 @@
+{
+  "name": "chinese-children-press-1880",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-time-format": "^4.0.3",
+    "@types/markdown-it-footnote": "^3.0.4",
+    "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "@turf/turf": "^7.3.4",
+    "d3-scale": "^4.0.2",
+    "d3-time-format": "^4.1.0",
+    "dayjs": "^1.11.20",
+    "maplibre-gl": "^5.23.0",
+    "markdown-it-footnote": "^4.0.0"
+  }
+}

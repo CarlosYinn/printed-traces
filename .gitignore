@@ -1,0 +1,13 @@
+node_modules
+docs/.vitepress/dist
+docs/.vitepress/cache
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+# Raw Newberry Atlas source data (~580 MB); README.md inside is tracked
+data/newberry/*
+!data/newberry/README.md
+# Local env overrides
+.env.local
+.env.*.local

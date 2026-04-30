@@ -1,0 +1,26 @@
+topic_id,weight,analytic_label,discourse_label,exclude,matched_deduped_topic,category,category_color,color
+topic_0,0.0280,CEM: Students & Cross-Cultural Marriage,"The Prettiest Girl in Class: Intermarriage, Scandal, and the Student Abroad",no,deduped_topic_17 (partial),Chinese Educational Mission,#fe640b,#e64553
+topic_1,0.0363,Exclusion Legislation,Legislating Exclusion: Treaties and Congressional Debate,no,deduped_topic_24,"Law, Politics & Exclusion",#8839ef,#8839ef
+topic_2,0.0703,Public School Admission,"""Born on This Soil"": The Courtroom Battle over School Access",no,deduped_topic_8,Education & Schools,#209fb5,#85c1dc
+topic_3,0.0778,Classroom Instruction,"Teaching English, Making Americans: The Pedagogy of Assimilation",no,deduped_topic_7,Education & Schools,#209fb5,#209fb5
+topic_4,0.0147,NOISE: Church Directories,,yes,,NOISE,#dc8a78,#f5e0dc
+topic_5,0.0238,Criminal Cases & Court Proceedings (Trials),Lost in Translation: Formal Proceedings and the Interpreter Problem,no,deduped_topic_16 (partial),"Law, Politics & Exclusion",#8839ef,#ca9ee6
+topic_6,0.1107,Children & Family Life,"Narrating Chinese Childhood: Domesticity, Gender, and Sentiment",no,deduped_topic_18,Children & Family,#40a02b,#40a02b
+topic_7,0.0176,NOISE: Commercial Advertising,,yes,,NOISE,#dc8a78,#f2d5cf
+topic_8,0.0249,Confucian Family Ethics,Filial Piety and the Obligations of Kinship,no,deduped_topic_6,Children & Family,#40a02b,#a6d189
+topic_9,0.0464,Diplomacy & Ceremonial Events,The Minister's Daughter: Chinese Children in Diplomatic Settings,no,,Diplomacy,#7287fd,#7287fd
+topic_10,0.0266,Anti-Chinese Violence,"Torches and Mobs: Arson, Riot, and Racial Expulsion",no,deduped_topic_22,Violence & War,#d20f39,#d20f39
+topic_11,0.0794,Hawaii & Pacific Migration,"Pacific Crossings: Hawaii, Steamships, and Transpacific Migration Control",no,deduped_topic_15,"Land, Migration & Labor",#df8e1d,#df8e1d
+topic_12,0.0228,Childhood Conditions & Moral Commentary,"Poor and Peculiar: Poverty, Gender, and the Sympathetic Gaze",no,,Children & Family,#40a02b,#a6e3a1
+topic_13,0.0101,NOISE: OCR Artifacts,,yes,,NOISE,#dc8a78,#dc8a78
+topic_14,0.0411,CEM: Student Lives & Personal Narratives,"From Hartford to Shanghai: Friendships, Courtship, and Return",no,deduped_topic_17 (partial),Chinese Educational Mission,#fe640b,#fab387
+topic_15,0.0149,Language Learning & Cultural Adjustment,The Preacher and the Mosquito: Everyday Struggles of Acculturation,no,,"Culture, Perception & Acculturation",#ea76cb,#f5c2e7
+topic_16,0.0789,Missionary & Church Schools,Saving Heathen Girls: Missionary Schooling and Christian Conversion,no,deduped_topic_13,Education & Schools,#209fb5,#74c7ec
+topic_17,0.0205,CEM: Political Controversy,"Sherman, Kensington, and the Threat of Beheading: The Politics of Student Recall",no,deduped_topic_17 (partial),Chinese Educational Mission,#fe640b,#ea999c
+topic_18,0.0331,Mission School Directories & Schedules,Sabbath Schools and Branch Missions: The Institutional Network,no,,Education & Schools,#209fb5,#99d1db
+topic_19,0.0564,Criminal Cases & Court Proceedings (Police),The Chinatown Beat: Arrests and Daily Court Proceedings,no,deduped_topic_16 (partial),"Law, Politics & Exclusion",#8839ef,#cba6f7
+topic_20,0.0166,Physical Appearance & Curiosity Narratives,Shaved Heads and Sprouts: The Exotic Body on Display,no,,"Culture, Perception & Acculturation",#ea76cb,#f4b8e4
+topic_21,0.0249,Trade in Chinese Goods & Furnishings,Silk and Silver: Commodifying the Oriental Domestic,no,,Commerce & Material Culture,#179299,#81c8be
+topic_22,0.0172,Domestic Employment,Hired Hands: Chinese Domestic Labor and Wage Relations,no,deduped_topic_0,Daily Life & Urban Space,#1e66f5,#89b4fa
+topic_23,0.0200,East Asian Consumer Goods,Consuming the Orient: Chinoiserie and Holiday Commerce,no,deduped_topic_21,Commerce & Material Culture,#179299,#179299
+topic_24,0.1328,CEM: Government Policy & Institutional Recall,"The Hartford Experiment: Government Orders, Military Discipline, and the Politics of Return",no,deduped_topic_17 (partial),Chinese Educational Mission,#fe640b,#ef9f76

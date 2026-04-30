@@ -1,0 +1,80 @@
+:root {
+  /* Catppuccin Latte (light theme) */
+  --ctp-base: #eff1f5;
+  --ctp-mantle: #e6e9ef;
+  --ctp-crust: #dce0e8;
+  --ctp-surface0: #ccd0da;
+  --ctp-surface1: #bcc0cc;
+  --ctp-surface2: #acb0be;
+  --ctp-overlay0: #9ca0b0;
+  --ctp-overlay1: #8c8fa1;
+  --ctp-overlay2: #7c7f93;
+  --ctp-subtext0: #6c6f85;
+  --ctp-subtext1: #5c5f77;
+  --ctp-text: #4c4f69;
+
+  --ctp-rosewater: #dc8a78;
+  --ctp-flamingo: #dd7878;
+  --ctp-pink: #ea76cb;
+  --ctp-mauve: #8839ef;
+  --ctp-red: #d20f39;
+  --ctp-maroon: #e64553;
+  --ctp-peach: #fe640b;
+  --ctp-yellow: #df8e1d;
+  --ctp-green: #40a02b;
+  --ctp-teal: #179299;
+  --ctp-sky: #04a5e5;
+  --ctp-sapphire: #209fb5;
+  --ctp-blue: #1e66f5;
+  --ctp-lavender: #7287fd;
+
+  --font-sans: "Cambria", "Cambria Math", "Source Han Sans SC", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-num-tabular: "Cambria", Georgia, serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+  --ease-std: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-std: 180ms;
+  --dur-slow: 320ms;
+}
+
+html.dark {
+  /* Warm archival dark — aged paper, amber lamp, print-room noir */
+  --ctp-base:    #1c1814;
+  --ctp-mantle:  #161310;
+  --ctp-crust:   #110f0b;
+  --ctp-surface0: #2c2620;
+  --ctp-surface1: #3a3228;
+  --ctp-surface2: #484038;
+
+  --ctp-overlay0: #685e50;
+  --ctp-overlay1: #897868;
+  --ctp-overlay2: #a89080;
+
+  --ctp-subtext0: #c2b09c;
+  --ctp-subtext1: #d2c0ab;
+  --ctp-text:    #e4d5be;
+
+  /* Accent palette — warm amber, muted slate, no cold purples */
+  --ctp-rosewater: #ddc4ae;
+  --ctp-flamingo:  #ccaa90;
+  --ctp-pink:      #b07888;
+  --ctp-mauve:     #987098;
+  --ctp-red:       #c05848;
+  --ctp-maroon:    #b06858;
+  --ctp-peach:     #c09050;   /* warm amber — replaces garish orange */
+  --ctp-yellow:    #b0a040;
+  --ctp-green:     #6a9860;
+  --ctp-teal:      #489888;
+  --ctp-sky:       #58a0a8;
+  --ctp-sapphire:  #4890a8;   /* muted slate-teal — replaces bright blue */
+  --ctp-blue:      #5880a8;
+  --ctp-lavender:  #7880b0;
+}

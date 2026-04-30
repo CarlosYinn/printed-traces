@@ -1,0 +1,39 @@
+category,category_color,category_hue,analytic_label,topic_color,topic_hue,deduped_topic_id,deduped_weight,all_topic_id,all_weight,source,exclude
+Chinese Educational Mission,#fe640b,Peach,Chinese Educational Mission,#fe640b,Peach (Latte),topic_17,0.2963,,,deduped,no
+Chinese Educational Mission,#fe640b,Peach,CEM: Government Policy & Institutional Recall,#ef9f76,Peach (Frappé),,,topic_24,0.1328,all,no
+Chinese Educational Mission,#fe640b,Peach,CEM: Student Lives & Personal Narratives,#fab387,Peach (Mocha),,,topic_14,0.0411,all,no
+Chinese Educational Mission,#fe640b,Peach,CEM: Students & Cross-Cultural Marriage,#e64553,Maroon (Latte),,,topic_0,0.0280,all,no
+Chinese Educational Mission,#fe640b,Peach,CEM: Political Controversy,#ea999c,Maroon (Frappé),,,topic_17,0.0205,all,no
+Education & Schools,#209fb5,Sapphire,Classroom Instruction,#209fb5,Sapphire (Latte),topic_7,0.1286,topic_3,0.0778,both,no
+Education & Schools,#209fb5,Sapphire,Public School Admission,#85c1dc,Sapphire (Frappé),topic_8,0.1284,topic_2,0.0703,both,no
+Education & Schools,#209fb5,Sapphire,Missionary & Church Schools,#74c7ec,Sapphire (Mocha),topic_13,0.1144,topic_16,0.0789,both,no
+Education & Schools,#209fb5,Sapphire,Mission School Directories & Schedules,#99d1db,Sky (Frappé),,,topic_18,0.0331,all,no
+Children & Family,#40a02b,Green,Children & Family Life,#40a02b,Green (Latte),topic_18,0.2734,topic_6,0.1107,both,no
+Children & Family,#40a02b,Green,Confucian Family Ethics,#a6d189,Green (Frappé),topic_6,0.0218,topic_8,0.0249,both,no
+Children & Family,#40a02b,Green,Childhood Conditions & Moral Commentary,#a6e3a1,Green (Mocha),,,topic_12,0.0228,all,no
+"Law, Politics & Exclusion",#8839ef,Mauve,Exclusion Legislation,#8839ef,Mauve (Latte),topic_24,0.0594,topic_1,0.0363,both,no
+"Law, Politics & Exclusion",#8839ef,Mauve,Criminal Cases & Court Proceedings,#ca9ee6,Mauve (Frappé),topic_16,0.0763,,,deduped,no
+"Law, Politics & Exclusion",#8839ef,Mauve,Criminal Cases & Court Proceedings (Trials),#ca9ee6,Mauve (Frappé),,,topic_5,0.0238,all,no
+"Law, Politics & Exclusion",#8839ef,Mauve,Criminal Cases & Court Proceedings (Police),#cba6f7,Mauve (Mocha),,,topic_19,0.0564,all,no
+Violence & War,#d20f39,Red,Anti-Chinese Violence,#d20f39,Red (Latte),topic_22,0.0426,topic_10,0.0266,both,no
+Violence & War,#d20f39,Red,Sino-French War,#e78284,Red (Frappé),topic_20,0.0336,,,deduped,no
+Commerce & Material Culture,#179299,Teal,East Asian Consumer Goods,#179299,Teal (Latte),topic_21,0.0201,topic_23,0.0200,both,no
+Commerce & Material Culture,#179299,Teal,Trade in Chinese Goods & Furnishings,#81c8be,Teal (Frappé),,,topic_21,0.0249,all,no
+Commerce & Material Culture,#179299,Teal,Social Dining & Interior Spaces,#94e2d5,Teal (Mocha),topic_14,0.0327,,,deduped,no
+Commerce & Material Culture,#179299,Teal,Clothing & Physical Description,#89dceb,Sky (Mocha),topic_10,0.0385,,,deduped,no
+Daily Life & Urban Space,#1e66f5,Blue,Routine Press Reporting,#1e66f5,Blue (Latte),topic_9,0.1926,,,deduped,no
+Daily Life & Urban Space,#1e66f5,Blue,Chinatown Spatial Narratives,#8caaee,Blue (Frappé),topic_23,0.0375,,,deduped,no
+Daily Life & Urban Space,#1e66f5,Blue,Domestic Employment,#89b4fa,Blue (Mocha),topic_0,0.0322,topic_22,0.0172,both,no
+"Land, Migration & Labor",#df8e1d,Yellow,Hawaii & Pacific Migration,#df8e1d,Yellow (Latte),topic_15,0.0694,topic_11,0.0794,both,no
+"Land, Migration & Labor",#df8e1d,Yellow,Agriculture & Land Use,#e5c890,Yellow (Frappé),topic_11,0.0151,,,deduped,no
+"Culture, Perception & Acculturation",#ea76cb,Pink,Public Gatherings & Lectures,#ea76cb,Pink (Latte),topic_4,0.0192,,,deduped,no
+"Culture, Perception & Acculturation",#ea76cb,Pink,Physical Appearance & Curiosity Narratives,#f4b8e4,Pink (Frappé),,,topic_20,0.0166,all,no
+"Culture, Perception & Acculturation",#ea76cb,Pink,Language Learning & Cultural Adjustment,#f5c2e7,Pink (Mocha),,,topic_15,0.0149,all,no
+"Culture, Perception & Acculturation",#ea76cb,Pink,Opium & Moral Degradation,#dd7878,Flamingo (Latte),topic_12,0.0232,,,deduped,no
+Diplomacy,#7287fd,Lavender,Diplomacy & Ceremonial Events,#7287fd,Lavender (Latte),,,topic_9,0.0464,all,no
+NOISE,#dc8a78,Rosewater,NOISE: OCR Artifacts,#dc8a78,Rosewater (Latte),topic_19,0.0201,topic_13,0.0101,both,yes
+NOISE,#dc8a78,Rosewater,NOISE: Commercial Advertising,#f2d5cf,Rosewater (Frappé),topic_3,0.0264,topic_7,0.0176,both,yes
+NOISE,#dc8a78,Rosewater,NOISE: Church Directories,#f5e0dc,Rosewater (Mocha),,,topic_4,0.0147,all,yes
+NOISE,#dc8a78,Rosewater,NOISE: Orientalist & OCR Debris,#eebebe,Rosewater (Frappé),topic_1,0.02269,,,deduped,yes
+NOISE,#dc8a78,Rosewater,NOISE: Mixed Newspaper Chaff,#f4dedb,Rosewater (Mocha),topic_2,0.02299,,,deduped,yes
+NOISE,#dc8a78,Rosewater,NOISE: Commercial Ads & Classifieds,#f0c9c0,Rosewater (Macchiato),topic_5,0.00834,,,deduped,yes

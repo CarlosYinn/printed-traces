@@ -1,0 +1,455 @@
+@import './tokens.css';
+
+/* =============================================
+   NEWSPAPER THEME — VitePress custom overrides
+   - Peach accent for active/selected states
+   - Black/white/gray base; rosewater for code
+   - Cambria font
+   - Topbar & content: VitePress defaults
+   ============================================= */
+
+
+/* ===== LIGHT MODE ===== */
+:root {
+  /* Rosewater — active / selected */
+  --vp-c-brand-1:    #b35f4d;
+  --vp-c-brand-2:    #994f3f;
+  --vp-c-brand-3:    #7e3f31;
+  --vp-c-brand-soft: rgba(179, 95, 77, 0.12);
+
+  /* Newspaper backgrounds */
+  --vp-c-bg:      #ffffff;
+  --vp-c-bg-alt:  #fafafa;
+  --vp-c-bg-elv:  #ffffff;
+  --vp-c-bg-soft: #f7f5f3;
+
+  /* Text */
+  --vp-c-text-1: #2a2a2a;
+  --vp-c-text-2: #555555;
+  --vp-c-text-3: #777777;
+
+  /* Borders */
+  --vp-c-border:  #e5e5e5;
+  --vp-c-divider: #ececec;
+  --vp-c-gutter:  #e5e5e5;
+
+  /* Sidebar */
+  --vp-sidebar-bg-color: #fafafa;
+
+  /* Typography */
+  --vp-font-family-base: Cambria, 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --vp-font-family-mono: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+
+  /* Inline code — rosewater */
+  --vp-code-color: #b35f4d;
+  --vp-code-bg:    #f4f2f0;
+}
+
+
+/* ===== DARK MODE ===== */
+.dark {
+  /* Rosewater — active / selected */
+  --vp-c-brand-1:    #e09686;
+  --vp-c-brand-2:    #d07c6c;
+  --vp-c-brand-3:    #c06a5a;
+  --vp-c-brand-soft: rgba(224, 150, 134, 0.14);
+
+  --vp-c-bg:      #0f0f0f;
+  --vp-c-bg-alt:  #141414;
+  --vp-c-bg-elv:  #1a1a1a;
+  --vp-c-bg-soft: rgba(156, 163, 175, 0.06);
+
+  --vp-c-text-1: #c8c8c8;
+  --vp-c-text-2: #aaaaaa;
+  --vp-c-text-3: #888888;
+
+  --vp-c-border:  #2a2a2a;
+  --vp-c-divider: #222222;
+  --vp-c-gutter:  #2a2a2a;
+
+  --vp-sidebar-bg-color: #141414;
+
+  /* Inline code — rosewater warm */
+  --vp-code-color: #e09686;
+  --vp-code-bg:    #1a1a1a;
+}
+
+
+/* =============================================
+   GLOBAL
+   ============================================= */
+body {
+  font-family: var(--vp-font-family-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+a:visited { color: inherit; }
+.vp-doc a:visited { color: var(--vp-c-brand-1); }
+
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+
+/* Logo: render both, switch via .dark class (set pre-hydration) so the
+   correct variant shows on first paint without waiting for Vue. */
+.nav-logo--dark { display: none; }
+.dark .nav-logo--light { display: none; }
+.dark .nav-logo--dark { display: block; }
+
+/* =============================================
+   SIDEBAR
+   ============================================= */
+
+/* Caret to left; non-caret items indent to keep text left-aligned */
+.VPSidebarItem > .item > .caret {
+  order: -1;
+  flex-shrink: 0;
+  margin-right: 4px;
+  margin-left: 0;
+}
+.VPSidebarItem:not(.collapsible) > .item {
+  padding-left: 36px;
+}
+
+/* Row highlight */
+.VPSidebarItem > .item {
+  border-radius: 6px;
+  transition: background-color 0.15s;
+}
+.VPSidebarItem > .item:hover {
+  background-color: var(--vp-c-bg-soft);
+}
+.VPSidebarItem.is-active > .item {
+  background-color: var(--vp-c-brand-soft);
+}
+
+
+/* =============================================
+   SCROLLBAR — 5px thin
+   ============================================= */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--vp-c-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--vp-c-text-3); }
+
+
+/* =============================================
+   MISC
+   ============================================= */
+/* Slight dim on images in dark mode */
+.dark .vp-doc img { opacity: 0.9; }
+
+
+/* =============================================
+   HOME HERO — VitePress native layout: home
+   VPHero uses margin-top: -nav-height to extend behind the navbar.
+   VPNavBar auto-transparent on home page when y === 0 (.home.top class).
+   ============================================= */
+
+/* Cover page: VPHome has built-in margin-bottom: 96/128px — zero it out */
+.cover-page .VPHome   { margin-bottom: 0 !important; }
+.cover-page .VPFooter { display: none !important; }
+
+/* Full-viewport hero with background image */
+.VPHomeHero {
+  min-height: 100vh !important;
+  position: relative;
+  background-image: url('/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1613;
+}
+
+/* Top gradient tint — adapts to color mode for navbar readability */
+:root {
+  --hero-top-tint: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--vp-nav-bg-color) 82%, transparent) 0%,
+    color-mix(in srgb, var(--vp-nav-bg-color) 82%, transparent) calc(var(--vp-nav-height) - 6px),
+    transparent calc(var(--vp-nav-height) + 6px)
+  );
+}
+
+/* Stacked overlays: top tint + bottom-left veil */
+.VPHomeHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    var(--hero-top-tint),
+    linear-gradient(to top right,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.45) 40%,
+      rgba(0, 0, 0, 0.08) 70%,
+      transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Copyright — bottom-right of hero */
+.VPHomeHero::after {
+  content: '© 2026 Printed Traces · CC BY 4.0';
+  position: absolute;
+  bottom: clamp(0.5rem, 1.5vh, 1rem);
+  right: clamp(1.5rem, 5vw, 5rem);
+  font-family: Cambria, 'Source Serif 4', Georgia, serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.03em;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* Pin content to bottom-left */
+.VPHomeHero .container {
+  position: absolute !important;
+  bottom: clamp(2.5rem, 7vh, 5rem) !important;
+  left:   clamp(1.5rem, 5vw, 5rem) !important;
+  right:  clamp(1.5rem, 5vw, 5rem) !important;
+  max-width: none !important;
+  margin: 0 !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  z-index: 1;
+}
+
+/* Printed Traces SVG wordmark */
+.hero-paper-mark {
+  display: block;
+  width: min(72vw, 1100px);
+  height: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 20px rgba(0, 0, 0, 0.4));
+  margin-left: -0.35vw; /* optical alignment */
+  margin-bottom: 0.5rem;
+}
+
+/* Hide the default name/text heading (SVG replaces it) */
+.VPHomeHero .heading {
+  display: none !important;
+}
+
+/* Tagline → Cambria italic subtitle */
+.VPHomeHero .tagline {
+  padding-top: 0 !important;
+  max-width: 52ch !important;
+  font-family: Cambria, 'Source Serif 4', Georgia, 'Times New Roman', serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: clamp(1rem, 1.8vw, 1.5rem) !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Actions row */
+.VPHomeHero .actions {
+  justify-content: flex-start !important;
+  padding-top: 1.5rem !important;
+}
+
+/* Brand button — pinned to bright rosewater in both modes */
+.VPHomeHero .VPButton.brand {
+  background-color: #e09686 !important;
+  border-color: #e09686 !important;
+  color: #fff !important;
+}
+.VPHomeHero .VPButton.brand:hover {
+  background-color: #d07c6c !important;
+  border-color: #d07c6c !important;
+}
+
+/* Alt buttons: ghost style on dark bg */
+.VPHomeHero .VPButton.alt {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #fff !important;
+  background-color: transparent !important;
+}
+.VPHomeHero .VPButton.alt:hover {
+  border-color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero-paper-mark { width: 88vw; }
+}
+
+
+/* =============================================
+   MAP FULLSCREEN PAGE
+   ============================================= */
+.map-fullscreen-page {
+  overflow: hidden;
+}
+
+.map-fullscreen-page .VPSidebar,
+.map-fullscreen-page .VPLocalNav,
+.map-fullscreen-page .VPDocAside,
+.map-fullscreen-page .VPDocFooter,
+.map-fullscreen-page .VPFooter,
+.map-fullscreen-page .prev-next {
+  display: none !important;
+}
+
+.map-fullscreen-page .VPContent,
+.map-fullscreen-page .VPDoc,
+.map-fullscreen-page .VPDoc .container,
+.map-fullscreen-page .VPDoc .content-container,
+.map-fullscreen-page .VPDoc .content,
+.map-fullscreen-page .vp-doc,
+.map-fullscreen-page .vp-doc > div {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+.map-fullscreen-page .interactive-map-root {
+  position: fixed !important;
+  top: var(--vp-nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto !important;
+  z-index: 10;
+}
+
+.interactive-map-root :where(button, input, a, [tabindex]):focus-visible,
+.record-popup :where(a):focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+}
+
+
+/* =============================================
+   NEWSPAPER CLIPPING FIGURES
+   ============================================= */
+figure.clip {
+  float: right;
+  clear: right;
+  max-width: 260px;
+  margin: 0.4rem 0 1.5rem 1.75rem;
+  text-align: center;
+}
+figure.clip img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+figure.clip figcaption {
+  margin-top: 0;
+  padding: 0.4em 0.55em 0.3em;
+  font-size: 0.73em;
+  font-style: italic;
+  color: var(--vp-c-text-2);
+  line-height: 1.45;
+  text-align: left;
+  border-top: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+}
+.dark figure.clip img {
+  opacity: 0.88;
+}
+
+/* Pair of clips that belong to the same article (e.g., page 1 + page 2)
+   render as a centered side-by-side tableau instead of competing for floats. */
+.clip-spread {
+  clear: both;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.75rem auto;
+}
+.clip-spread figure.clip {
+  float: none;
+  clear: none;
+  margin: 0;
+  max-width: 240px;
+}
+
+/* Headings always start below any floated clip images */
+.vp-doc h2,
+.vp-doc h3 {
+  clear: both;
+}
+@media (max-width: 640px) {
+  figure.clip {
+    float: none;
+    clear: both;
+    margin: 1.5rem auto;
+    max-width: 100%;
+  }
+  .clip-spread {
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem auto;
+  }
+  .clip-spread figure.clip {
+    max-width: 100%;
+  }
+}
+
+
+/* =============================================
+   MAP LAUNCH CARD
+   ============================================= */
+.map-launch-card {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.1rem 1.4rem;
+  margin: 1.75rem 0 2rem;
+  border: 1.5px solid var(--vp-c-border);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  text-decoration: none !important;
+  color: var(--vp-c-text-1) !important;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
+}
+.map-launch-card:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+}
+.map-launch-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+  flex-shrink: 0;
+  color: var(--vp-c-brand-1);
+  opacity: 0.85;
+}
+.map-launch-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+.map-launch-title {
+  font-family: var(--vp-font-family-base);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vp-c-brand-1);
+  line-height: 1.3;
+}
+.map-launch-desc {
+  font-size: 0.82rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.4;
+}
+.map-launch-arrow {
+  font-size: 1.3rem;
+  color: var(--vp-c-brand-1);
+  flex-shrink: 0;
+  transition: transform 0.18s;
+}
+.map-launch-card:hover .map-launch-arrow {
+  transform: translateX(4px);
+}

@@ -1,0 +1,26 @@
+topic_id,weight,analytic_label,discourse_label,exclude,matched_all_topic,category,category_color,color
+topic_0,0.0322,Domestic Employment,Hired Hands: Chinese Domestic Labor and Wage Relations,no,all_topic_22,Daily Life & Urban Space,#1e66f5,#89b4fa
+topic_1,0.0227,NOISE: OCR Artifacts,,yes,,NOISE,#dc8a78,#dc8a78
+topic_2,0.0230,NOISE: OCR Artifacts,,yes,,NOISE,#dc8a78,#dc8a78
+topic_3,0.0264,NOISE: Commercial Advertising,,yes,,NOISE,#dc8a78,#f2d5cf
+topic_4,0.0192,Public Gatherings & Lectures,"The ""Chinese Question"" on Stage: Public Spectacle and Reform Rhetoric",no,,"Culture, Perception & Acculturation",#ea76cb,#ea76cb
+topic_5,0.0083,NOISE: OCR Artifacts,,yes,,NOISE,#dc8a78,#dc8a78
+topic_6,0.0218,Confucian Family Ethics,Filial Piety and the Rural Chinese Subject,no,all_topic_8,Children & Family,#40a02b,#a6d189
+topic_7,0.1286,Classroom Instruction,"Teaching English, Making Americans: The Pedagogy of Assimilation",no,all_topic_3,Education & Schools,#209fb5,#209fb5
+topic_8,0.1284,Public School Admission,"""Born on This Soil"": The Courtroom Battle over School Access",no,all_topic_2,Education & Schools,#209fb5,#85c1dc
+topic_9,0.1926,Routine Press Reporting,The Chinatown Beat: Everyday News Coverage,no,,Daily Life & Urban Space,#1e66f5,#1e66f5
+topic_10,0.0385,Clothing & Physical Description,"Marking Difference: Bodies, Dress, and the Oriental Type",no,,Commerce & Material Culture,#179299,#89dceb
+topic_11,0.0151,Agriculture & Land Use,Chinese Agricultural Labor in the American West,no,,"Land, Migration & Labor",#df8e1d,#e5c890
+topic_12,0.0232,Opium & Moral Degradation,Opium Dens and Degraded Subjects: The Vice Narrative,no,,"Culture, Perception & Acculturation",#ea76cb,#dd7878
+topic_13,0.1144,Missionary & Church Schools,Saving Heathen Girls: Missionary Schooling and Christian Conversion,no,all_topic_16,Education & Schools,#209fb5,#74c7ec
+topic_14,0.0327,Social Dining & Interior Spaces,"The Oriental Parlor: Domesticity, Hospitality, and Curiosity",no,all_topic_21+23,Commerce & Material Culture,#179299,#94e2d5
+topic_15,0.0694,Hawaii & Pacific Migration,"Pacific Crossings: Hawaii, Steamships, and Transpacific Migration Control",no,all_topic_11,"Land, Migration & Labor",#df8e1d,#df8e1d
+topic_16,0.0763,Criminal Cases & Court Proceedings,"Lost in Translation: Crime, Courts, and the Interpreter Problem",no,all_topic_5+19,"Law, Politics & Exclusion",#8839ef,#ca9ee6
+topic_17,0.2963,Chinese Educational Mission,The Hartford Experiment: Government Students and the Politics of Return,no,all_topic_24+14+17+0,Chinese Educational Mission,#fe640b,#fe640b
+topic_18,0.2734,Children & Family Life,"Narrating Chinese Childhood: Domesticity, Gender, and Sentiment",no,all_topic_6,Children & Family,#40a02b,#40a02b
+topic_19,0.0201,NOISE: OCR Artifacts,,yes,,NOISE,#dc8a78,#dc8a78
+topic_20,0.0336,Sino-French War,Imperial Rivalries: The Sino-French War in the American Press,no,,Violence & War,#d20f39,#e78284
+topic_21,0.0201,East Asian Consumer Goods,Consuming the Orient: Chinoiserie and Holiday Commerce,no,all_topic_23,Commerce & Material Culture,#179299,#179299
+topic_22,0.0426,Anti-Chinese Violence,"Torches and Mobs: Arson, Riot, and Racial Expulsion",no,all_topic_10,Violence & War,#d20f39,#d20f39
+topic_23,0.0375,Chinatown Spatial Narratives,"Inside Chinatown: Death, Darkness, and Sensory Reportage",no,,Daily Life & Urban Space,#1e66f5,#8caaee
+topic_24,0.0594,Exclusion Legislation,Legislating Exclusion: The Chinese Exclusion Act and Congressional Debate,no,all_topic_1,"Law, Politics & Exclusion",#8839ef,#8839ef

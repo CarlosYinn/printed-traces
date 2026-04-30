@@ -1,0 +1,175 @@
+[
+  {
+    "id": "angell_treaty_1880",
+    "title": "Angell Treaty Signed",
+    "date": "1880-11-17",
+    "month_range": [
+      "1880-10",
+      "1881-02"
+    ],
+    "description": "On November 17, 1880, the United States and China concluded the Angell Treaty in Beijing, granting the U.S. the right to 'regulate, limit, or suspend' the immigration of Chinese laborers. The treaty stopped short of outright exclusion but provided the legal foundation for the legislation that followed. It marked a pivotal shift in Sino-American diplomatic relations over the question of Chinese labor migration.",
+    "highlight_level": "state",
+    "highlight_fips": [],
+    "related_topic_ids": [
+      "diplomacy_diplomacy_ceremonial_events",
+      "law_exclusion_legislation"
+    ]
+  },
+  {
+    "id": "chinese_new_year_press_1881",
+    "title": "Chinese New Year Press Coverage Wave",
+    "date": "1881-01-30",
+    "month_range": [
+      "1881-01",
+      "1881-03"
+    ],
+    "description": "In late January 1881, American newspapers published an unusual volume of articles describing Chinese New Year celebrations in cities including San Francisco, New York, and Boston. Coverage ranged from curious travelogue-style reports to editorials debating Chinese cultural assimilability. The wave of press attention reflects both growing public interest in Chinese communities and the intensifying political debate over immigration restriction.",
+    "highlight_level": "state",
+    "highlight_fips": [
+      "06075",
+      "36061",
+      "25025"
+    ],
+    "related_topic_ids": [
+      "culture_public_gatherings_lectures"
+    ]
+  },
+  {
+    "id": "cem_recall_1881",
+    "title": "Chinese Educational Mission Recall Begins",
+    "date": "1881-06-08",
+    "month_range": [
+      "1881-06",
+      "1881-12"
+    ],
+    "description": "In June 1881, the Qing government ordered the recall of all 120 students sent to the United States under the Chinese Educational Mission founded by Yung Wing. Rising anti-Chinese sentiment in America and Qing officials' concerns about cultural assimilation prompted the decision. Most students were withdrawn before completing their degrees, though many later held prominent roles in Chinese modernization.",
+    "highlight_level": "state",
+    "highlight_fips": [
+      "09003",
+      "09009",
+      "25017"
+    ],
+    "related_topic_ids": [
+      "cem_students",
+      "cem_administration"
+    ]
+  },
+  {
+    "id": "exclusion_act_1882",
+    "title": "Chinese Exclusion Act Signed",
+    "date": "1882-05-06",
+    "month_range": [
+      "1882-04",
+      "1882-07"
+    ],
+    "description": "President Chester A. Arthur signed the Chinese Exclusion Act on May 6, 1882, suspending the immigration of Chinese laborers for ten years. It was the first federal law to restrict immigration on the basis of race and national origin. The act also barred Chinese residents from obtaining U.S. citizenship and created a certificate system for those already in the country.",
+    "highlight_level": "state",
+    "highlight_fips": [
+      "06075"
+    ],
+    "related_topic_ids": [
+      "law_exclusion_legislation"
+    ]
+  },
+  {
+    "id": "sino_french_war_1884",
+    "title": "Sino-French War: Battle of Fuzhou",
+    "date": "1884-08-23",
+    "month_range": [
+      "1884-08",
+      "1885-06"
+    ],
+    "description": "On August 23, 1884, French naval forces destroyed the Chinese Fuzhou Fleet at the Battle of Fuzhou (Pagoda Anchorage), escalating the Sino-French War over control of Tonkin (northern Vietnam). The conflict exposed weaknesses in Qing military modernization and heightened anxieties among Chinese communities abroad. A ceasefire was reached in June 1885, with China effectively ceding suzerainty over Vietnam to France.",
+    "highlight_level": "global",
+    "highlight_fips": [],
+    "related_topic_ids": [
+      "violence_sino_french_war"
+    ]
+  },
+  {
+    "id": "rock_springs_1885",
+    "title": "Rock Springs Massacre",
+    "date": "1885-09-02",
+    "month_range": [
+      "1885-08",
+      "1885-11"
+    ],
+    "description": "On September 2, 1885, white miners in Rock Springs, Wyoming Territory, attacked Chinese coal miners employed by the Union Pacific Railroad, killing at least 28 and wounding 15. Rioters burned 79 Chinese homes and drove survivors out of town. Despite federal intervention to escort survivors back, no rioters were prosecuted, setting a precedent of impunity for anti-Chinese violence.",
+    "highlight_level": "county",
+    "highlight_fips": [
+      "56037"
+    ],
+    "related_topic_ids": [
+      "violence_anti_chinese_violence"
+    ]
+  },
+  {
+    "id": "tacoma_expulsion_1885",
+    "title": "Tacoma Expulsion",
+    "date": "1885-11-03",
+    "month_range": [
+      "1885-11",
+      "1886-02"
+    ],
+    "description": "On November 3, 1885, the mayor of Tacoma, Washington Territory, led an organized mob that forced the entire Chinese community — roughly 200 people — from their homes and burned Chinatown to the ground. Unlike Seattle, where a subsequent attempt met resistance, Tacoma's expulsion was carried out without immediate legal consequence. The 'Tacoma Method' became a term used by anti-Chinese agitators elsewhere as a model for forced removal.",
+    "highlight_level": "county",
+    "highlight_fips": [
+      "53053"
+    ],
+    "related_topic_ids": [
+      "violence_anti_chinese_violence"
+    ]
+  },
+  {
+    "id": "tape_v_hurley_1884",
+    "title": "Tape v. Hurley Public School Case",
+    "date": "1884-09-01",
+    "month_range": [
+      "1884-09",
+      "1885-04"
+    ],
+    "description": "In fall 1884, Joseph and Mary Tape sued the San Francisco Board of Education after it refused to enroll their daughter Mamie in a public school on racial grounds. The California Supreme Court ruled in January 1885 that Chinese children had a right to public education under state law. The Board responded by creating a segregated 'Oriental school,' but the case established an important legal precedent and was one of the earliest civil rights victories won by a Chinese American family in U.S. courts.",
+    "highlight_level": "county",
+    "highlight_fips": [
+      "06075"
+    ],
+    "related_topic_ids": [
+      "education_public_school_admission"
+    ]
+  },
+  {
+    "id": "cem_first_yale_graduate_1883",
+    "title": "First CEM Student Graduates from Yale",
+    "date": "1883-06-01",
+    "month_range": [
+      "1883-06",
+      "1883-09"
+    ],
+    "description": "In June 1883, Yung Leang (Liang Ju-hao), one of the students of the Chinese Educational Mission, became among the first CEM alumni to complete a full American university degree at Yale College. His graduation came two years after the Qing government's recall order, making him part of a small cohort who had managed to finish before or shortly after the recall. CEM graduates went on to lead engineering, naval, and diplomatic careers that shaped modern China.",
+    "highlight_level": "county",
+    "highlight_fips": [
+      "09009"
+    ],
+    "related_topic_ids": [
+      "cem_students",
+      "cem_administration"
+    ]
+  },
+  {
+    "id": "seattle_expulsion_1886",
+    "title": "Seattle Expulsion Attempt",
+    "date": "1886-02-07",
+    "month_range": [
+      "1886-02",
+      "1886-04"
+    ],
+    "description": "On February 7, 1886, a mob in Seattle, Washington Territory, began forcibly removing Chinese residents to the waterfront to load them onto departing steamships. Territorial Governor Watson Squire declared martial law, and Home Guard units intervened, preventing a full expulsion. The confrontation left one man dead and several wounded, and demonstrated that organized resistance could blunt the 'Tacoma Method' when authorities chose to act.",
+    "highlight_level": "county",
+    "highlight_fips": [
+      "53033"
+    ],
+    "related_topic_ids": [
+      "violence_anti_chinese_violence"
+    ]
+  }
+]
