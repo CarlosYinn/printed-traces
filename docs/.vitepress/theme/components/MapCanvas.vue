@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, shallowRef, computed, watch, onMounted, onUnmounted } from 'vue'
+import { ref, shallowRef, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useData } from 'vitepress'
 import type { GeoJSONSource, MapMouseEvent } from 'maplibre-gl'
 import type { Map as MapLibreMap } from 'maplibre-gl'
@@ -19,6 +19,7 @@ import {
   highlightEvent,
   clearHighlight,
   computeEventBbox,
+  getAnchorForEvent,
 } from './useMap'
 import {
   timeFilter,
@@ -37,7 +38,7 @@ import {
   states,
   visibleRecords,
 } from './useRecords'
-import type { RecordProperties } from './types'
+import type { HistoricalEvent, RecordProperties } from './types'
 
 // ─── props ────────────────────────────────────────────────────────────────────
 
@@ -84,6 +85,50 @@ const hoveredRecord = ref<RecordProperties | null>(null)
 const popupPosition = ref<{ x: number; y: number } | null>(null)
 const popupPinned = ref(false) // true when opened by tap on mobile
 
+const isMobileWidth = ref(false)
+
+function syncMobileWidth() {
+  if (typeof window !== 'undefined') {
+    isMobileWidth.value = window.innerWidth <= 760
+  }
+}
+
+// True when the mobile bottom-sheet card is on screen — used by the layout
+// to shorten the left/right stacks so they don't render under the card.
+const hasEventCard = computed(() => isMobileWidth.value && !!activeEvent.value)
+
+// Measured height of the EventMapCard, propagated to CSS as --mobile-card-h
+// so the left/right stacks can end exactly above the card and fill the
+// remaining vertical space — instead of reserving a hard-coded 45vh.
+const cardHeight = ref(0)
+let cardResizeObserver: ResizeObserver | null = null
+
+function detachCardObserver() {
+  cardResizeObserver?.disconnect()
+  cardResizeObserver = null
+}
+
+watch(
+  [() => !!activeEvent.value, mapReady],
+  ([hasEvt, ready]) => {
+    detachCardObserver()
+    if (!hasEvt || !ready) {
+      cardHeight.value = 0
+      return
+    }
+    nextTick(() => {
+      const el = containerRef.value?.querySelector('.event-map-card') as HTMLElement | null
+      if (!el) return
+      cardResizeObserver = new ResizeObserver(entries => {
+        const entry = entries[0]
+        if (entry) cardHeight.value = Math.ceil(entry.contentRect.height)
+      })
+      cardResizeObserver.observe(el)
+    })
+  },
+  { immediate: true },
+)
+
 function isMobile(): boolean {
   return window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768
 }
@@ -114,7 +159,10 @@ const stoppers: Array<() => void> = []
 // Padding used when fitting the map to an event's bbox.  On mobile the
 // EventMapCard renders as a bottom sheet, so we leave room at the bottom and
 // shrink the side gutters; on desktop the card docks beside the anchor on the
-// right, so we reserve 300 px on that side.
+// right, so we reserve 300 px on that side plus 320 px of historical lateral
+// breathing room (the latter was previously contributed by map.setPadding,
+// which had to be removed because it stacks on top of fitBounds padding and
+// makes the available width negative on a 375 px mobile viewport).
 //
 // Padding is measured against the actual map container (not the window),
 // because the map can be embedded in a constrained doc layout. MapLibre
@@ -122,7 +170,7 @@ const stoppers: Array<() => void> = []
 // so we clamp each side to roughly one third of the container.
 function eventFitPadding(): { top: number; bottom: number; left: number; right: number } {
   if (typeof window === 'undefined' || window.innerWidth > 760 || !map) {
-    return { top: 60, bottom: 60, left: 60, right: 300 }
+    return { top: 60, bottom: 60, left: 380, right: 620 }
   }
   const container = map.getContainer()
   const h = container.offsetHeight || window.innerHeight
@@ -135,6 +183,47 @@ function eventFitPadding(): { top: number; bottom: number; left: number; right: 
     bottom: Math.max(60, Math.min(260, Math.floor(h / 3))),
     left: Math.min(24, Math.floor(w / 16)),
     right: Math.min(24, Math.floor(w / 16)),
+  }
+}
+
+// Fly to an event's view.  fitBounds always centres the *bbox* in the padded
+// viewport, but the anchor pulse renders at the geometry centroid — and the
+// two are not the same point.  On mobile this drift is visible (the dot
+// lands off-centre in the upper map area).  To fix it we synthesise a bbox
+// whose centre IS the centroid, expanded to fully contain the real bbox; the
+// fitBounds zoom then derives from this synth extent and the centroid lands
+// at the padded viewport centre (i.e. in the upper map area, above the
+// bottom-sheet card).
+function flyToEventView(
+  m: MapLibreMap,
+  evt: HistoricalEvent,
+  box: [number, number, number, number] | null,
+  duration: number,
+): void {
+  const padding = eventFitPadding()
+  const mobile = typeof window !== 'undefined' && window.innerWidth <= 760
+
+  if (mobile && box && counties.value) {
+    const anchor = getAnchorForEvent(evt, counties.value as FeatureCollection)
+    if (anchor) {
+      const [west, south, east, north] = box
+      const dx = Math.max(anchor[0] - west, east - anchor[0])
+      const dy = Math.max(anchor[1] - south, north - anchor[1])
+      const synth: [number, number, number, number] = [
+        anchor[0] - dx,
+        anchor[1] - dy,
+        anchor[0] + dx,
+        anchor[1] + dy,
+      ]
+      m.fitBounds(synth, { padding, duration })
+      return
+    }
+  }
+
+  if (box) {
+    m.fitBounds(box, { padding, duration })
+  } else if (!evt.highlight_fips.length) {
+    m.fitBounds([-135, 24, -80, 50], { padding, duration })
   }
 }
 
@@ -204,12 +293,7 @@ function setupWatchers() {
         counties.value as never,
         states.value as never,
       )
-      const padding = eventFitPadding()
-      if (box) {
-        map.fitBounds(box, { padding, duration: 600 })
-      } else if (!evt.highlight_fips.length) {
-        map.fitBounds([-135, 24, -80, 50], { padding, duration: 600 })
-      }
+      flyToEventView(map, evt, box, 600)
     }),
   )
 }
@@ -323,7 +407,7 @@ function initMapContent() {
     if (evt) {
       highlightEvent(map!, evt)
       const box = computeEventBbox(evt, counties.value as never, states.value as never)
-      if (box) map!.fitBounds(box, { padding: eventFitPadding(), duration: 0 })
+      flyToEventView(map!, evt, box, 0)
     }
   }
 }
@@ -333,6 +417,9 @@ function initMapContent() {
 onMounted(async () => {
   if (import.meta.env.SSR) return
   if (!containerRef.value) return
+
+  syncMobileWidth()
+  window.addEventListener('resize', syncMobileWidth)
 
   map = await createMap(containerRef.value, baseLayers.value, isDark.value)
   mapReady.value = map
@@ -363,6 +450,10 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('resize', syncMobileWidth)
+  }
+  detachCardObserver()
   stoppers.forEach(s => s())
   map?.remove()
   map = null
@@ -371,7 +462,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="map-canvas" :style="{ '--map-h': height }">
+  <div
+    ref="containerRef"
+    class="map-canvas"
+    :class="{ 'has-event-card': hasEventCard }"
+    :style="{ '--map-h': height, '--mobile-card-h': cardHeight + 'px' }"
+  >
     <div
       class="map-focus-anchor"
       tabindex="0"
@@ -390,6 +486,7 @@ onUnmounted(() => {
       :map-instance="mapReady"
       :map-container="containerRef"
       :counties-geo-j-s-o-n="(counties as FeatureCollection)"
+      :card-height="cardHeight"
       @close="activeEventId = null; setTimeFilter(null)"
     />
 
@@ -478,6 +575,17 @@ onUnmounted(() => {
     right: 12px;
     bottom: 12px;
     width: min(310px, calc(100vw - 24px));
+  }
+
+  /* When the mobile bottom-sheet event card is on screen, end both stacks
+     exactly above the card so expanding Legend / Timeline fills the remaining
+     vertical space.  --mobile-card-h is set from a ResizeObserver on the
+     card, so this adapts to the card's actual rendered height (capped by
+     max-height: 45vh).  The +24px = 12 (card's own bottom margin) + 12 (gap
+     between card top and stack bottom). */
+  .map-canvas.has-event-card .left-stack,
+  .map-canvas.has-event-card .right-stack {
+    bottom: calc(var(--mobile-card-h, 0px) + 24px);
   }
 }
 

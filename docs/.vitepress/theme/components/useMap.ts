@@ -126,8 +126,6 @@ export async function createMap(
     attributionControl: false,
   })
 
-  map.setPadding({ top: 0, bottom: 0, left: 320, right: 320 })
-
   return map
 }
 
@@ -376,16 +374,29 @@ export function getEventStateAbbreviations(
 }
 
 /** Return the geographic centre of an event's highlighted FIPS features,
- *  or null if the event has no location data. */
+ *  or null if the event has no location data.
+ *
+ *  Matches the same FIPS resolution rules as computeEventBbox /
+ *  getEventStateAbbreviations: state-level events expand to all counties
+ *  sharing the 2-digit prefix; county-level events match the full 5-digit FIPS. */
 export function getAnchorForEvent(
   event: HistoricalEvent,
   countiesGeoJSON: FeatureCollection,
 ): [number, number] | null {
   if (!event.highlight_fips.length) return null
 
+  const fipsSet = new Set(event.highlight_fips)
+  const statePrefixes =
+    event.highlight_level === 'state'
+      ? new Set(event.highlight_fips.map(f => f.slice(0, 2)))
+      : null
+
   const matched = countiesGeoJSON.features.filter(f => {
-    const fips = f.properties?.GEOID ?? f.properties?.fips ?? ''
-    return event.highlight_fips.includes(fips)
+    const fips = f.properties?.FIPS as string | null
+    if (!fips) return false
+    return statePrefixes !== null
+      ? statePrefixes.has(fips.slice(0, 2))
+      : fipsSet.has(fips)
   })
   if (!matched.length) return null
 

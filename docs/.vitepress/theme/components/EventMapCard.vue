@@ -6,13 +6,19 @@ import type { Map } from 'maplibre-gl'
 import type { HistoricalEvent } from './types'
 import { getEventStateAbbreviations } from './useMap'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   event: HistoricalEvent
   accentColor: string
   mapInstance: Map
   mapContainer: HTMLElement
   countiesGeoJSON: FeatureCollection
-}>()
+  // Live-measured card height, propagated from the parent's ResizeObserver.
+  // Used to centre the card vertically on the anchor (and align the
+  // connector hairline with it) without hard-coded magic numbers.
+  cardHeight?: number
+}>(), {
+  cardHeight: 0,
+})
 
 const emit = defineEmits<{ close: [] }>()
 
@@ -113,14 +119,18 @@ const cardSide = computed<'left' | 'right'>(() => {
     : 'right'
 })
 
-// Card top is anchored 180 px above the geographic centre, clamped off-screen.
+// Centre the card vertically on the anchor using the live-measured card
+// height; clamp so the card never extends past the top of the map.  The
+// connector hairline therefore always sits at the card's vertical middle.
 const cardTop = computed(() =>
-  anchorPixel.value ? Math.max(8, anchorPixel.value.y - 180) : 8,
+  anchorPixel.value
+    ? Math.max(8, anchorPixel.value.y - props.cardHeight / 2)
+    : 8,
 )
 
 // Vertical offset of the connector within the card = anchor y − card top.
 const connectorTop = computed(() =>
-  anchorPixel.value ? anchorPixel.value.y - cardTop.value : 60,
+  anchorPixel.value ? anchorPixel.value.y - cardTop.value : props.cardHeight / 2,
 )
 
 const cardStyle = computed(() => {
