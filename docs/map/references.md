@@ -23,20 +23,20 @@ Rand McNally and Company. "Rand McNally & Co's new railroad and county map of th
 
 ## Text Processing
 
-- ftfy: [https://github.com/rspeer/python-ftfy](https://github.com/rspeer/python-ftfy)
-- wordfreq: [https://github.com/rspeer/wordfreq](https://github.com/rspeer/wordfreq)
-- spaCy: [https://spacy.io/](https://spacy.io/)
-- SymSpell: [https://github.com/wolfgarbe/SymSpell](https://github.com/wolfgarbe/SymSpell)
+- `ftfy`: [https://github.com/rspeer/python-ftfy](https://github.com/rspeer/python-ftfy)
+- `wordfreq`: [https://github.com/rspeer/wordfreq](https://github.com/rspeer/wordfreq)
+- `spaCy`: [https://spacy.io/](https://spacy.io/)
+- `SymSpell`: [https://github.com/wolfgarbe/SymSpell](https://github.com/wolfgarbe/SymSpell)
 
 ## Topic Modeling
 
-- MALLET: [https://mimno.github.io/Mallet/](https://mimno.github.io/Mallet/)
+- `MALLET`: [https://mimno.github.io/Mallet/](https://mimno.github.io/Mallet/)
 
 ## Geospatial Tools
 
-- AllMaps: [https://allmaps.org/](https://allmaps.org/)
+- Allmaps: [https://allmaps.org/](https://allmaps.org/)
 - QGIS: [https://qgis.org/](https://qgis.org/)
-- Turf.js: [https://turfjs.org/](https://turfjs.org/)
+- `Turf.js`: [https://turfjs.org/](https://turfjs.org/)
 
 ## Data Visualization
 
@@ -44,9 +44,9 @@ Rand McNally and Company. "Rand McNally & Co's new railroad and county map of th
 
 ## Map & Frontend Libraries
 
-- MapLibre GL JS: [https://maplibre.org/maplibre-gl-js/](https://maplibre.org/maplibre-gl-js/)
-- VitePress: [https://vitepress.dev/](https://vitepress.dev/)
-- D3: [https://d3js.org/](https://d3js.org/)
+- `MapLibre GL JS`: [https://maplibre.org/maplibre-gl-js/](https://maplibre.org/maplibre-gl-js/)
+- `VitePress`: [https://vitepress.dev/](https://vitepress.dev/)
+- `D3`: [https://d3js.org/](https://d3js.org/)
 
 ## Historical Sources for Event Annotations
 
