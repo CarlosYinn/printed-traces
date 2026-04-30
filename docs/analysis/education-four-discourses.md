@@ -149,11 +149,11 @@ The Hartford mission collapsed in 1881. The Chinese Exclusion Act passed in 1882
 
 ## Notes
 
-[^1]: "Recalled Chinese Students at Work," *Morning Journal and Courier*, November 22, 1881.
-[^2]: "The Brothers Who Stayed," *The Salt Lake Herald*, January 10, 1882.
-[^3]: "Recalled Students in San Francisco," *The Jasper Weekly Courier*, September 30, 1881.
-[^4]: "California Schools and Chinese Children," *Charlotte Messenger*, April 21, 1883.
-[^5]: "How Chinese Children Are Taught," *The Democratic Leader*, February 13, 1884.
-[^6]: "Chinese Schools and Schooling," *Centre Democrat*, October 4, 1883.
-[^7]: "A Chinese Girl at Ohio Wesleyan," *Daily Evening Bulletin*, October 7, 1884.
-[^8]: "Chinese Sunday School Christmas," *Sacramento Daily Record-Union*, December 27, 1880.
+[^1]: "The Chinese Students and Their Arrival Home," *Morning Journal and Courier*, November 22, 1881, https://www.loc.gov/resource/sn82015483/1881-11-22/ed-1/?sp=4.
+[^2]: "Love's Labor More Than Lost," *The Salt Lake Herald*, January 10, 1882, https://www.loc.gov/resource/sn85058130/1882-01-10/ed-1/?sp=7.
+[^3]: *The Jasper Weekly Courier*, September 30, 1881, https://www.loc.gov/resource/sn84023963/1881-09-30/ed-1/?sp=7.
+[^4]: "No Chinese Need Apply," *Charlotte Messenger*, April 21, 1883, https://www.loc.gov/resource/sn91068242/1883-04-21/ed-1/?sp=3.
+[^5]: "Chinese Schools," *The Democratic Leader*, February 13, 1884, https://www.loc.gov/resource/sn88067211/1884-02-13/ed-1/?sp=4.
+[^6]: "School Life in China," *Centre Democrat*, October 4, 1883, https://www.loc.gov/resource/sn84009409/1883-10-04/ed-1/?sp=7.
+[^7]: "Miss Hu Kong Eng," *Daily Evening Bulletin*, October 7, 1884, https://www.loc.gov/resource/sn87060189/1884-10-07/ed-1/?sp=3.
+[^8]: "Christmas Entertainments," *Sacramento Daily Record-Union*, December 27, 1880, https://www.loc.gov/resource/sn82014381/1880-12-27/ed-1/?sp=3.

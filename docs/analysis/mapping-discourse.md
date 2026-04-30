@@ -133,7 +133,7 @@ The map shows where the press's attention was, but it does not yet show what rea
 
 ## Notes
 
-[^1]: "Chinese Marriage Customs," *The Dawson Journal*, April 12, 1883.
-[^2]: "A Letter from a Returned Chinese Student," *Evening Star*, November 23, 1882.
-[^3]: "The Chinese Minister's Daughter," *Morris Tribune*, January 23, 1884.
-[^4]: "A Chinese Baptism," *Hand County Press*, November 20, 1884.
+[^1]: Selah Brown, "Chinese and Americans: A Chapter of Contrarities," *The Dawson Journal*, April 12, 1883, https://www.loc.gov/resource/sn89053287/1883-04-12/ed-1/?sp=4.
+[^2]: "Marriage in China," *Evening Star*, November 23, 1882, https://www.loc.gov/resource/sn83045462/1882-11-23/ed-1/?sp=6.
+[^3]: "Miss Mi Ju," *Morris Tribune*, January 23, 1884, https://www.loc.gov/resource/sn91059394/1884-01-23/ed-1/?sp=4.
+[^4]: *Hand County Press*, November 20, 1884, https://www.loc.gov/resource/sn98062948/1884-11-20/ed-1/?sp=3.

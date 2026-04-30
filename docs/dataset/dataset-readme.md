@@ -6,7 +6,7 @@ title: Dataset Reference
 
 ## Overview
 
-The corpus contains **1,535 records** drawn from 323 distinct newspaper titles published across the United States between January 1880 and December 1885. Each record represents one newspaper page on which relevant material was identified through keyword search. Records are sourced from the Library of Congress [Chronicling America](https://www.loc.gov/collections/chronicling-america/about-this-collection/) digitized newspaper archive.
+The corpus contains **1,535 records** drawn from 323 distinct newspaper titles published across the United States between January 1880 and December 1885. Each record represents one newspaper page on which relevant material was identified through keyword search. Records are sourced from [Chronicling America: Historic American Newspapers](https://www.loc.gov/collections/chronicling-america/about-this-collection/), a digital newspaper collection hosted by the Library of Congress and jointly sponsored with the National Endowment for the Humanities through the National Digital Newspaper Program (NDNP). Persistent URLs to the original page images on www.loc.gov are retained for every record.
 
 ### Corpus composition
 

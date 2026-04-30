@@ -144,8 +144,8 @@ The third chapter looks more closely at the largest of these themes: education i
 
 ## Notes
 
-[^1]: "The Chinese Must Go — to School," *The Wheeling Daily Intelligencer*, January 10, 1885.
-[^2]: "Mission Notes," *Southern Christian Advocate*, April 26, 1884.
-[^3]: "Eye-Witness to the Rock Springs Riot," *Helena Weekly Herald*, October 8, 1885.
-[^4]: "Rock Springs Affidavit," *Daily Republican*, October 6, 1885.
-[^5]: "How Chinese Feet Are Bound," *The Republican*, December 17, 1881.
+[^1]: "The Chinese Must Go — to School," *The Wheeling Daily Intelligencer*, January 10, 1885, https://www.loc.gov/resource/sn84026844/1885-01-10/ed-1/?sp=1.
+[^2]: *Southern Christian Advocate*, April 26, 1884, https://www.loc.gov/resource/sn87065702/1884-04-26/ed-1/?sp=3.
+[^3]: "Restricting Chinese Immigration," *Helena Weekly Herald*, October 8, 1885, https://www.loc.gov/resource/sn84036143/1885-10-08/ed-1/?sp=3.
+[^4]: "The Chinese War," *Daily Republican*, October 6, 1885, https://www.loc.gov/resource/sn84038114/1885-10-06/ed-1/?sp=4.
+[^5]: "Suffering to be Beautiful," *The Republican*, December 17, 1881, https://www.loc.gov/resource/sn88065202/1881-12-17/ed-1/?sp=6.
