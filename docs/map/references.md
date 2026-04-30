@@ -18,29 +18,13 @@ Library of Congress, Washington, D.C.
 **Norman B. Leventhal Map & Education Center**
 Rand McNally and Company. "Rand McNally & Co's new railroad and county map of the United States and Dominion of Canada." Map. Chicago: Rand McNally, 1882. Norman B. Leventhal Map & Education Center, [https://collections.leventhalmap.org/search/commonwealth:1257b834v](https://collections.leventhalmap.org/search/commonwealth:1257b834v).
 
-**OpenStreetMap**
-[https://www.openstreetmap.org/](https://www.openstreetmap.org/) · © OpenStreetMap contributors, ODbL.
-
-## Text Processing
-
-- `ftfy`: [https://github.com/rspeer/python-ftfy](https://github.com/rspeer/python-ftfy)
-- `wordfreq`: [https://github.com/rspeer/wordfreq](https://github.com/rspeer/wordfreq)
-- `spaCy`: [https://spacy.io/](https://spacy.io/)
-- `SymSpell`: [https://github.com/wolfgarbe/SymSpell](https://github.com/wolfgarbe/SymSpell)
-
-## Topic Modeling
-
-- `MALLET`: [https://mimno.github.io/Mallet/](https://mimno.github.io/Mallet/)
+[**OpenStreetMap**](https://www.openstreetmap.org/) · © OpenStreetMap contributors, ODbL.
 
 ## Geospatial Tools
 
 - Allmaps: [https://allmaps.org/](https://allmaps.org/)
 - QGIS: [https://qgis.org/](https://qgis.org/)
 - `Turf.js`: [https://turfjs.org/](https://turfjs.org/)
-
-## Data Visualization
-
-- Datawrapper: [https://www.datawrapper.de/](https://www.datawrapper.de/)
 
 ## Map & Frontend Libraries
 
