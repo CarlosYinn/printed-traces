@@ -3,7 +3,7 @@ import { baseLayers, overlays } from './useFilters'
 import { useResponsivePanel } from './useResponsivePanel'
 import { triggerResetNorth, triggerResetCenter } from './useMapControls'
 
-const { isOpen } = useResponsivePanel()
+const { isOpen } = useResponsivePanel('left')
 
 function toggleOverlay(key: 'counties' | 'states') {
   overlays.value = { ...overlays.value, [key]: !overlays.value[key] }

@@ -111,6 +111,33 @@ const displayMonthLabel = computed(() => {
 
 const stoppers: Array<() => void> = []
 
+// Padding used when fitting the map to an event's bbox.  On mobile the
+// EventMapCard renders as a bottom sheet, so we leave room at the bottom and
+// shrink the side gutters; on desktop the card docks beside the anchor on the
+// right, so we reserve 300 px on that side.
+//
+// Padding is measured against the actual map container (not the window),
+// because the map can be embedded in a constrained doc layout. MapLibre
+// silently aborts fitBounds when top+bottom or left+right exceed the canvas,
+// so we clamp each side to roughly one third of the container.
+function eventFitPadding(): { top: number; bottom: number; left: number; right: number } {
+  if (typeof window === 'undefined' || window.innerWidth > 760 || !map) {
+    return { top: 60, bottom: 60, left: 60, right: 300 }
+  }
+  const container = map.getContainer()
+  const h = container.offsetHeight || window.innerHeight
+  const w = container.offsetWidth || window.innerWidth
+  // Reserve up to a third of the map below the bbox for the bottom-sheet card,
+  // capped at 260 px so the bbox still gets a reasonable target area on tall
+  // screens. Other sides stay small.
+  return {
+    top: Math.min(28, Math.floor(h / 12)),
+    bottom: Math.max(60, Math.min(260, Math.floor(h / 3))),
+    left: Math.min(24, Math.floor(w / 16)),
+    right: Math.min(24, Math.floor(w / 16)),
+  }
+}
+
 function setupWatchers() {
   stoppers.push(
     // Push filtered feature array into the records GeoJSON source
@@ -177,10 +204,11 @@ function setupWatchers() {
         counties.value as never,
         states.value as never,
       )
+      const padding = eventFitPadding()
       if (box) {
-        map.fitBounds(box, { padding: { top: 60, bottom: 60, left: 60, right: 300 }, duration: 600 })
+        map.fitBounds(box, { padding, duration: 600 })
       } else if (!evt.highlight_fips.length) {
-        map.fitBounds([-135, 24, -80, 50], { padding: { top: 60, bottom: 60, left: 60, right: 300 }, duration: 600 })
+        map.fitBounds([-135, 24, -80, 50], { padding, duration: 600 })
       }
     }),
   )
@@ -295,7 +323,7 @@ function initMapContent() {
     if (evt) {
       highlightEvent(map!, evt)
       const box = computeEventBbox(evt, counties.value as never, states.value as never)
-      if (box) map!.fitBounds(box, { padding: 60, duration: 0 })
+      if (box) map!.fitBounds(box, { padding: eventFitPadding(), duration: 0 })
     }
   }
 }

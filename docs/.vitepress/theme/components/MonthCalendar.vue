@@ -6,7 +6,7 @@ import { MONTHS, monthToIndex } from './useMonthIndex'
 import { useResponsivePanel } from './useResponsivePanel'
 import { isPlaying } from './usePlayback'
 
-const { isOpen } = useResponsivePanel()
+const { isOpen } = useResponsivePanel('right')
 
 const categoryFilteredRecords = computed(() =>
   allRecords.value.filter(f => activeCategories.value.has(f.properties.category))

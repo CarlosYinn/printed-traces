@@ -9,7 +9,7 @@ import { useRecords } from './useRecords'
 import { useResponsivePanel } from './useResponsivePanel'
 import type { Topic } from './types'
 
-const { isOpen } = useResponsivePanel()
+const { isOpen } = useResponsivePanel('left')
 const { topicTree, allRecords } = useRecords()
 
 const categories = computed(

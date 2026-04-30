@@ -71,13 +71,30 @@ function updateAnchor() {
 // rather than always re-mounting with a new key).
 watch(anchorLngLat, updateAnchor)
 
+// ─── mobile detection (bottom-sheet layout) ──────────────────────────────────
+
+const isMobile = ref(false)
+
+function checkMobile() {
+  if (typeof window !== 'undefined') {
+    isMobile.value = window.innerWidth <= 760
+  }
+}
+
 onMounted(() => {
+  checkMobile()
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', checkMobile)
+  }
   updateAnchor()
   props.mapInstance.on('move', updateAnchor)
   props.mapInstance.on('zoom', updateAnchor)
 })
 
 onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('resize', checkMobile)
+  }
   props.mapInstance.off('move', updateAnchor)
   props.mapInstance.off('zoom', updateAnchor)
 })
@@ -107,6 +124,16 @@ const connectorTop = computed(() =>
 )
 
 const cardStyle = computed(() => {
+  if (isMobile.value) {
+    return {
+      position: 'absolute' as const,
+      left: '12px',
+      right: '12px',
+      bottom: '12px',
+      width: 'auto',
+      zIndex: 10,
+    }
+  }
   if (isGlobal.value) {
     return {
       position: 'absolute' as const,
@@ -128,6 +155,12 @@ const cardStyle = computed(() => {
     width: `${CARD_WIDTH}px`,
     zIndex: 10,
   }
+})
+
+const cardClasses = computed(() => {
+  if (isMobile.value) return 'is-mobile'
+  if (isGlobal.value) return ''
+  return `side-${cardSide.value}`
 })
 
 const anchorStyle = computed(() => {
@@ -153,7 +186,7 @@ const stateAbbrs = computed(() =>
     <div
       v-if="isGlobal || anchorPixel"
       class="event-map-card"
-      :class="!isGlobal ? `side-${cardSide}` : ''"
+      :class="cardClasses"
       :style="cardStyle"
     >
       <div class="card-accent" :style="{ background: accentColor }" />
@@ -170,7 +203,7 @@ const stateAbbrs = computed(() =>
         </div>
       </div>
 
-      <div v-if="!isGlobal" class="card-connector" :style="{ top: `${connectorTop}px` }" />
+      <div v-if="!isGlobal && !isMobile" class="card-connector" :style="{ top: `${connectorTop}px` }" />
     </div>
   </Transition>
 
@@ -383,5 +416,26 @@ const stateAbbrs = computed(() =>
 
 .card-leave-active {
   animation: card-sink 1000ms ease-in forwards;
+}
+
+/* ── Mobile bottom-sheet variant ────────────────────────────────────────────── */
+
+.event-map-card.is-mobile {
+  max-height: 45vh;
+}
+
+.event-map-card.is-mobile .card-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ctp-surface1) transparent;
+}
+
+@media (max-width: 760px) {
+  .card-enter-active,
+  .card-leave-active {
+    animation-duration: 320ms;
+  }
 }
 </style>

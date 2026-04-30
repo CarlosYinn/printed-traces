@@ -8,7 +8,7 @@ import { useResponsivePanel } from './useResponsivePanel'
 
 const { events } = useRecords()
 const { getEventAccentColor } = useEventColor()
-const { isOpen } = useResponsivePanel()
+const { isOpen } = useResponsivePanel('right')
 
 const YEARS = [1880, 1881, 1882, 1883, 1884, 1885]
 
@@ -36,6 +36,10 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   }
   activeEventId.value = evt.id
   setTimeFilter({ type: 'month', ym: evt.date.slice(0, 7) })
+  // On mobile, collapse the timeline so the event card and map are unobstructed.
+  if (typeof window !== 'undefined' && window.innerWidth <= 760) {
+    isOpen.value = false
+  }
 }
 </script>
 
