@@ -22,48 +22,44 @@ export const states: Ref<object | null> = ref(null)
 // ─── derived state ────────────────────────────────────────────────────────────
 
 export const visibleRecords: ComputedRef<RecordFeature[]> = computed(() => {
-  if (!allRecords.value.length) return []
+  const records = allRecords.value
+  if (!records.length) return []
 
-  let features = allRecords.value
+  // Resolve the active time window once. Precedence: activeEventId > user
+  // timeFilter > embed-only monthRange. We bake the chosen branch into a
+  // small set of locals so the per-record loop branches on `===` checks
+  // instead of re-deriving filter shape for every feature.
+  let exactYm: string | null = null
+  let prefix: string | null = null
+  let lo: string | null = null
+  let hi: string | null = null
 
-  // 1. Time filter: activeEventId > timeFilter (user) > monthRange (embed-only)
   const evtId = activeEventId.value
   if (evtId) {
     const evt = events.value.find(e => e.id === evtId)
-    if (evt) {
-      const [start, end] = evt.month_range
-      features = features.filter(f => {
-        const ym = f.properties.year_month
-        return ym >= start && ym <= end
-      })
-    }
+    if (evt) [lo, hi] = evt.month_range
   } else {
     const tf = timeFilter.value
-    if (tf?.type === 'month') {
-      features = features.filter(f => f.properties.year_month === tf.ym)
-    } else if (tf?.type === 'year') {
-      const prefix = String(tf.year)
-      features = features.filter(f => f.properties.year_month.startsWith(prefix))
-    } else if (monthRange.value) {
-      const [start, end] = monthRange.value
-      features = features.filter(f => {
-        const ym = f.properties.year_month
-        return ym >= start && ym <= end
-      })
-    }
+    if (tf?.type === 'month') exactYm = tf.ym
+    else if (tf?.type === 'year') prefix = String(tf.year)
+    else if (monthRange.value) [lo, hi] = monthRange.value
   }
 
-  // 2. Category filter
   const cats = activeCategories.value
-  features = features.filter(f => cats.has(f.properties.category))
-
-  // 3. Topic solo filter
   const solo = activeTopicSolo.value
-  if (solo !== null) {
-    features = features.filter(f => f.properties.topic_id === solo)
-  }
 
-  return features
+  // One filter pass instead of up-to-three: each record is checked once and
+  // a single array is allocated. Order the checks cheapest-first so most
+  // rejections short-circuit before touching the Set.
+  return records.filter(f => {
+    const p = f.properties
+    const ym = p.year_month
+    if (exactYm !== null) { if (ym !== exactYm) return false }
+    else if (prefix !== null) { if (!ym.startsWith(prefix)) return false }
+    else if (lo !== null) { if (ym < lo || ym > hi!) return false }
+    if (solo !== null && p.topic_id !== solo) return false
+    return cats.has(p.category)
+  })
 })
 
 // ─── jitter ───────────────────────────────────────────────────────────────────

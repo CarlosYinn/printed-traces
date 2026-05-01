@@ -6,7 +6,7 @@ import { MONTHS, monthToIndex } from './useMonthIndex'
 import { useResponsivePanel } from './useResponsivePanel'
 import { isPlaying } from './usePlayback'
 
-const { isOpen } = useResponsivePanel('right')
+const { isOpen } = useResponsivePanel()
 
 const categoryFilteredRecords = computed(() =>
   allRecords.value.filter(f => activeCategories.value.has(f.properties.category))
@@ -356,8 +356,8 @@ onUnmounted(stopPlay)
   display: flex;
   flex-direction: column;
   background: color-mix(in oklch, var(--ctp-base), transparent 12%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--ctp-surface0);
   border-radius: 14px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
@@ -369,6 +369,8 @@ onUnmounted(stopPlay)
 .cal-panel.is-collapsed {
   width: 48px;
   max-height: 48px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */

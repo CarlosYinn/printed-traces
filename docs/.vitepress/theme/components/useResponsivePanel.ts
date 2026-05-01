@@ -1,49 +1,56 @@
-import { ref, watch, onMounted, onUnmounted, type Ref } from 'vue'
+import { ref, watch, onUnmounted, type Ref } from 'vue'
 
-const BREAKPOINT = 760
+import { activeEventId, dismissActiveEvent } from './useFilters'
+import { useIsMobile, isMobileViewport } from './useIsMobile'
 
-type Side = 'left' | 'right'
-
-type PanelEntry = { side: Side; isOpen: Ref<boolean> }
+type PanelEntry = { isOpen: Ref<boolean> }
 
 const panels: PanelEntry[] = []
 
-function isMobileViewport(): boolean {
-  return typeof window !== 'undefined' && window.innerWidth <= BREAKPOINT
+// When the event card appears on mobile, collapse every panel so the card
+// takes the spotlight (preserves the "tap event → timeline stows" UX).
+if (typeof window !== 'undefined') {
+  watch(activeEventId, id => {
+    if (!id || !isMobileViewport()) return
+    for (const p of panels) p.isOpen.value = false
+  })
 }
 
-export function useResponsivePanel(side: Side = 'left') {
-  const isOpen = ref(true)
+export function useResponsivePanel() {
+  const isMobile = useIsMobile()
+  const isOpen = ref(!isMobile.value)
 
-  function check() {
-    isOpen.value = window.innerWidth > BREAKPOINT
-  }
-
-  const entry: PanelEntry = { side, isOpen }
+  const entry: PanelEntry = { isOpen }
   panels.push(entry)
 
-  // When this panel opens on mobile, collapse panels on the opposite side
-  // so the left/right stacks do not overlap on narrow screens.
-  const stopWatch = watch(isOpen, next => {
-    if (!next) return
-    if (!isMobileViewport()) return
-    for (const p of panels) {
-      if (p === entry) continue
-      if (p.side !== side && p.isOpen.value) p.isOpen.value = false
-    }
+  // Collapse on entering mobile, expand on entering desktop.  matchMedia
+  // only fires on breakpoint crossings, so this is much cheaper than a
+  // window resize listener.
+  const stopMobileWatch = watch(isMobile, mobile => {
+    isOpen.value = !mobile
   })
 
-  onMounted(() => {
-    if (typeof window === 'undefined') return
-    check()
-    window.addEventListener('resize', check)
+  // On mobile, the four panels are mutually exclusive — opening any one
+  // collapses any other that's still open.  This both prevents the left and
+  // right stacks from visually overlapping on narrow phones AND enforces the
+  // "≤ 1 panel open while the event card is showing" rule, in one stroke.
+  //
+  // If the bottom-sheet event card is up when a panel opens, dismiss it: on
+  // short viewports the panel and the card both compete for vertical space
+  // and the lower button gets squeezed.  Clearing activeEventId triggers the
+  // existing card-sink Transition (translateY + fade) so the card glides out
+  // the bottom on its own — no extra animation code or measurement needed.
+  const stopOpenWatch = watch(isOpen, next => {
+    if (!next || !isMobile.value) return
+    for (const p of panels) {
+      if (p !== entry && p.isOpen.value) p.isOpen.value = false
+    }
+    if (activeEventId.value !== null) dismissActiveEvent()
   })
 
   onUnmounted(() => {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('resize', check)
-    }
-    stopWatch()
+    stopMobileWatch()
+    stopOpenWatch()
     const idx = panels.indexOf(entry)
     if (idx !== -1) panels.splice(idx, 1)
   })

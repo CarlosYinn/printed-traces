@@ -26,7 +26,7 @@ export const activeCategories = ref<Set<string>>(new Set())
 export const activeTopicSolo = ref<string | null>(null)
 export const activeEventId = ref<string | null>(DEFAULT_OPENING_STATE.activeEventId)
 export const baseLayers = ref({ ...DEFAULT_OPENING_STATE.baseLayers })
-export const overlays = ref({ counties: true, states: true, rail: true })
+export const overlays = ref({ counties: true, states: true })
 
 /** Embed-mode range constraint — never mutated by user interaction */
 export const monthRange = ref<[string, string] | null>(null)
@@ -40,6 +40,12 @@ export const selectedMonth = computed<string | null>(() =>
 
 export function setTimeFilter(filter: TimeFilter): void {
   timeFilter.value = filter
+}
+
+/** Dismiss the active event card and the month-filter it set. */
+export function dismissActiveEvent(): void {
+  activeEventId.value = null
+  timeFilter.value = null
 }
 
 // ─── internal helpers ─────────────────────────────────────────────────────────
@@ -147,7 +153,7 @@ export function resetFilters(): void {
   activeTopicSolo.value = null
   activeEventId.value = DEFAULT_OPENING_STATE.activeEventId
   baseLayers.value = { ...DEFAULT_OPENING_STATE.baseLayers }
-  overlays.value = { counties: true, states: true, rail: true }
+  overlays.value = { counties: true, states: true }
   monthRange.value = null
   if (_topicTree) activeCategories.value = deriveActiveCategories(_topicTree)
 }

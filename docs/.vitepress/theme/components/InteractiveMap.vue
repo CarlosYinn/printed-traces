@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 
 import MapCanvas from './MapCanvas.vue'
 import { applyInitialProps, startUrlSync, syncFromUrl } from './useFilters'
@@ -16,7 +16,6 @@ const props = withDefaults(defineProps<{
   height: '100%',
 })
 
-const canvasHeight = computed(() => '100%')
 let stopUrlSync: (() => void) | null = null
 
 onMounted(() => {
@@ -40,7 +39,7 @@ onUnmounted(() => {
     <ClientOnly>
       <div class="interactive-map-shell">
         <div class="interactive-map-canvas">
-          <MapCanvas :height="canvasHeight" />
+          <MapCanvas />
         </div>
 
       </div>
@@ -71,42 +70,5 @@ onUnmounted(() => {
   position: relative;
   flex: 1 1 auto;
   min-height: 0;
-}
-
-.map-timeline-controls {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  z-index: 6;
-  padding: 8px 14px 6px;
-  border: 1px solid var(--ctp-surface0);
-  border-radius: 14px;
-  background: color-mix(in oklch, var(--ctp-base), transparent 12%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
-  box-sizing: border-box;
-  transition: right var(--dur-std) var(--ease-std);
-}
-
-/* Leave room for the 340px sidebar + 16px margin + 8px gap */
-.map-timeline-controls.has-sidebar {
-  right: 372px;
-}
-
-@media (max-width: 900px) {
-  .map-timeline-controls.has-sidebar {
-    right: 16px;
-  }
-}
-
-@media (max-width: 760px) {
-  .map-timeline-controls {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    padding: 7px 10px 5px;
-  }
 }
 </style>

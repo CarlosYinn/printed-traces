@@ -9,7 +9,7 @@ import { useRecords } from './useRecords'
 import { useResponsivePanel } from './useResponsivePanel'
 import type { Topic } from './types'
 
-const { isOpen } = useResponsivePanel('left')
+const { isOpen } = useResponsivePanel()
 const { topicTree, allRecords } = useRecords()
 
 const categories = computed(
@@ -241,8 +241,8 @@ function toggleAllExpanded(): void {
   display: flex;
   flex-direction: column;
   background: color-mix(in oklch, var(--ctp-base), transparent 12%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--ctp-surface0);
   border-radius: 14px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
@@ -254,6 +254,8 @@ function toggleAllExpanded(): void {
 .legend-panel.is-collapsed {
   width: 48px;
   max-height: 48px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */

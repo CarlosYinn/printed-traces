@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import { center } from '@turf/turf'
 import type { FeatureCollection } from 'geojson'
 import type { Map } from 'maplibre-gl'
 import type { HistoricalEvent } from './types'
-import { getEventStateAbbreviations } from './useMap'
+import { getAnchorForEvent, getEventStateAbbreviations } from './useMap'
+import { useIsMobile } from './useIsMobile'
 
 const props = withDefaults(defineProps<{
   event: HistoricalEvent
@@ -12,15 +12,16 @@ const props = withDefaults(defineProps<{
   mapInstance: Map
   mapContainer: HTMLElement
   countiesGeoJSON: FeatureCollection
-  // Live-measured card height, propagated from the parent's ResizeObserver.
-  // Used to centre the card vertically on the anchor (and align the
-  // connector hairline with it) without hard-coded magic numbers.
   cardHeight?: number
+  eventIndex?: number
+  eventTotal?: number
 }>(), {
   cardHeight: 0,
+  eventIndex: 0,
+  eventTotal: 1,
 })
 
-const emit = defineEmits<{ close: [] }>()
+const emit = defineEmits<{ close: [], prev: [], next: [] }>()
 
 // ─── date formatting ──────────────────────────────────────────────────────────
 
@@ -36,73 +37,50 @@ function formatDate(date: string): string {
 }
 
 // ─── anchor coordinate ────────────────────────────────────────────────────────
-// State-level events match on the 2-digit state FIPS prefix; county-level
-// events match on the full 5-digit FIPS code.  Matches useMap.getEventStateAbbreviations.
+// Delegates to useMap.getAnchorForEvent — same FIPS resolution rules
+// (state prefix vs full county FIPS) shared with computeEventBbox /
+// getEventStateAbbreviations, so all three stay in sync.
 
-const anchorLngLat = computed<[number, number] | null>(() => {
-  const { event, countiesGeoJSON } = props
-  if (!event.highlight_fips.length) return null
-
-  const fipsSet = new Set(event.highlight_fips)
-  const statePrefixes =
-    event.highlight_level === 'state'
-      ? new Set(event.highlight_fips.map(f => f.slice(0, 2)))
-      : null
-
-  const matched = countiesGeoJSON.features.filter(f => {
-    const fips = f.properties?.FIPS as string | null
-    if (!fips) return false
-    return statePrefixes !== null
-      ? statePrefixes.has(fips.slice(0, 2))
-      : fipsSet.has(fips)
-  })
-
-  if (!matched.length) return null
-
-  const c = center({ type: 'FeatureCollection', features: matched })
-  return c.geometry.coordinates as [number, number]
-})
+const anchorLngLat = computed<[number, number] | null>(() =>
+  getAnchorForEvent(props.event, props.countiesGeoJSON),
+)
 
 // ─── pixel projection, kept current via map events ───────────────────────────
 
 const anchorPixel = ref<{ x: number; y: number } | null>(null)
 
+// MapLibre fires `move` for both pans AND zooms — the `zoom` event is a strict
+// subset, so we only need one listener. We additionally skip sub-pixel deltas
+// to avoid triggering Vue reactivity for changes that wouldn't visibly move
+// the card (the projection during inertial pan can wobble fractionally each
+// frame even when the camera is at rest).
 function updateAnchor() {
-  anchorPixel.value = anchorLngLat.value
-    ? props.mapInstance.project(anchorLngLat.value)
-    : null
+  const lngLat = anchorLngLat.value
+  if (!lngLat) {
+    if (anchorPixel.value !== null) anchorPixel.value = null
+    return
+  }
+  const next = props.mapInstance.project(lngLat)
+  const cur = anchorPixel.value
+  if (cur && Math.abs(cur.x - next.x) < 0.5 && Math.abs(cur.y - next.y) < 0.5) return
+  anchorPixel.value = { x: next.x, y: next.y }
 }
 
-// Re-project when the selected event changes (parent re-uses this component
-// rather than always re-mounting with a new key).
-watch(anchorLngLat, updateAnchor)
+// Project once now (immediate) and re-project whenever the selected event
+// changes — the parent re-uses this component instead of remounting with a
+// new key.
+watch(anchorLngLat, updateAnchor, { immediate: true })
 
 // ─── mobile detection (bottom-sheet layout) ──────────────────────────────────
 
-const isMobile = ref(false)
-
-function checkMobile() {
-  if (typeof window !== 'undefined') {
-    isMobile.value = window.innerWidth <= 760
-  }
-}
+const isMobile = useIsMobile()
 
 onMounted(() => {
-  checkMobile()
-  if (typeof window !== 'undefined') {
-    window.addEventListener('resize', checkMobile)
-  }
-  updateAnchor()
   props.mapInstance.on('move', updateAnchor)
-  props.mapInstance.on('zoom', updateAnchor)
 })
 
 onUnmounted(() => {
-  if (typeof window !== 'undefined') {
-    window.removeEventListener('resize', checkMobile)
-  }
   props.mapInstance.off('move', updateAnchor)
-  props.mapInstance.off('zoom', updateAnchor)
 })
 
 // ─── card position & side ─────────────────────────────────────────────────────
@@ -154,8 +132,8 @@ const cardStyle = computed(() => {
       zIndex: 10,
     }
   }
-  if (!anchorPixel.value) return { display: 'none' as const }
-  const { x } = anchorPixel.value
+  // v-if="isGlobal || anchorPixel" guarantees anchorPixel is set here.
+  const { x } = anchorPixel.value!
   return {
     position: 'absolute' as const,
     top: `${cardTop.value}px`,
@@ -207,9 +185,16 @@ const stateAbbrs = computed(() =>
         <div class="card-date">{{ formatDate(event.date) }}</div>
         <div class="card-title">{{ event.title }}</div>
         <div class="card-desc">{{ event.description }}</div>
-        <div class="card-tags">
-          <span class="card-tag">{{ event.highlight_level }}</span>
-          <span v-for="abbr in stateAbbrs" :key="abbr" class="card-tag">{{ abbr }}</span>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">{{ event.highlight_level }}</span>
+            <span v-for="abbr in stateAbbrs" :key="abbr" class="card-tag">{{ abbr }}</span>
+          </div>
+          <div v-if="eventTotal > 1" class="card-nav">
+            <button class="nav-btn" aria-label="Previous event" @click.stop="emit('prev')">&#8592;</button>
+            <span class="nav-counter">{{ eventIndex + 1 }}&thinsp;/&thinsp;{{ eventTotal }}</span>
+            <button class="nav-btn" aria-label="Next event" @click.stop="emit('next')">&#8594;</button>
+          </div>
         </div>
       </div>
 
@@ -235,8 +220,8 @@ const stateAbbrs = computed(() =>
   border-radius: 10px;
   background: var(--ctp-base); /* fallback if color-mix unsupported */
   background: color-mix(in oklch, var(--ctp-base), transparent 8%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid color-mix(in oklch, var(--ctp-surface1), transparent 40%);
   box-shadow:
     inset 0 1px 0 color-mix(in oklch, white, transparent 88%),
@@ -314,11 +299,64 @@ const stateAbbrs = computed(() =>
   line-height: 1.48;
 }
 
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 3px;
+}
+
 .card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  margin-top: 3px;
+}
+
+.card-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+  border: 1px solid var(--ctp-surface1);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ctp-subtext0);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 120ms, border-color 120ms, color 120ms;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-btn:hover {
+  background: color-mix(in oklch, var(--ctp-surface1), transparent 40%);
+  border-color: var(--ctp-overlay0);
+  color: var(--ctp-text);
+}
+
+.nav-btn:active {
+  background: var(--ctp-surface1);
+}
+
+.nav-counter {
+  min-width: 36px;
+  text-align: center;
+  color: var(--ctp-overlay2);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  pointer-events: none;
 }
 
 .card-tag {

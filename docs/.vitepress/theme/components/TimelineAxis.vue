@@ -8,7 +8,7 @@ import { useResponsivePanel } from './useResponsivePanel'
 
 const { events } = useRecords()
 const { getEventAccentColor } = useEventColor()
-const { isOpen } = useResponsivePanel('right')
+const { isOpen } = useResponsivePanel()
 
 const YEARS = [1880, 1881, 1882, 1883, 1884, 1885]
 
@@ -36,10 +36,8 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   }
   activeEventId.value = evt.id
   setTimeFilter({ type: 'month', ym: evt.date.slice(0, 7) })
-  // On mobile, collapse the timeline so the event card and map are unobstructed.
-  if (typeof window !== 'undefined' && window.innerWidth <= 760) {
-    isOpen.value = false
-  }
+  // Mobile collapse-on-event is handled by useResponsivePanel's module-level
+  // watcher (activeEventId → close all panels in exclusive mode).
 }
 </script>
 
@@ -119,8 +117,8 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   display: flex;
   flex-direction: column;
   background: color-mix(in oklch, var(--ctp-base), transparent 12%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--ctp-surface0);
   border-radius: 14px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
@@ -132,6 +130,8 @@ function handleEventDotClick(evt: { id: string; date: string }) {
 .timeline-panel.is-collapsed {
   width: 48px;
   max-height: 48px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */

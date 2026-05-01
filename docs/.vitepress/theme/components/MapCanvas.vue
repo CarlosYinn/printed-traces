@@ -21,12 +21,13 @@ import {
   computeEventBbox,
   getAnchorForEvent,
 } from './useMap'
+import { useIsMobile, isMobileViewport } from './useIsMobile'
 import {
   timeFilter,
-  setTimeFilter,
   baseLayers,
   overlays,
   activeEventId,
+  dismissActiveEvent,
 } from './useFilters'
 import { resetNorthSignal, resetCenterSignal } from './useMapControls'
 import {
@@ -83,15 +84,9 @@ const mapReady = shallowRef<MapLibreMap | null>(null)
 const containerRef = ref<HTMLDivElement>()
 const hoveredRecord = ref<RecordProperties | null>(null)
 const popupPosition = ref<{ x: number; y: number } | null>(null)
-const popupPinned = ref(false) // true when opened by tap on mobile
+const popupPinned = ref(false) // true after clicking a point; suppresses hover-dismiss
 
-const isMobileWidth = ref(false)
-
-function syncMobileWidth() {
-  if (typeof window !== 'undefined') {
-    isMobileWidth.value = window.innerWidth <= 760
-  }
-}
+const isMobileWidth = useIsMobile()
 
 // True when the mobile bottom-sheet card is on screen — used by the layout
 // to shorten the left/right stacks so they don't render under the card.
@@ -108,35 +103,38 @@ function detachCardObserver() {
   cardResizeObserver = null
 }
 
-watch(
-  [() => !!activeEvent.value, mapReady],
-  ([hasEvt, ready]) => {
-    detachCardObserver()
-    if (!hasEvt || !ready) {
-      cardHeight.value = 0
-      return
-    }
-    nextTick(() => {
-      const el = containerRef.value?.querySelector('.event-map-card') as HTMLElement | null
-      if (!el) return
-      cardResizeObserver = new ResizeObserver(entries => {
-        const entry = entries[0]
-        if (entry) cardHeight.value = Math.ceil(entry.contentRect.height)
-      })
-      cardResizeObserver.observe(el)
+watch([() => !!activeEvent.value, mapReady], ([hasEvt, ready]) => {
+  detachCardObserver()
+  if (!hasEvt || !ready) {
+    cardHeight.value = 0
+    return
+  }
+  nextTick(() => {
+    const el = containerRef.value?.querySelector('.event-map-card') as HTMLElement | null
+    if (!el) return
+    cardResizeObserver = new ResizeObserver(entries => {
+      const entry = entries[0]
+      if (entry) cardHeight.value = Math.ceil(entry.contentRect.height)
     })
-  },
-  { immediate: true },
-)
-
-function isMobile(): boolean {
-  return window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768
-}
+    cardResizeObserver.observe(el)
+  })
+})
 
 function dismissPinnedPopup() {
   hoveredRecord.value = null
   popupPosition.value = null
   popupPinned.value = false
+}
+
+const activeEventIndex = computed(() =>
+  activeEventId.value ? events.value.findIndex(e => e.id === activeEventId.value) : -1
+)
+
+function navigateEvent(delta: -1 | 1) {
+  const total = events.value.length
+  if (total === 0) return
+  const idx = activeEventIndex.value === -1 ? 0 : activeEventIndex.value
+  activeEventId.value = events.value[(idx + delta + total) % total].id
 }
 
 // ─── empty-state computed ─────────────────────────────────────────────────────
@@ -169,7 +167,7 @@ const stoppers: Array<() => void> = []
 // silently aborts fitBounds when top+bottom or left+right exceed the canvas,
 // so we clamp each side to roughly one third of the container.
 function eventFitPadding(): { top: number; bottom: number; left: number; right: number } {
-  if (typeof window === 'undefined' || window.innerWidth > 760 || !map) {
+  if (!isMobileViewport() || !map) {
     return { top: 60, bottom: 60, left: 380, right: 620 }
   }
   const container = map.getContainer()
@@ -201,7 +199,7 @@ function flyToEventView(
   duration: number,
 ): void {
   const padding = eventFitPadding()
-  const mobile = typeof window !== 'undefined' && window.innerWidth <= 760
+  const mobile = isMobileViewport()
 
   if (mobile && box && counties.value) {
     const anchor = getAnchorForEvent(evt, counties.value as FeatureCollection)
@@ -239,7 +237,8 @@ function setupWatchers() {
       { immediate: true },
     ),
 
-    // Toggle basemap tile-layer opacity (opacity-transition in the style animates the change)
+    // Toggle basemap tile-layer opacity (opacity-transition in the style animates the change).
+    // baseLayers is reassigned (LayerPanel spreads into a fresh object) so a shallow watch suffices.
     watch(baseLayers, layers => {
       const dark = isDark.value
       const both = layers.rand_mcnally && layers.modern
@@ -248,7 +247,7 @@ function setupWatchers() {
       map?.setPaintProperty('modern-layer', 'raster-brightness-max', dark ? 0.06 : 1)
       map?.setPaintProperty('modern-layer', 'raster-contrast', dark ? 0.6 : 0)
       map?.setPaintProperty('modern-layer', 'raster-saturation', dark ? -1 : 0)
-    }, { deep: true }),
+    }),
 
     // Adjust modern tile appearance when dark mode toggles
     watch(isDark, dark => {
@@ -261,15 +260,12 @@ function setupWatchers() {
       map?.setPaintProperty('records-unclustered', 'circle-stroke-color', stroke)
     }),
 
-    // Toggle boundary layer visibility
-    watch(
-      overlays,
-      ({ counties: c, states: s }) => {
-        map?.setLayoutProperty('counties-outline', 'visibility', c ? 'visible' : 'none')
-        map?.setLayoutProperty('states-outline', 'visibility', s ? 'visible' : 'none')
-      },
-      { deep: true },
-    ),
+    // Toggle boundary layer visibility. overlays is reassigned wholesale, so a
+    // shallow watch on the ref picks up every change without deep traversal.
+    watch(overlays, ({ counties: c, states: s }) => {
+      map?.setLayoutProperty('counties-outline', 'visibility', c ? 'visible' : 'none')
+      map?.setLayoutProperty('states-outline', 'visibility', s ? 'visible' : 'none')
+    }),
 
     // Reset map bearing and pitch to north/flat
     watch(resetNorthSignal, () => {
@@ -286,16 +282,18 @@ function setupWatchers() {
       if (!map) return
       if (!id) { clearHighlight(map); return }
       const evt = events.value.find(e => e.id === id)
-      if (!evt) return
-      highlightEvent(map, evt)
-      const box = computeEventBbox(
-        evt,
-        counties.value as never,
-        states.value as never,
-      )
-      flyToEventView(map, evt, box, 600)
+      if (evt) focusEvent(evt, 600)
     }),
   )
+}
+
+// Apply the highlight overlay and fly the camera to an event. Shared by the
+// activeEventId watcher (animated) and post-load init (instant).
+function focusEvent(evt: HistoricalEvent, duration: number): void {
+  if (!map) return
+  highlightEvent(map, evt)
+  const box = computeEventBbox(evt, counties.value as never)
+  flyToEventView(map, evt, box, duration)
 }
 
 // ─── map mouse / click handlers ───────────────────────────────────────────────
@@ -316,7 +314,7 @@ function setupMapEvents() {
 
   map.on('mouseenter', 'records-unclustered', e => {
     map!.getCanvas().style.cursor = 'pointer'
-    if (isMobile() || popupPinned.value) return
+    if (popupPinned.value) return
     const feat = e.features?.[0]
     if (!feat) return
     hoveredRecord.value = feat.properties as RecordProperties
@@ -324,7 +322,7 @@ function setupMapEvents() {
   })
 
   map.on('mousemove', 'records-unclustered', e => {
-    if (isMobile() || popupPinned.value) return
+    if (popupPinned.value) return
     const feat = e.features?.[0]
     if (feat) hoveredRecord.value = feat.properties as RecordProperties
     updatePopupPosition(e)
@@ -404,11 +402,7 @@ function initMapContent() {
   // Apply any initial activeEventId
   if (activeEventId.value) {
     const evt = events.value.find(e => e.id === activeEventId.value)
-    if (evt) {
-      highlightEvent(map!, evt)
-      const box = computeEventBbox(evt, counties.value as never, states.value as never)
-      flyToEventView(map!, evt, box, 0)
-    }
+    if (evt) focusEvent(evt, 0)
   }
 }
 
@@ -417,9 +411,6 @@ function initMapContent() {
 onMounted(async () => {
   if (import.meta.env.SSR) return
   if (!containerRef.value) return
-
-  syncMobileWidth()
-  window.addEventListener('resize', syncMobileWidth)
 
   map = await createMap(containerRef.value, baseLayers.value, isDark.value)
   mapReady.value = map
@@ -450,9 +441,6 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
-  if (typeof window !== 'undefined') {
-    window.removeEventListener('resize', syncMobileWidth)
-  }
   detachCardObserver()
   stoppers.forEach(s => s())
   map?.remove()
@@ -487,7 +475,11 @@ onUnmounted(() => {
       :map-container="containerRef"
       :counties-geo-j-s-o-n="(counties as FeatureCollection)"
       :card-height="cardHeight"
-      @close="activeEventId = null; setTimeFilter(null)"
+      :event-index="activeEventIndex"
+      :event-total="events.length"
+      @close="dismissActiveEvent"
+      @prev="navigateEvent(-1)"
+      @next="navigateEvent(1)"
     />
 
     <div class="right-stack">
@@ -551,7 +543,10 @@ onUnmounted(() => {
     top: 12px;
     left: 12px;
     bottom: 12px;
-    width: min(310px, calc(100vw - 24px));
+    /* Cap so an expanded left panel never slides under the right side's
+       collapsed 48 px toggle. Reserve: 12 own margin + 48 opposite button +
+       12 gap = 72 px on the far side, plus 12 own margin already at left. */
+    width: min(310px, calc(100vw - 84px));
   }
 }
 
@@ -574,7 +569,8 @@ onUnmounted(() => {
     top: 12px;
     right: 12px;
     bottom: 12px;
-    width: min(310px, calc(100vw - 24px));
+    /* See .left-stack — same reservation for the left side's collapsed toggle. */
+    width: min(310px, calc(100vw - 84px));
   }
 
   /* When the mobile bottom-sheet event card is on screen, end both stacks
@@ -595,9 +591,10 @@ onUnmounted(() => {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 8px 16px;
-  background: color-mix(in oklch, var(--ctp-base), transparent 20%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Solid-ish bg instead of backdrop-filter — this badge is small and the
+     blur is barely visible, but each backdrop-filter forces a compositing
+     layer the GPU has to re-blur on every map redraw. */
+  background: color-mix(in oklch, var(--ctp-base), transparent 8%);
   border: 1px solid var(--ctp-surface0);
   border-radius: 999px;
   box-shadow: var(--shadow-1);
@@ -643,10 +640,9 @@ onUnmounted(() => {
 @media (max-width: 760px) {
   .map-attribution {
     white-space: normal;
-    max-width: 60%;
-    text-align: right;
     font-size: 10px;
     line-height: 1.5;
+    text-align: right;
   }
 
   .map-attribution .attr-sep {
@@ -655,6 +651,7 @@ onUnmounted(() => {
 
   .map-attribution span:not(.attr-sep) {
     display: block;
+    white-space: nowrap;
   }
 }
 </style>

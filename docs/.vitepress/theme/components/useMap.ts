@@ -88,6 +88,12 @@ function buildStyle(baseLayers: BaseLayers, isDark = false): StyleSpecification 
           'raster-contrast-transition': { duration: 300, delay: 0 },
           'raster-saturation': isDark ? -1 : 0,
           'raster-saturation-transition': { duration: 300, delay: 0 },
+          // Default 300ms cross-fades each tile as it streams in. During a
+          // long fly/ease the GPU spends most frames blending many fading
+          // tiles at once and drops frames. 0 means tiles snap in instantly
+          // — visually slightly snappier per tile, but the camera animation
+          // stays at full framerate, which is the bigger smoothness win.
+          'raster-fade-duration': 0,
         },
       },
       {
@@ -98,6 +104,7 @@ function buildStyle(baseLayers: BaseLayers, isDark = false): StyleSpecification 
         paint: {
           'raster-opacity': randOpacity,
           'raster-opacity-transition': { duration: 350, delay: 0 },
+          'raster-fade-duration': 0,
         },
       },
     ],
@@ -307,18 +314,15 @@ export function clearHighlight(map: Map): void {
  * County-level events: exact match on properties.FIPS.
  * State-level events:  highlight_fips are 5-digit county FIPS; we expand to
  *   every county sharing the same 2-char state prefix for a full-state bbox.
- *   statesGeojson is accepted for API symmetry but the states layer carries no
- *   FIPS field, so county geometries are the bbox source in both branches.
+ *   The states layer carries no FIPS field, so county geometries source the
+ *   bbox in both branches.
  */
 export function computeEventBbox(
   event: HistoricalEvent,
   countiesGeojson: FeatureCollection,
-  statesGeojson?: FeatureCollection,
 ): [number, number, number, number] | null {
   if (import.meta.env.SSR) return null
   if (!event.highlight_fips.length) return null
-
-  void statesGeojson
 
   const fipsSet = new Set(event.highlight_fips)
   let matched: Feature[]
@@ -402,38 +406,4 @@ export function getAnchorForEvent(
 
   const c = center({ type: 'FeatureCollection', features: matched })
   return c.geometry.coordinates as [number, number]
-}
-
-/** Fly the map to the bounding box of an event's highlighted FIPS features.
- *  Does nothing if the event carries no location data. */
-export function flyToEvent(
-  event: HistoricalEvent,
-  map: Map,
-  countiesGeoJSON: FeatureCollection,
-): void {
-  if (!event.highlight_fips.length) return
-
-  const matched = countiesGeoJSON.features.filter(f => {
-    const fips = f.properties?.GEOID ?? f.properties?.fips ?? ''
-    return event.highlight_fips.includes(fips)
-  })
-  if (!matched.length) return
-
-  const eventBbox = bbox({ type: 'FeatureCollection', features: matched })
-
-  map.fitBounds(
-    [[eventBbox[0], eventBbox[1]], [eventBbox[2], eventBbox[3]]],
-    {
-      padding: {
-        top: 80,
-        bottom: 80,
-        left: 80,
-        right: 300,
-      },
-      maxZoom: event.highlight_level === 'county' ? 8 : 6,
-      minZoom: 4,
-      duration: 600,
-      essential: true,
-    },
-  )
 }
