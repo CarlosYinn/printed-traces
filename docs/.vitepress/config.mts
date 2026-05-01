@@ -11,7 +11,7 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/printed-traces/favicon.svg' }],
   ],
   title: 'Chinese Immigrant Children in the U.S. Press, 1880–1885',
-  description: 'A digital humanities project exploring U.S. newspaper coverage of Chinese children and education during the era of exclusion.',
+  description: 'A digital humanities project on Chinese immigrant children in the U.S. press, 1880–1885.',
   base: '/printed-traces/',
   appearance: true,
   lastUpdated: false,

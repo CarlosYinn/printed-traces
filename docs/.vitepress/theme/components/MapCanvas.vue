@@ -240,13 +240,9 @@ function setupWatchers() {
     // Toggle basemap tile-layer opacity (opacity-transition in the style animates the change).
     // baseLayers is reassigned (LayerPanel spreads into a fresh object) so a shallow watch suffices.
     watch(baseLayers, layers => {
-      const dark = isDark.value
       const both = layers.rand_mcnally && layers.modern
       map?.setPaintProperty('rand_mcnally-layer', 'raster-opacity', layers.rand_mcnally ? (both ? 0.68 : 1) : 0)
       map?.setPaintProperty('modern-layer', 'raster-opacity', layers.modern ? (both ? 0.92 : 1) : 0)
-      map?.setPaintProperty('modern-layer', 'raster-brightness-max', dark ? 0.06 : 1)
-      map?.setPaintProperty('modern-layer', 'raster-contrast', dark ? 0.6 : 0)
-      map?.setPaintProperty('modern-layer', 'raster-saturation', dark ? -1 : 0)
     }),
 
     // Adjust modern tile appearance when dark mode toggles
@@ -314,7 +310,7 @@ function setupMapEvents() {
 
   map.on('mouseenter', 'records-unclustered', e => {
     map!.getCanvas().style.cursor = 'pointer'
-    if (popupPinned.value) return
+    if (isMobileViewport() || popupPinned.value) return
     const feat = e.features?.[0]
     if (!feat) return
     hoveredRecord.value = feat.properties as RecordProperties
@@ -322,7 +318,7 @@ function setupMapEvents() {
   })
 
   map.on('mousemove', 'records-unclustered', e => {
-    if (popupPinned.value) return
+    if (isMobileViewport() || popupPinned.value) return
     const feat = e.features?.[0]
     if (feat) hoveredRecord.value = feat.properties as RecordProperties
     updatePopupPosition(e)

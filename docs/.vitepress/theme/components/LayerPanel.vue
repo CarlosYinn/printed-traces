@@ -62,7 +62,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
               :checked="baseLayers.modern"
               @change="toggleBaseLayer('modern')"
             />
-            <span class="check-label">Modern overlay</span>
+            <span class="check-label">OpenStreetMap</span>
           </label>
           <label class="check-row">
             <input

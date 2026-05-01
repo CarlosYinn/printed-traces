@@ -105,7 +105,6 @@ const popupStyle = computed(() => {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   color: var(--ctp-text);
   pointer-events: auto;
-  transition: opacity var(--dur-std) var(--ease-std);
 }
 
 .popup-close {

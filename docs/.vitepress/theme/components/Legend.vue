@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import {
   activeCategories,
   activeTopicSolo,
@@ -31,6 +31,15 @@ function visibleTopics(topics: Topic[]): Topic[] {
 
 const expandedCategories = ref<Set<string>>(new Set())
 const activeCategorySolo = ref<string | null>(null)
+
+// Solo highlight is only valid while activeCategories matches the solo set
+// exactly — clear it whenever the toggle switches break that invariant.
+watch(activeCategories, cats => {
+  const solo = activeCategorySolo.value
+  if (solo && !(cats.size === 1 && cats.has(solo))) {
+    activeCategorySolo.value = null
+  }
+})
 
 function topicWeightWidth(topic: Topic): string {
   return `min(80px, ${topic.weight * 1000}%)`

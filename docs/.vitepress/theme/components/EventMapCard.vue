@@ -338,10 +338,12 @@ const stateAbbrs = computed(() =>
   -webkit-tap-highlight-color: transparent;
 }
 
-.nav-btn:hover {
-  background: color-mix(in oklch, var(--ctp-surface1), transparent 40%);
-  border-color: var(--ctp-overlay0);
-  color: var(--ctp-text);
+@media (hover: hover) {
+  .nav-btn:hover {
+    background: color-mix(in oklch, var(--ctp-surface1), transparent 40%);
+    border-color: var(--ctp-overlay0);
+    color: var(--ctp-text);
+  }
 }
 
 .nav-btn:active {
