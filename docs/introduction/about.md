@@ -30,9 +30,9 @@ The site is built with [VitePress](https://vitepress.dev/). Topic modeling was c
 
 All newspaper clippings reproduced on this site are drawn from *Chronicling America: Historic American Newspapers*, digitized by the Library of Congress. These materials are in the public domain.
 
-### Wordmark
+### Typography
 
-The *Printed Traces* wordmark is set in [Chomsky](https://github.com/nicholasgasior/chomsky), a free display typeface by Fredrick R. Brennan inspired by the masthead lettering of *The New York Times*. The letterforms were converted to SVG paths for display on the site.
+The *Printed Traces* wordmark is set in [Chomsky](https://github.com/nicholasgasior/chomsky), a free display typeface by Fredrick R. Brennan. The letterforms were converted to SVG paths for display on the site. Body text is set in Cambria (with Source Serif 4 and Georgia as fallbacks). Code samples use JetBrains Mono.
 
 ### Data Sources
 

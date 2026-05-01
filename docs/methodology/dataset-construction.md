@@ -69,7 +69,7 @@ Some OCR segments consist almost entirely of garbled text. For each paragraph, t
 
 ### Layer 4: Semantic and structural filtering
 
-- **Long-token filtering**: Tokens exceeding 20 characters were removed using spaCy tokenization, as they typically represent OCR artifacts rather than real words.
+- **Long-token filtering**: Tokens exceeding 20 characters were removed, as they typically represent OCR artifacts rather than real words. For projects requiring more robust tokenization, [spaCy](https://spacy.io/) is recommended as a drop-in alternative.
 - **Repeated-line removal**: Each line was hashed with MD5; lines appearing more than three times were treated as layout boilerplate and discarded.
 - **Spelling correction**: `symspellpy` was applied for lightweight repair of minor OCR distortions.
 
@@ -111,5 +111,5 @@ The extraction stage adds the following fields to each record:
 |---|---|
 | `OCR_cleaned` | Final extracted excerpt |
 | `token_count` | Word count of the extracted excerpt |
-| `relevance_tier` | Manual classification: `core` or `secondary` |
-| `topic_tags` | Thematic tags applied during corpus review |
+| `relevance_tier` | Computed classification: `core` (score ≥ 550, at least one strong Chinese-education collocation) or `secondary` (Chinese mention present but below threshold) |
+| `topic_tags` | Pipe-delimited list of exact keyword phrases matched in the excerpt (e.g., `chinese student\|chinese school`) |

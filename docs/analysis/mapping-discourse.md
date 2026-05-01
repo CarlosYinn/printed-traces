@@ -87,20 +87,20 @@ This dependency of topic on keyword is not a methodological problem to be elimin
 
 Topic modeling produces statistical signatures. To make those signatures concrete, here are short examples drawn from the highest-probability documents in several of the major topics.
 
-The Children & Family Life topic surfaces articles like the following meditation on Chinese marriage customs: "In China, parents, with the help of a 'go-between,' select husbands and wives for their children, and the parties often never see each other until the wedding is over. After marriage, instead of a wedding trip, the bride is shut up as a prisoner in her husband's home and does not go out for a month."[^1]
+The Children & Family Life topic surfaces articles like the following meditation on Chinese marriage customs, from a piece by Selah Brown titled "Chinese and Americans: A Chapter of Contrarities": "In China, parents, with the help of a 'go-between,' select husbands and wives for their children, and the parties often never see each other until the wedding is over. After marriage, instead of a wedding trip, the bride is shut up as a prisoner in her husband's home and does not go out for a month."[^1]
 
 <figure class="clip">
-<img src="/clips/dawson-marriage-1883.jpg" alt="Newspaper clipping: Chinese Marriage Customs, The Dawson Journal, April 12, 1883">
-<figcaption>"Chinese Marriage Customs," <em>The Dawson Journal</em>, Apr. 12, 1883</figcaption>
+<img src="/clips/dawson-marriage-1883.jpg" alt="Newspaper clipping: Chinese and Americans: A Chapter of Contrarities, The Dawson Journal, April 12, 1883">
+<figcaption>"Chinese and Americans: A Chapter of Contrarities," <em>The Dawson Journal</em>, Apr. 12, 1883</figcaption>
 </figure>
 
 The story is presented as ethnographic curiosity, but the children who appear in it are the future subjects of arranged marriages, offering a window into how American papers framed Chinese childhood as fundamentally unlike American childhood.
 
-The Confucian Family Ethics topic surfaces a piece quoting from a returned CEM student's letter: "I went home to see my relations the last of March. When I first reached home you can imagine how glad my father and relatives were to see me looking so well and robust. They all flocked around me and asked me many questions."[^2]
+The Confucian Family Ethics topic surfaces a passage from "Marriage in China" in the *Evening Star*, which quotes a returned CEM student's letter: "I went home to see my relations the last of March. When I first reached home you can imagine how glad my father and relatives were to see me looking so well and robust. They all flocked around me and asked me many questions."[^2]
 
 <figure class="clip">
-<img src="/clips/evening-star-student-1882.jpg" alt="Newspaper clipping: A Letter from a Returned Chinese Student, Evening Star, November 23, 1882">
-<figcaption>"A Letter from a Returned Chinese Student," <em>Evening Star</em>, Nov. 23, 1882</figcaption>
+<img src="/clips/evening-star-student-1882.jpg" alt="Newspaper clipping: Marriage in China, Evening Star, November 23, 1882">
+<figcaption>"Marriage in China," <em>Evening Star</em>, Nov. 23, 1882</figcaption>
 </figure>
 
 Notice how the same text could plausibly belong to either the family-ethics topic or the CEM topic: the model places it with family ethics because of words like *father*, *relations*, *home*. This blurring is real, and it is part of how the discourse worked: the recalled students were being *rewritten* into a Confucian family frame as soon as they returned.
@@ -108,8 +108,8 @@ Notice how the same text could plausibly belong to either the family-ethics topi
 The Diplomacy & Ceremonial Events topic includes one of the most charming small items in the corpus: "The Chinese minister recently celebrated the event of his little daughter reaching the age of four years, according to a Chinese custom, by a dinner served in American style. Covers were laid for twelve, and all those at the Chinese legation in Washington were present and toasted the youthful heroine. Miss Mi Ju is the first Chinese child born in Washington."[^3]
 
 <figure class="clip">
-<img src="/clips/morris-minister-1884.jpg" alt="Newspaper clipping: The Chinese Minister's Daughter, Morris Tribune, January 23, 1884">
-<figcaption>"The Chinese Minister's Daughter," <em>Morris Tribune</em>, Jan. 23, 1884</figcaption>
+<img src="/clips/morris-minister-1884.jpg" alt="Newspaper clipping: Miss Mi Ju, Morris Tribune, January 23, 1884">
+<figcaption>"Miss Mi Ju," <em>Morris Tribune</em>, Jan. 23, 1884</figcaption>
 </figure>
 
 The diplomatic frame allowed Chinese children to appear as objects of celebration rather than concern, a register almost completely absent from coverage of Chinese laboring children.

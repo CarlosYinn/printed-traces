@@ -54,7 +54,7 @@ K = 25 was selected based on coherence scores and interpretability: it produced 
 
 ### Model training
 
-Both corpora were imported with MALLET's `import-file` command using `--keep-sequence` (required for LDA) and `--remove-stopwords`. Training was conducted with the following parameters:
+Both corpora were imported with MALLET's `import-file` command using `--keep-sequence` (required for LDA) and `--remove-stopwords`. In addition to MALLET's built-in English stopword list, a custom stopword file (`scripts/build_mallet/custom_stopwords.txt`) was compiled specifically for this corpus. It removes high-frequency terms that are uninformative for topical discrimination in this particular collection, including newspaper boilerplate (e.g., *said*, *would*, *made*), OCR artifacts, and corpus-specific proper nouns that would otherwise dominate topic keys without adding interpretive value. Training was conducted with the following parameters:
 
 ```
 mallet train-topics \
@@ -131,7 +131,7 @@ Script: `scripts/build_datawrapper_data/chart5C_build_alluvial_flow.py`
 
 This chart maps the 1,100 documents present in both corpora to their dominant category in each model, plus the 425 reprint-only documents that appear only in the full-corpus model. For the shared documents, the dominant category is compared across both model runs; for reprint-only documents, the source node is labeled "New (reprints)."
 
-The output is an edge-list CSV (source category, target category, count) used to construct the Sankey diagram in [D3-Sankey](https://github.com/d3/d3-sankey) and exported as an SVG for embedding.
+The output is an edge-list CSV (source category, target category, count). The Sankey diagram itself was built using [RAWGraphs](https://www.rawgraphs.io/), an open-source data visualization framework, and exported as an SVG for embedding.
 
 ### Heatmap: keyword-to-topic loadings (Chart 7)
 

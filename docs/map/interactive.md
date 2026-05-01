@@ -1,7 +1,7 @@
 ---
 layout: page
 pageClass: map-fullscreen-page
-title: Spatial Map — Chinese Immigrant Children in the U.S. Press, 1880–1885
+title: Spatial Map
 description: Explore the geographic and thematic distribution of newspaper coverage of Chinese children across the United States from 1880 to 1885. Filter by topic category, time period, and historical event.
 head:
   - - meta

@@ -128,8 +128,8 @@ Note how the text strips the eyewitness narrative down to a single arresting cla
 Curiosity items propagated at extraordinary rates. The story of the Portland Chinese baby's head-shaving banquet appeared in dozens of papers in late 1884 and early 1885 in nearly identical form, often shortened to a paragraph. So did the foot-binding description: "The Chinese children undergo various stages of torture, commencing at the age of two years. First, the four toes are forced under the ball of the foot and bound in that position until they lose their articulation… The second part of the operation is a torture so terrible that sometimes the child dies under it."[^5]
 
 <figure class="clip">
-<img src="/clips/republican-footbinding-1881.jpg" alt="Newspaper clipping: How Chinese Feet Are Bound, The Republican, December 17, 1881">
-<figcaption>"How Chinese Feet Are Bound," <em>The Republican</em>, Dec. 17, 1881</figcaption>
+<img src="/clips/republican-footbinding-1881.jpg" alt="Newspaper clipping: Suffering to be Beautiful, The Republican, December 17, 1881">
+<figcaption>"Suffering to be Beautiful," <em>The Republican</em>, Dec. 17, 1881</figcaption>
 </figure>
 
 The text is sensational, compact, and demands no follow-up reporting, a perfect specimen of what the reprint network amplified.
