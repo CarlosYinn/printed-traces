@@ -50,7 +50,6 @@
             <th @click="setSort('Pub_State')" :class="sortClass('Pub_State')">State</th>
             <th @click="setSort('region_bin')" :class="sortClass('region_bin')">Region</th>
             <th @click="setSort('Keyword')" :class="sortClass('Keyword')">Keyword</th>
-            <th>Tags</th>
             <th @click="setSort('is_reprint')" :class="sortClass('is_reprint')">Reprint</th>
             <th>Excerpt</th>
             <th>Link</th>
@@ -63,7 +62,6 @@
             <td>{{ row.Pub_State }}</td>
             <td>{{ row.region_bin }}</td>
             <td><span class="db-kw">{{ row.Keyword }}</span></td>
-            <td class="db-tags">{{ row.topic_tags }}</td>
             <td class="db-bool" :class="row.is_reprint === 'true' ? 'is-yes' : 'is-no'">
               {{ row.is_reprint === 'true' ? 'yes' : 'no' }}
             </td>

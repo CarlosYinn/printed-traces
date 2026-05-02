@@ -14,8 +14,8 @@ const { isDark } = useData()
 let messageHandler: ((e: MessageEvent) => void) | null = null
 
 // Datawrapper's embed.js bakes in the OS-level prefers-color-scheme at load
-// time and offers no runtime hook, so we manage the iframe ourselves and pass
-// the current VitePress theme via the documented `?dark=true|false` URL param.
+// time and offers no runtime hook, so the iframe is managed directly and the
+// current VitePress theme is passed via the documented `?dark=true|false` URL param.
 // Re-rendering on isDark change reloads the chart with matching colors,
 // including text fills that don't switch via CSS variables alone.
 const renderIframe = (dark: boolean) => {

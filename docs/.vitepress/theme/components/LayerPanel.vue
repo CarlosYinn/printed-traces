@@ -129,9 +129,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: color-mix(in oklch, var(--ctp-base), transparent 12%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: color-mix(in oklch, var(--ctp-base), transparent 6%);
   border: 1px solid var(--ctp-surface0);
   border-radius: 14px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
@@ -140,14 +138,9 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
     max-height var(--dur-std) var(--ease-std);
 }
 
-/* When the panel is just a 48×48 toggle button, skip the GPU-expensive
-   backdrop-filter — the blur is barely visible and the map underneath
-   re-blurs every frame during pan/zoom otherwise. */
 .layer-panel.is-collapsed {
   width: 48px;
   max-height: 48px;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 
 /* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */

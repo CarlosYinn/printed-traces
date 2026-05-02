@@ -249,9 +249,7 @@ function toggleAllExpanded(): void {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: color-mix(in oklch, var(--ctp-base), transparent 12%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: color-mix(in oklch, var(--ctp-base), transparent 6%);
   border: 1px solid var(--ctp-surface0);
   border-radius: 14px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
@@ -263,8 +261,6 @@ function toggleAllExpanded(): void {
 .legend-panel.is-collapsed {
   width: 48px;
   max-height: 48px;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 
 /* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */
@@ -358,9 +354,11 @@ function toggleAllExpanded(): void {
     color var(--dur-std) var(--ease-std);
 }
 
-.ctrl-btn:hover {
-  background: color-mix(in oklch, var(--ctp-surface1), transparent 10%);
-  color: var(--ctp-text);
+@media (hover: hover) {
+  .ctrl-btn:hover {
+    background: color-mix(in oklch, var(--ctp-surface1), transparent 10%);
+    color: var(--ctp-text);
+  }
 }
 
 /* ── Switch ──────────────────────────────────────────────────────────────── */
@@ -444,8 +442,10 @@ function toggleAllExpanded(): void {
   transition: background var(--dur-std) var(--ease-std);
 }
 
-.topic-group-title:hover {
-  background: color-mix(in oklch, var(--ctp-surface0), transparent 50%);
+@media (hover: hover) {
+  .topic-group-title:hover {
+    background: color-mix(in oklch, var(--ctp-surface0), transparent 50%);
+  }
 }
 
 .topic-group-title[aria-pressed='true'] {
@@ -499,9 +499,11 @@ function toggleAllExpanded(): void {
     transform var(--dur-std) var(--ease-std);
 }
 
-.expand-btn:hover {
-  background: color-mix(in oklch, var(--ctp-surface0), transparent 50%);
-  color: var(--ctp-text);
+@media (hover: hover) {
+  .expand-btn:hover {
+    background: color-mix(in oklch, var(--ctp-surface0), transparent 50%);
+    color: var(--ctp-text);
+  }
 }
 
 .expand-btn[aria-expanded='true'] {
@@ -536,8 +538,10 @@ function toggleAllExpanded(): void {
     opacity var(--dur-std) var(--ease-std);
 }
 
-.topic-row:hover {
-  background: color-mix(in oklch, var(--ctp-surface0), transparent 55%);
+@media (hover: hover) {
+  .topic-row:hover {
+    background: color-mix(in oklch, var(--ctp-surface0), transparent 55%);
+  }
 }
 
 .topic-row.is-active {
@@ -583,6 +587,10 @@ function toggleAllExpanded(): void {
 }
 
 /* ── Focus rings ─────────────────────────────────────────────────────────── */
+
+.legend-panel button {
+  -webkit-tap-highlight-color: transparent;
+}
 
 button:focus-visible {
   outline: 2px solid var(--vp-c-brand-1);

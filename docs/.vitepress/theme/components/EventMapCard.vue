@@ -50,7 +50,7 @@ const anchorLngLat = computed<[number, number] | null>(() =>
 const anchorPixel = ref<{ x: number; y: number } | null>(null)
 
 // MapLibre fires `move` for both pans AND zooms — the `zoom` event is a strict
-// subset, so we only need one listener. We additionally skip sub-pixel deltas
+// subset, so one listener suffices. Sub-pixel deltas are skipped
 // to avoid triggering Vue reactivity for changes that wouldn't visibly move
 // the card (the projection during inertial pan can wobble fractionally each
 // frame even when the camera is at rest).
@@ -219,9 +219,7 @@ const stateAbbrs = computed(() =>
   overflow: visible;  /* connector ::before must extend outside the card */
   border-radius: 10px;
   background: var(--ctp-base); /* fallback if color-mix unsupported */
-  background: color-mix(in oklch, var(--ctp-base), transparent 8%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: color-mix(in oklch, var(--ctp-base), transparent 4%);
   border: 1px solid color-mix(in oklch, var(--ctp-surface1), transparent 40%);
   box-shadow:
     inset 0 1px 0 color-mix(in oklch, white, transparent 88%),

@@ -140,7 +140,7 @@ function navigateEvent(delta: -1 | 1) {
 // ─── empty-state computed ─────────────────────────────────────────────────────
 
 const isEmptyState = computed(
-  () => visibleRecords.value.length === 0 && timeFilter.value !== null,
+  () => visibleRecords.value.length === 0 && timeFilter.value !== null && !activeEvent.value,
 )
 
 const displayMonthLabel = computed(() => {
@@ -155,9 +155,9 @@ const displayMonthLabel = computed(() => {
 const stoppers: Array<() => void> = []
 
 // Padding used when fitting the map to an event's bbox.  On mobile the
-// EventMapCard renders as a bottom sheet, so we leave room at the bottom and
-// shrink the side gutters; on desktop the card docks beside the anchor on the
-// right, so we reserve 300 px on that side plus 320 px of historical lateral
+// EventMapCard renders as a bottom sheet, leaving room at the bottom and
+// shrinking the side gutters; on desktop the card docks beside the anchor on
+// the right, reserving 300 px on that side plus 320 px of historical lateral
 // breathing room (the latter was previously contributed by map.setPadding,
 // which had to be removed because it stacks on top of fitBounds padding and
 // makes the available width negative on a 375 px mobile viewport).
@@ -165,7 +165,7 @@ const stoppers: Array<() => void> = []
 // Padding is measured against the actual map container (not the window),
 // because the map can be embedded in a constrained doc layout. MapLibre
 // silently aborts fitBounds when top+bottom or left+right exceed the canvas,
-// so we clamp each side to roughly one third of the container.
+// so each side is clamped to roughly one third of the container.
 function eventFitPadding(): { top: number; bottom: number; left: number; right: number } {
   if (!isMobileViewport() || !map) {
     return { top: 60, bottom: 60, left: 380, right: 620 }
@@ -187,7 +187,7 @@ function eventFitPadding(): { top: number; bottom: number; left: number; right: 
 // Fly to an event's view.  fitBounds always centres the *bbox* in the padded
 // viewport, but the anchor pulse renders at the geometry centroid — and the
 // two are not the same point.  On mobile this drift is visible (the dot
-// lands off-centre in the upper map area).  To fix it we synthesise a bbox
+// lands off-centre in the upper map area).  The fix is to synthesise a bbox
 // whose centre IS the centroid, expanded to fully contain the real bbox; the
 // fitBounds zoom then derives from this synth extent and the centroid lands
 // at the padded viewport centre (i.e. in the upper map area, above the
@@ -297,6 +297,16 @@ function focusEvent(evt: HistoricalEvent, duration: number): void {
 function setupMapEvents() {
   if (!map) return
 
+  // Dismiss the unpinned hover popup at movestart so it doesn't sit at a stale
+  // screen position through the gesture. Hover handlers below short-circuit on
+  // map.isMoving() — features sliding under a stationary cursor would otherwise
+  // re-fire enter/move/leave per frame and churn Vue reactivity for nothing.
+  map.on('movestart', () => {
+    if (popupPinned.value) return
+    hoveredRecord.value = null
+    popupPosition.value = null
+  })
+
   function updatePopupPosition(e: MapMouseEvent): void {
     const original = e.originalEvent
     if (original instanceof MouseEvent) {
@@ -309,6 +319,7 @@ function setupMapEvents() {
   }
 
   map.on('mouseenter', 'records-unclustered', e => {
+    if (map!.isMoving()) return
     map!.getCanvas().style.cursor = 'pointer'
     if (isMobileViewport() || popupPinned.value) return
     const feat = e.features?.[0]
@@ -318,13 +329,14 @@ function setupMapEvents() {
   })
 
   map.on('mousemove', 'records-unclustered', e => {
-    if (isMobileViewport() || popupPinned.value) return
+    if (map!.isMoving() || isMobileViewport() || popupPinned.value) return
     const feat = e.features?.[0]
     if (feat) hoveredRecord.value = feat.properties as RecordProperties
     updatePopupPosition(e)
   })
 
   map.on('mouseleave', 'records-unclustered', () => {
+    if (map!.isMoving()) return
     map!.getCanvas().style.cursor = ''
     if (popupPinned.value) return
     hoveredRecord.value = null
@@ -371,9 +383,11 @@ function setupMapEvents() {
 
   // Pointer cursor on cluster hover
   map.on('mouseenter', 'records-clusters', () => {
+    if (map!.isMoving()) return
     map!.getCanvas().style.cursor = 'pointer'
   })
   map.on('mouseleave', 'records-clusters', () => {
+    if (map!.isMoving()) return
     map!.getCanvas().style.cursor = ''
   })
 }
@@ -488,7 +502,7 @@ onUnmounted(() => {
       :position="showPopup ? popupPosition : null"
       @close="dismissPinnedPopup"
     />
-    <div v-if="isEmptyState" class="empty-pill">
+    <div v-if="isEmptyState" :key="displayMonthLabel" class="empty-pill">
       No records in {{ displayMonthLabel }} for the selected categories.
     </div>
 
@@ -583,13 +597,11 @@ onUnmounted(() => {
 
 .empty-pill {
   position: absolute;
-  top: 50%;
+  top: 78%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: empty-pill-flash 3s ease both;
   padding: 8px 16px;
-  /* Solid-ish bg instead of backdrop-filter — this badge is small and the
-     blur is barely visible, but each backdrop-filter forces a compositing
-     layer the GPU has to re-blur on every map redraw. */
   background: color-mix(in oklch, var(--ctp-base), transparent 8%);
   border: 1px solid var(--ctp-surface0);
   border-radius: 999px;
@@ -598,6 +610,15 @@ onUnmounted(() => {
   color: var(--ctp-overlay1);
   pointer-events: none;
   z-index: 4;
+}
+
+@keyframes empty-pill-flash {
+  0%, 100% { opacity: 0; }
+  8%, 70%  { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .empty-pill { animation: none; }
 }
 
 .map-attribution {

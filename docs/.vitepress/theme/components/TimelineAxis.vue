@@ -70,7 +70,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
               'has-events': node.events.length > 0,
             }"
             :aria-label="`Jump to ${node.year}`"
-            :title="node.isYearSelected ? `Showing all records for ${node.year} — click to clear` : `Show all records for ${node.year}`"
+            :title="`Show all records for ${node.year}`"
             @click="handleYearClick(node)"
           >
             <div class="node-dot" />
@@ -116,9 +116,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: color-mix(in oklch, var(--ctp-base), transparent 12%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: color-mix(in oklch, var(--ctp-base), transparent 6%);
   border: 1px solid var(--ctp-surface0);
   border-radius: 14px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
@@ -130,8 +128,6 @@ function handleEventDotClick(evt: { id: string; date: string }) {
 .timeline-panel.is-collapsed {
   width: 48px;
   max-height: 48px;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 
 /* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */
@@ -232,8 +228,10 @@ function handleEventDotClick(evt: { id: string; date: string }) {
     color var(--dur-std) var(--ease-std);
 }
 
-.year-node:hover {
-  background: color-mix(in oklch, var(--ctp-surface0), transparent 50%);
+@media (hover: hover) {
+  .year-node:hover {
+    background: color-mix(in oklch, var(--ctp-surface0), transparent 50%);
+  }
 }
 
 .node-dot {
@@ -316,8 +314,10 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   transition: background var(--dur-std) var(--ease-std);
 }
 
-.event-dot:hover {
-  background: color-mix(in oklch, var(--ctp-surface0), transparent 60%);
+@media (hover: hover) {
+  .event-dot:hover {
+    background: color-mix(in oklch, var(--ctp-surface0), transparent 60%);
+  }
 }
 
 .dot-mark {
@@ -353,6 +353,10 @@ function handleEventDotClick(evt: { id: string; date: string }) {
 /* ── Global event card ───────────────────────────────────────────────────── */
 
 /* ── Focus rings ─────────────────────────────────────────────────────────── */
+
+.timeline-panel button {
+  -webkit-tap-highlight-color: transparent;
+}
 
 button:focus-visible {
   outline: 2px solid var(--vp-c-brand-1);
