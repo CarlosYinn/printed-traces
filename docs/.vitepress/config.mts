@@ -10,7 +10,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/printed-traces/favicon.svg' }],
   ],
-  title: 'Chinese Immigrant Children in the U.S. Press, 1880–1885',
+  title: 'Printed Traces 1880–1885',
   description: 'A digital humanities project on Chinese immigrant children in the U.S. press, 1880–1885.',
   base: '/printed-traces/',
   appearance: true,

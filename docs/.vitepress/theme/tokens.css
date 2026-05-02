@@ -28,9 +28,9 @@
   --ctp-blue: #1e66f5;
   --ctp-lavender: #7287fd;
 
-  --font-sans: "Cambria", "Cambria Math", "Source Han Sans SC", Georgia, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-num-tabular: "Cambria", Georgia, serif;
+  --font-sans: Cambria, "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+  --font-num-tabular: Cambria, Georgia, serif;
 
   --radius-sm: 6px;
   --radius-md: 10px;

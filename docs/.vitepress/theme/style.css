@@ -453,3 +453,87 @@ figure.clip figcaption {
 .map-launch-card:hover .map-launch-arrow {
   transform: translateX(4px);
 }
+
+
+/* =============================================
+   CUSTOM CONTAINERS — tip / info / warning
+   ============================================= */
+
+.custom-block {
+  margin: 1.5rem 0;
+  padding: 0.85rem 1.1rem 0.85rem 1rem;
+  border: 1px solid transparent;
+  border-left-width: 3px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Remove the default emoji/icon pseudo-element that VitePress injects */
+.custom-block p:first-child::before { display: none; }
+
+.custom-block-title {
+  margin-bottom: 0.3rem;
+  font-family: var(--vp-font-family-base);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+}
+
+/* ── tip ── */
+.custom-block.tip {
+  border-left-color: var(--vp-c-brand-1);
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 18%, transparent);
+  border-left-color: var(--vp-c-brand-1);
+  background: color-mix(in srgb, var(--vp-c-brand-1) 5%, transparent);
+}
+.custom-block.tip .custom-block-title {
+  color: var(--vp-c-brand-1);
+}
+.custom-block.tip p { color: var(--vp-c-text-2); }
+
+/* ── info ── */
+.custom-block.info {
+  border-left-color: var(--vp-c-text-3);
+  border-color: var(--vp-c-divider);
+  border-left-color: var(--vp-c-text-3);
+  background: var(--vp-c-bg-soft);
+}
+.custom-block.info .custom-block-title {
+  color: var(--vp-c-text-2);
+}
+.custom-block.info p { color: var(--vp-c-text-2); }
+
+/* ── warning ── */
+.custom-block.warning {
+  border-left-color: #b07d2a;
+  border-color: color-mix(in srgb, #b07d2a 20%, transparent);
+  border-left-color: #b07d2a;
+  background: color-mix(in srgb, #b07d2a 5%, transparent);
+}
+.custom-block.warning .custom-block-title {
+  color: #b07d2a;
+}
+.custom-block.warning p { color: var(--vp-c-text-2); }
+
+.dark .custom-block.warning {
+  border-left-color: #d4a040;
+  border-color: color-mix(in srgb, #d4a040 20%, transparent);
+  background: color-mix(in srgb, #d4a040 6%, transparent);
+}
+.dark .custom-block.warning .custom-block-title { color: #d4a040; }
+
+/* ── details ── */
+.custom-block.details {
+  border-left-color: var(--vp-c-text-3);
+  border-color: var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+}
+.custom-block.details summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--vp-c-text-1);
+}
+
