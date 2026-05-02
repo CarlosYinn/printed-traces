@@ -52,6 +52,10 @@ Before training the final models, coherence scores were computed across three ca
 
 K = 25 was selected based on coherence scores and interpretability: it produced internally consistent topics while maintaining sufficient granularity to distinguish sub-discourses within the largest categories (education, the Chinese Educational Mission).
 
+:::info
+K = 30 produced noticeably fragmented results, with several near-duplicate topics sharing overlapping vocabulary. K = 20 merged clearly distinct patterns (missionary schools and public school admission, for instance) into a single undifferentiated topic, losing interpretive precision.
+:::
+
 ### Model training
 
 Both corpora were imported with MALLET's `import-file` command using `--keep-sequence` (required for LDA) and `--remove-stopwords`. In addition to MALLET's built-in English stopword list, a custom stopword file (`scripts/build_mallet/custom_stopwords.txt`) was compiled specifically for this corpus. It removes high-frequency terms that are uninformative for topical discrimination in this particular collection, including newspaper boilerplate (e.g., *said*, *would*, *made*), OCR artifacts, and corpus-specific proper nouns that would otherwise dominate topic keys without adding interpretive value. Training was conducted with the following parameters:
@@ -75,6 +79,10 @@ mallet train-topics \
 Two model runs were saved:
 - **Deduped model** (K25_S2): trained on the 1,100-document deduplicated corpus
 - **Full-corpus model** (K25_S1): trained on the 1,525-document full corpus
+
+:::info
+Running two parallel models rather than a single combined one was a deliberate methodological choice. The deduped model captures the original discourse distribution; the full-corpus model reflects what readers actually encountered, including articles repeated across dozens of papers. Comparing the two reveals how the reprinting network distorted topic prominence.
+:::
 
 ### Topic labeling and categorization
 

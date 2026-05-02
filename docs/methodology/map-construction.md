@@ -21,6 +21,10 @@ Boundaries are derived from the [Atlas of Historical County Boundaries](https://
 
 A snapshot date of **1882-06-30** is used to represent the political geography of the study period. All features whose active date range includes this date are selected; all others are discarded.
 
+:::info
+The 1882 midpoint was chosen because it coincides with the passage of the Chinese Exclusion Act, making it both politically central to the project and a reasonable approximation of the corpus's geographic conditions across the full 1880–1885 window. It also aligns with the date of the Rand McNally basemap layer used in the interactive map.
+:::
+
 For date-range filtering, the script handles two column formats present in different Newberry shapefiles:
 
 - `START_DATE` / `END_DATE` (timestamp columns)
@@ -208,6 +212,10 @@ python scripts/build_map_data/build_events.py       # independent
 python scripts/build_map_data/build_boundaries.py   # requires Newberry raw data
 python scripts/build_map_data/build_records.py      # requires boundaries + topics
 ```
+
+:::tip
+When iterating on topic labels, only `build_topics.py` and `build_records.py` need to be rerun. Boundary data is stable across the project lifetime, and `build_events.py` only needs updating if event definitions or FIPS codes change.
+:::
 
 | Script | Output | Size |
 |---|---|---|
