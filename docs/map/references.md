@@ -7,18 +7,23 @@ title: Map References
 ## Primary Data Sources
 
 **Chronicling America: Historic American Newspapers**
-Library of Congress, Washington, D.C.
-[https://chroniclingamerica.loc.gov/](https://chroniclingamerica.loc.gov/)
+
+Library of Congress, Washington, D.C. [https://chroniclingamerica.loc.gov/](https://chroniclingamerica.loc.gov/)
+
 
 **Atlas of Historical County Boundaries**
+
 *Atlas of Historical County Boundaries*. Chicago: Newberry Library, 2012. [https://publications.newberry.org/ahcb/](https://publications.newberry.org/ahcb/)
 
 ## Basemaps
 
-**Norman B. Leventhal Map & Education Center**
-Rand McNally and Company. "Rand McNally & Co's new railroad and county map of the United States and Dominion of Canada." Map. Chicago: Rand McNally, 1882. Norman B. Leventhal Map & Education Center, [https://collections.leventhalmap.org/search/commonwealth:1257b834v](https://collections.leventhalmap.org/search/commonwealth:1257b834v).
+**OpenStreetMap**
 
-[**OpenStreetMap**](https://www.openstreetmap.org/) · © OpenStreetMap contributors, ODbL.
+© [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL.
+
+**Norman B. Leventhal Map & Education Center at the Boston Public Library**
+
+Rand McNally and Company. "Rand McNally & Co's new railroad and county map of the United States and Dominion of Canada." Map. Chicago: Rand McNally, 1882. Norman B. Leventhal Map & Education Center, https://collections.[leventhalmap.org/search/commonwealth:1257b834v](https://collections.leventhalmap.org/search/commonwealth:1257b834v).
 
 ## Geospatial Tools
 
@@ -29,7 +34,7 @@ Rand McNally and Company. "Rand McNally & Co's new railroad and county map of th
 ## Map & Frontend Libraries
 
 - `MapLibre GL JS`: [https://maplibre.org/maplibre-gl-js/](https://maplibre.org/maplibre-gl-js/)
-- `Vue`: [https://vuejs.org/](https://vuejs.org/)
+- `Vue.js`: [https://vuejs.org/](https://vuejs.org/)
 
 ## Historical Sources for Event Annotations
 

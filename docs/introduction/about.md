@@ -32,15 +32,15 @@ All newspaper clippings reproduced on this site are drawn from *Chronicling Amer
 
 ### Typography
 
-The *Printed Traces* wordmark is set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky), a free display typeface by Fredrick R. Brennan. The letterforms were converted to SVG paths for display on the site. Body text is set in Cambria (with Source Serif 4 and Georgia as fallbacks). Code samples use JetBrains Mono.
+The *Printed Traces* wordmark is set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky), a free display typeface designed by Fredrick R. Brennan and released under the SIL Open Font License, Version 1.1. The letterforms were converted to SVG paths for display on the site. Body text is set in Cambria (with Source Serif 4 and Georgia as fallbacks). Code samples use JetBrains Mono.
 
 ### Data Sources
 
 | Resource | Provider |
 |---|---|
-| Corpus of digitized newspaper articles | *Chronicling America*, Library of Congress |
-| Historical county and state boundaries | *Atlas of Historical County Boundaries*, Newberry Library |
-| Topic model | MALLET 2.0 (Andrew McCallum, UMass Amherst) |
+| Corpus of digitized newspaper articles | [*Chronicling America*](https://chroniclingamerica.loc.gov/), Library of Congress |
+| Historical county and state boundaries | [*Atlas of Historical County Boundaries*](https://publications.newberry.org/ahcb/), Newberry Library |
+| Topic model | [MALLET 2.0](https://mimno.github.io/Mallet/) (Andrew McCallum, UMass Amherst) |
 
 ### Charts
 
@@ -48,4 +48,4 @@ All data visualizations were created with [Datawrapper](https://www.datawrapper.
 
 ### Site
 
-Built with [VitePress](https://vitepress.dev/). Source available on [GitHub](https://github.com/CarlosYinn/printed-traces).
+Built with [Vue.js](https://vuejs.org/) and [VitePress](https://vitepress.dev/). Source available on [GitHub](https://github.com/CarlosYinn/printed-traces).
