@@ -14,7 +14,7 @@ title: Map Overview
 </a>
 
 ::: warning WebGL Required
-The map renderer depends on WebGL. If the map fails to load, check that hardware acceleration is enabled in your browser settings (Chrome: *Settings → System → Use hardware acceleration*; Firefox: open `about:config`, search for `webgl.disabled`, and set it to `false`).
+The map renderer depends on WebGL. If the map fails to load, check that hardware acceleration is enabled in your browser settings (Chrome: *Settings → System → Use hardware acceleration*; Firefox: open `about:config`, search for `webgl.disabled`, and set it to `false`). Some browser extensions that block canvas access may also prevent the map from rendering correctly.
 :::
 
 ## How to Use the Map
@@ -57,34 +57,19 @@ The **Events panel** provides a curated list of key historical moments during th
 
 ## Topic Categories
 
-The corpus is organized into nine thematic categories derived from LDA topic modeling on the full set of newspaper excerpts.
+The corpus is organized into nine thematic categories derived from LDA topic modeling. Each dot on the map is colored by its assigned category:
 
-### Chinese Educational Mission
-The highest-weight category in the corpus. Covers the 120 Chinese government-sponsored students sent to the United States under Yung Wing's program, their academic and personal lives, the 1881 recall order, and the political controversy surrounding the program. Several sub-topics distinguish administrative decisions from student-centered narratives.
+- Chinese Educational Mission
+- Education & Schools
+- Children & Family
+- Law, Politics & Exclusion
+- Violence & War
+- Commerce & Material Culture
+- Daily Life & Urban Space
+- Land, Migration & Labor
+- Culture, Perception & Acculturation
 
-### Education & Schools
-Encompasses debate over Chinese children's access to American public schools, missionary and church-run schools for Chinese students, and classroom instruction more broadly. This category includes coverage of the *Tape v. Hurley* case and recurring arguments about whether Chinese children should be admitted to common schools.
-
-### Children & Family
-Records depicting Chinese family life in American cities, including domestic scenes, child-rearing practices, and American commentary on Confucian family ethics. Coverage often appears in travel-writing and feature reporting styles.
-
-### Law, Politics & Exclusion
-Covers the legislative and legal machinery of exclusion: congressional debates, the Angell Treaty of 1880, the Exclusion Act itself, and related court proceedings. Criminal cases involving Chinese defendants also fall here, including both trial coverage and police-beat reporting.
-
-### Violence & War
-Two distinct threads: anti-Chinese violence on the U.S. West Coast (culminating in events like Rock Springs and Tacoma), and international coverage of the Sino-French War (1884–85). Both threads reflect anxieties about Chinese social and political instability.
-
-### Commerce & Material Culture
-Reporting on Chinese goods, Chinatown shops, decorative arts, clothing, and the aesthetics of Chinese material culture as consumed and described by American writers. Coverage ranges from trade notices to elaborate orientalist description.
-
-### Daily Life & Urban Space
-Routine press reporting on Chinese residents' daily activities (laundry workers, domestic servants, neighborhood life), as well as spatial narratives about Chinatown as a distinctive urban zone. The largest single topic in this category (*Routine Press Reporting*) reflects the high volume of incidental mentions in city news columns.
-
-### Land, Migration & Labor
-Coverage of Chinese migration to Hawaii and the Pacific, and of Chinese agricultural and land-use practices in the American West. This category captures the labor dimension of Chinese immigration beyond the narrow exclusion debate.
-
-### Culture, Perception & Acculturation
-A more diffuse category covering public lectures about China, curiosity-driven reporting on Chinese physical appearance and customs, language-learning narratives, and moral commentary on opium. These records reflect American attempts to categorize and interpret Chinese cultural difference.
+For full descriptions of each category and the modeling methodology, see [Analytical Methods](/methodology/analytical-methods#topic-labeling-and-categorization).
 
 ## Historical Events on the Map
 

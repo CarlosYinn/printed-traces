@@ -271,7 +271,7 @@ The following table lists all non-noise topics identified across both model runs
 | is_reprint | false |
 | reprint_count | 1 |
 | token_count | 312 |
-| Page_URL | [↗ Chronicling America](https://www.loc.gov/resource/sn92073907/1885-05-28/ed-1/?sp=1) |
+| Page_URL | [📰 View original](https://www.loc.gov/resource/sn92073907/1885-05-28/ed-1/?sp=1) |
 
 **Excerpt:**
 > Dear Children: As you have shown your interest in missions in so many ways, and especially in supporting a missionary in China, I thought a letter from one who, just a few years ago, was where you are now — in a South Carolina school — might be interesting to you. My first chapter will describe a Chinese school. As it is a Chinese school, of course they study the Chinese language…

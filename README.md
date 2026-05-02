@@ -10,19 +10,19 @@ A digital humanities project that combines close historical analysis with corpus
 
 ## About the Project
 
-During the 1880s, Chinese children were demographically rare in the United States, yet they appeared with striking frequency in press coverage, legal proceedings, and political debate. Their scarcity, paradoxically, made them hyper-visible. As the only members of Chinese communities who could claim unambiguous birthright citizenship under the Fourteenth Amendment, they occupied a uniquely contested legal position, and newspapers played an active role in shaping how that position was understood by the public.
+This project examines how U.S. newspapers between 1880 and 1885 wrote about Chinese children: their schooling, their presence in American communities, and their place in national debates over race, citizenship, and belonging. The window is bracketed by the Chinese Exclusion Act of 1882 and the *Tape v. Hurley* school-access case of 1885, a contested period for how the press portrayed Chinese youth.
 
-The project traces a discursive shift across the study period: early coverage tended to frame Chinese children through missionary narratives and cultural curiosity, while by the mid-1880s, newspapers increasingly emphasized public schooling, legal rights, and racial conflict. This shift coincided with landmark cases such as *In re Look Tin Sing* (1884) and *Tape v. Hurley* (1885).
+The underlying corpus is 1,535 newspaper pages drawn from the Library of Congress's *Chronicling America* archive across seven keyword searches (*Chinese student*, *Chinese school*, *Chinese girl*, *Chinese children*, *Chinese child*, *Chinese boy*, *Chinese education*), spanning 323 titles and 53 states and territories. Pages were OCR-extracted, classified into core/secondary relevance tiers, and passed through a reprint-detection pipeline that reconstructs propagation chains for telegraphically reprinted stories. Two LDA topic models were then trained with MALLET at K=25: S1 over 946 originals and S2 over a 161-document deduplicated subset. The resulting topics were labeled and grouped into ten thematic categories that drive filtering and color encoding across the site's interactive map and analysis pages.
 
-## What's in This Repo
+## Repository Layout
 
-- `docs/` — VitePress source for the site (Markdown content, theme, components)
-  - `introduction/`, `methodology/`, `dataset/`, `analysis/`, `map/` — site sections
-  - `.vitepress/theme/` — custom theme, components, and styles
-  - `public/` — static assets (favicons, images, tiles)
-- `data/` — supporting data (raw Newberry Atlas source data is gitignored due to size)
-- `scripts/` — scripts used to construct the dataset and prepare visualizations
-- `.github/workflows/deploy.yml` — GitHub Actions workflow that builds and deploys to GitHub Pages
+- `docs/`: VitePress source for the site (Markdown content, theme, components)
+  - `introduction/`, `methodology/`, `dataset/`, `analysis/`, `map/`: site sections
+  - `.vitepress/theme/`: custom theme, components, and styles
+  - `public/`: static assets (favicons, images, tiles)
+- `data/`: supporting data (raw Newberry Atlas source data is gitignored due to size)
+- `scripts/`: scripts used to construct the dataset and prepare visualizations
+- `.github/workflows/deploy.yml`: GitHub Actions workflow that builds and deploys to GitHub Pages
 
 ## Local Development
 
@@ -35,28 +35,22 @@ npm run build    # build static site to docs/.vitepress/dist
 npm run preview  # preview the built site locally
 ```
 
-## Deployment
-
-The site is deployed automatically to GitHub Pages on every push to `main` via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). The `base` path is set to `/printed-traces/` in [`docs/.vitepress/config.mts`](docs/.vitepress/config.mts).
-
 ## Methods & Tools
 
 - **Site:** [VitePress](https://vitepress.dev/)
 - **Topic modeling:** [MALLET](https://mimno.github.io/Mallet/)
 - **Map:** [MapLibre GL JS](https://maplibre.org/) with 1882 county and state boundaries from the Newberry Library's *Atlas of Historical County Boundaries*
-- **Charts:** Datawrapper embeds and D3-based visualizations
-- **Typefaces:** Wordmark set in [Chomsky](https://github.com/ctrlcctrlv/chomsky) by Fredrick R. Brennan; body text in Cambria; monospace in IBM Plex Mono and JetBrains Mono
+- **Charts:** [Datawrapper](https://www.datawrapper.de/) and [RAWGraphs](https://www.rawgraphs.io/), with chart data prepared by Python scripts in [`scripts/build_datawrapper_data/`](scripts/build_datawrapper_data/)
+- **Typefaces:** Wordmark set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky) typeface by Fredrick R. Brennan (converted to SVG paths)
 
 ## Data Sources
 
 | Resource | Provider |
 |---|---|
-| Corpus of digitized newspaper articles | *Chronicling America*, Library of Congress |
-| Historical county and state boundaries | *Atlas of Historical County Boundaries*, Newberry Library |
-| Topic model | MALLET 2.0 (Andrew McCallum, UMass Amherst) |
-
-All newspaper clippings reproduced on the site are drawn from *Chronicling America: Historic American Newspapers* and are in the public domain.
+| Corpus of digitized newspaper articles | [*Chronicling America*](https://chroniclingamerica.loc.gov/), Library of Congress |
+| Historical county and state boundaries | [*Atlas of Historical County Boundaries*](https://publications.newberry.org/ahcb/), Newberry Library |
+| Topic model | [MALLET 2.0](https://mimno.github.io/Mallet/) (Andrew McCallum, UMass Amherst) |
 
 ## License
 
-The site code (theme, components, build configuration) is released under the MIT License. Newspaper clippings and historical materials reproduced from *Chronicling America* are in the public domain. Other third-party assets retain their original licenses; see [About the Project](https://carlosyinn.github.io/printed-traces/introduction/about) for credits.
+The site code is released under the [MIT License](LICENSE). Newspaper clippings from *Chronicling America* are in the public domain. See [About the Project](https://carlosyinn.github.io/printed-traces/introduction/about#credits) for full credits.

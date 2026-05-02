@@ -29,8 +29,7 @@ Rand McNally and Company. "Rand McNally & Co's new railroad and county map of th
 ## Map & Frontend Libraries
 
 - `MapLibre GL JS`: [https://maplibre.org/maplibre-gl-js/](https://maplibre.org/maplibre-gl-js/)
-- `VitePress`: [https://vitepress.dev/](https://vitepress.dev/)
-- `D3`: [https://d3js.org/](https://d3js.org/)
+- `Vue`: [https://vuejs.org/](https://vuejs.org/)
 
 ## Historical Sources for Event Annotations
 

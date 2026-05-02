@@ -32,7 +32,7 @@ All newspaper clippings reproduced on this site are drawn from *Chronicling Amer
 
 ### Typography
 
-The *Printed Traces* wordmark is set in [Chomsky](https://github.com/nicholasgasior/chomsky), a free display typeface by Fredrick R. Brennan. The letterforms were converted to SVG paths for display on the site. Body text is set in Cambria (with Source Serif 4 and Georgia as fallbacks). Code samples use JetBrains Mono.
+The *Printed Traces* wordmark is set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky), a free display typeface by Fredrick R. Brennan. The letterforms were converted to SVG paths for display on the site. Body text is set in Cambria (with Source Serif 4 and Georgia as fallbacks). Code samples use JetBrains Mono.
 
 ### Data Sources
 
