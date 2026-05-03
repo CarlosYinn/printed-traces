@@ -332,7 +332,7 @@ const stateAbbrs = computed(() =>
   font-size: 11px;
   line-height: 1;
   cursor: pointer;
-  transition: background 120ms, border-color 120ms, color 120ms;
+  transition: background var(--dur-fast) var(--ease-std), border-color var(--dur-fast) var(--ease-std), color var(--dur-fast) var(--ease-std);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -346,6 +346,8 @@ const stateAbbrs = computed(() =>
 
 .nav-btn:active {
   background: var(--ctp-surface1);
+  border-color: var(--ctp-overlay0);
+  color: var(--ctp-text);
 }
 
 .nav-counter {

@@ -398,10 +398,13 @@ onUnmounted(stopPlay)
   color: var(--ctp-subtext1);
   z-index: 2;
   transition: color var(--dur-std) var(--ease-std);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.panel-toggle:hover {
-  color: var(--ctp-text);
+@media (hover: hover) {
+  .panel-toggle:hover {
+    color: var(--ctp-text);
+  }
 }
 
 /* ── Panel body ──────────────────────────────────────────────────────────── */
@@ -503,11 +506,14 @@ onUnmounted(stopPlay)
     background var(--dur-std) var(--ease-std),
     border-color var(--dur-std) var(--ease-std),
     color var(--dur-std) var(--ease-std);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.ctrl-btn:hover {
-  background: color-mix(in oklch, var(--ctp-surface1), transparent 10%);
-  color: var(--ctp-text);
+@media (hover: hover) {
+  .ctrl-btn:hover {
+    background: color-mix(in oklch, var(--ctp-surface1), transparent 10%);
+    color: var(--ctp-text);
+  }
 }
 
 .ctrl-btn.is-active {

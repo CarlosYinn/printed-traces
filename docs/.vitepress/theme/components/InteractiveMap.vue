@@ -55,6 +55,7 @@ onUnmounted(() => {
   min-height: 0;
   overflow: hidden;
   background: var(--ctp-base);
+  touch-action: none;
 }
 
 .interactive-map-shell {

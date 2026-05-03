@@ -170,10 +170,13 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   font-size: 1.1rem;
   color: var(--ctp-subtext1);
   transition: color var(--dur-std) var(--ease-std);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.panel-toggle:hover {
-  color: var(--ctp-text);
+@media (hover: hover) {
+  .panel-toggle:hover {
+    color: var(--ctp-text);
+  }
 }
 
 /* ── Panel body ──────────────────────────────────────────────────────────── */

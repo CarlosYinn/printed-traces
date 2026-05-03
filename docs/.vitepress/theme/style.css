@@ -116,9 +116,12 @@ a:visited { color: inherit; }
 .VPSidebarItem > .item {
   border-radius: 6px;
   transition: background-color 0.15s;
+  -webkit-tap-highlight-color: transparent;
 }
-.VPSidebarItem > .item:hover {
-  background-color: var(--vp-c-bg-soft);
+@media (hover: hover) {
+  .VPSidebarItem > .item:hover {
+    background-color: var(--vp-c-bg-soft);
+  }
 }
 .VPSidebarItem.is-active > .item {
   background-color: var(--vp-c-brand-soft);
