@@ -6,7 +6,7 @@ title: Dataset Reference
 
 ## Overview
 
-The corpus contains **1,535 records** drawn from 323 distinct newspaper titles published across the United States between January 1880 and December 1885. Each record represents one newspaper page on which relevant material was identified through keyword search. Records are sourced from [Chronicling America: Historic American Newspapers](https://www.loc.gov/collections/chronicling-america/about-this-collection/), a digital newspaper collection hosted by the Library of Congress and jointly sponsored with the National Endowment for the Humanities through the National Digital Newspaper Program (NDNP). Persistent URLs to the original page images on www.loc.gov are retained for every record.
+The corpus contains **1,535 records** drawn from 323 distinct newspaper titles published across the United States between January 1880 and December 1885. Each record represents one newspaper page on which relevant material was identified through keyword search. Records are sourced from *Chronicling America: Historic American Newspapers*, a digital newspaper collection hosted by the Library of Congress and jointly sponsored with the National Endowment for the Humanities through the National Digital Newspaper Program (NDNP). Persistent URLs to the original page images on www.loc.gov are retained for every record.
 
 ### Corpus composition
 
@@ -62,7 +62,7 @@ The search term used to retrieve the page. One of seven values: `Chinese student
 Publication date in `YYYY-MM-DD` format.
 
 **Newspaper_Name**
-Title of the newspaper as recorded in the Chronicling America database.
+Title of the newspaper as recorded in the *Chronicling America* database.
 
 **Pub_City**
 City of publication.
@@ -80,7 +80,7 @@ Normalized Census region derived from publication location: `West`, `South`, `Mi
 The specific page image within the issue (e.g., `Image 7`).
 
 **Page_URL**
-Persistent link to the digitized page on the Library of Congress Chronicling America platform.
+Persistent link to the digitized page on the Library of Congress *Chronicling America* platform.
 
 ### Content fields
 
@@ -160,99 +160,99 @@ Four-digit year as a string. Used for coarser temporal grouping.
 
 ## Topic Taxonomy
 
-The following table lists all non-noise topics identified across both model runs (S1: full corpus K25_S1; S2: deduplicated corpus K25_S2), with their thematic categories and discourse labels. Topic IDs correspond to the `topic_id` values used in the spatial map and dataset browser.
+The following table lists all non-noise topics identified across both model runs (S1: full corpus K25_S1; S2: deduplicated corpus K25_S2), with their thematic categories and analytic labels. Topic IDs correspond to the `topic_id` values used in the spatial map and dataset browser.
 
 ### Chinese Educational Mission
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_17 | S2 | 0.2963 | The Hartford Experiment: Government Students and the Politics of Return |
-| all_topic_24 | S1 | 0.1328 | The Hartford Experiment: Government Orders, Military Discipline, and the Politics of Return |
-| all_topic_14 | S1 | 0.0411 | From Hartford to Shanghai: Friendships, Courtship, and Return |
-| all_topic_0 | S1 | 0.0280 | The Prettiest Girl in Class: Intermarriage, Scandal, and the Student Abroad |
-| all_topic_17 | S1 | 0.0205 | Sherman, Kensington, and the Threat of Beheading: The Politics of Student Recall |
+| deduped_topic_17 | S2 | 0.2963 | Chinese Educational Mission |
+| all_topic_24 | S1 | 0.1328 | CEM: Government Policy & Institutional Recall |
+| all_topic_14 | S1 | 0.0411 | CEM: Student Lives & Personal Narratives |
+| all_topic_0 | S1 | 0.0280 | CEM: Students & Cross-Cultural Marriage |
+| all_topic_17 | S1 | 0.0205 | CEM: Political Controversy |
 
 ### Education & Schools
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_7 | S2 | 0.1286 | Teaching English, Making Americans: The Pedagogy of Assimilation |
-| deduped_topic_8 | S2 | 0.1284 | "Born on This Soil": The Courtroom Battle over School Access |
-| deduped_topic_13 | S2 | 0.1144 | Saving Heathen Girls: Missionary Schooling and Christian Conversion |
-| all_topic_3 | S1 | 0.0778 | Teaching English, Making Americans: The Pedagogy of Assimilation |
-| all_topic_2 | S1 | 0.0703 | "Born on This Soil": The Courtroom Battle over School Access |
-| all_topic_16 | S1 | 0.0789 | Saving Heathen Girls: Missionary Schooling and Christian Conversion |
-| all_topic_18 | S1 | 0.0331 | Sabbath Schools and Branch Missions: The Institutional Network |
+| deduped_topic_7 | S2 | 0.1286 | Classroom Instruction |
+| deduped_topic_8 | S2 | 0.1284 | Public School Admission |
+| deduped_topic_13 | S2 | 0.1144 | Missionary & Church Schools |
+| all_topic_3 | S1 | 0.0778 | Classroom Instruction |
+| all_topic_2 | S1 | 0.0703 | Public School Admission |
+| all_topic_16 | S1 | 0.0789 | Missionary & Church Schools |
+| all_topic_18 | S1 | 0.0331 | Mission School Directories & Schedules |
 
 ### Children & Family
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_18 | S2 | 0.2734 | Narrating Chinese Childhood: Domesticity, Gender, and Sentiment |
-| all_topic_6 | S1 | 0.1107 | Narrating Chinese Childhood: Domesticity, Gender, and Sentiment |
-| deduped_topic_6 | S2 | 0.0218 | Filial Piety and the Rural Chinese Subject |
-| all_topic_8 | S1 | 0.0249 | Filial Piety and the Obligations of Kinship |
-| all_topic_12 | S1 | 0.0228 | Poor and Peculiar: Poverty, Gender, and the Sympathetic Gaze |
+| deduped_topic_18 | S2 | 0.2734 | Children & Family Life |
+| all_topic_6 | S1 | 0.1107 | Children & Family Life |
+| deduped_topic_6 | S2 | 0.0218 | Confucian Family Ethics |
+| all_topic_8 | S1 | 0.0249 | Confucian Family Ethics |
+| all_topic_12 | S1 | 0.0228 | Childhood Conditions & Moral Commentary |
 
 ### Law, Politics & Exclusion
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_16 | S2 | 0.0763 | Lost in Translation: Crime, Courts, and the Interpreter Problem |
-| deduped_topic_24 | S2 | 0.0594 | Legislating Exclusion: The Chinese Exclusion Act and Congressional Debate |
-| all_topic_1 | S1 | 0.0363 | Legislating Exclusion: Treaties and Congressional Debate |
-| all_topic_5 | S1 | 0.0238 | Lost in Translation: Formal Proceedings and the Interpreter Problem |
-| all_topic_19 | S1 | 0.0564 | The Chinatown Beat: Arrests and Daily Court Proceedings |
+| deduped_topic_16 | S2 | 0.0763 | Criminal Cases & Court Proceedings |
+| deduped_topic_24 | S2 | 0.0594 | Exclusion Legislation |
+| all_topic_1 | S1 | 0.0363 | Exclusion Legislation |
+| all_topic_5 | S1 | 0.0238 | Criminal Cases & Court Proceedings (Trials) |
+| all_topic_19 | S1 | 0.0564 | Criminal Cases & Court Proceedings (Police) |
 
 ### Violence & War
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_22 | S2 | 0.0426 | Torches and Mobs: Arson, Riot, and Racial Expulsion |
-| deduped_topic_20 | S2 | 0.0336 | Imperial Rivalries: The Sino-French War in the American Press |
-| all_topic_10 | S1 | 0.0266 | Torches and Mobs: Arson, Riot, and Racial Expulsion |
+| deduped_topic_22 | S2 | 0.0426 | Anti-Chinese Violence |
+| deduped_topic_20 | S2 | 0.0336 | Sino-French War |
+| all_topic_10 | S1 | 0.0266 | Anti-Chinese Violence |
 
 ### Commerce & Material Culture
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_21 | S2 | 0.0201 | Consuming the Orient: Chinoiserie and Holiday Commerce |
-| deduped_topic_14 | S2 | 0.0327 | The Oriental Parlor: Domesticity, Hospitality, and Curiosity |
-| deduped_topic_10 | S2 | 0.0385 | Marking Difference: Bodies, Dress, and the Oriental Type |
-| all_topic_23 | S1 | 0.0200 | Consuming the Orient: Chinoiserie and Holiday Commerce |
-| all_topic_21 | S1 | 0.0249 | Silk and Silver: Commodifying the Oriental Domestic |
+| deduped_topic_21 | S2 | 0.0201 | East Asian Consumer Goods |
+| deduped_topic_14 | S2 | 0.0327 | Social Dining & Interior Spaces |
+| deduped_topic_10 | S2 | 0.0385 | Clothing & Physical Description |
+| all_topic_23 | S1 | 0.0200 | East Asian Consumer Goods |
+| all_topic_21 | S1 | 0.0249 | Trade in Chinese Goods & Furnishings |
 
 ### Daily Life & Urban Space
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_9 | S2 | 0.1926 | The Chinatown Beat: Everyday News Coverage |
-| deduped_topic_23 | S2 | 0.0375 | Inside Chinatown: Death, Darkness, and Sensory Reportage |
-| deduped_topic_0 | S2 | 0.0322 | Hired Hands: Chinese Domestic Labor and Wage Relations |
-| all_topic_22 | S1 | 0.0172 | Hired Hands: Chinese Domestic Labor and Wage Relations |
+| deduped_topic_9 | S2 | 0.1926 | Routine Press Reporting |
+| deduped_topic_23 | S2 | 0.0375 | Chinatown Spatial Narratives |
+| deduped_topic_0 | S2 | 0.0322 | Domestic Employment |
+| all_topic_22 | S1 | 0.0172 | Domestic Employment |
 
 ### Land, Migration & Labor
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_15 | S2 | 0.0694 | Pacific Crossings: Hawaii, Steamships, and Transpacific Migration Control |
-| deduped_topic_11 | S2 | 0.0151 | Chinese Agricultural Labor in the American West |
-| all_topic_11 | S1 | 0.0794 | Pacific Crossings: Hawaii, Steamships, and Transpacific Migration Control |
+| deduped_topic_15 | S2 | 0.0694 | Hawaii & Pacific Migration |
+| deduped_topic_11 | S2 | 0.0151 | Agriculture & Land Use |
+| all_topic_11 | S1 | 0.0794 | Hawaii & Pacific Migration |
 
 ### Culture, Perception & Acculturation
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| deduped_topic_4 | S2 | 0.0192 | The "Chinese Question" on Stage: Public Spectacle and Reform Rhetoric |
-| deduped_topic_12 | S2 | 0.0232 | Opium Dens and Degraded Subjects: The Vice Narrative |
-| all_topic_20 | S1 | 0.0166 | Shaved Heads and Sprouts: The Exotic Body on Display |
-| all_topic_15 | S1 | 0.0149 | The Preacher and the Mosquito: Everyday Struggles of Acculturation |
+| deduped_topic_4 | S2 | 0.0192 | Public Gatherings & Lectures |
+| deduped_topic_12 | S2 | 0.0232 | Opium & Moral Degradation |
+| all_topic_20 | S1 | 0.0166 | Physical Appearance & Curiosity Narratives |
+| all_topic_15 | S1 | 0.0149 | Language Learning & Cultural Adjustment |
 
 ### Diplomacy
 
-| Topic ID | Run | Weight | Discourse Label |
+| Topic ID | Run | Weight | Analytic Label |
 | --- | --- | --- | --- |
-| all_topic_9 | S1 | 0.0464 | The Minister's Daughter: Chinese Children in Diplomatic Settings |
+| all_topic_9 | S1 | 0.0464 | Diplomacy & Ceremonial Events |
 
 
 ## Example Record
