@@ -23,28 +23,19 @@ The site is built with [Vue.js](https://vuejs.org/) using [VitePress](https://vi
 
 ### Data Sources
 
-**Chronicling America**
-
-Library of Congress. “Chronicling America: Historic American Newspapers.” Washington, DC. [https://www.loc.gov/collections/chronicling-america/about-this-collection/](https://www.loc.gov/collections/chronicling-america/about-this-collection/).
-
-
-**Atlas of Historical County Boundaries**
+Library of Congress. *Chronicling America: Historic American Newspapers*. Washington, DC. [https://www.loc.gov/collections/chronicling-america/about-this-collection/](https://www.loc.gov/collections/chronicling-america/about-this-collection/).
 
 Newberry Library. *Atlas of Historical County Boundaries*. Chicago: Newberry Library, 2012. [https://publications.newberry.org/ahcb/](https://publications.newberry.org/ahcb/).
 
 ### Tool Citations
 
-**MALLET**
+- **RAWGraphs:** [https://www.rawgraphs.io/](https://www.rawgraphs.io/).
+- **Datawrapper:** [https://www.datawrapper.de/](https://www.datawrapper.de/).
+- **MALLET:** [https://mimno.github.io/Mallet/](https://mimno.github.io/Mallet/)
 
-Andrew Kachites McCallum. “MALLET: A Machine Learning for Language Toolkit.” 2002. [http://mallet.cs.umass.edu](http://mallet.cs.umass.edu).
+McCallum, Andrew Kachites. “MALLET: A Machine Learning for Language Toolkit.” 2002. [http://mallet.cs.umass.edu](http://mallet.cs.umass.edu).
 
-**Datawrapper**
-
-Datawrapper GmbH. “Datawrapper.” [https://www.datawrapper.de/](https://www.datawrapper.de/).
-
-**RAWGraphs**
-
-Michele Mauri, Tommaso Elli, Giorgio Caviglia, Giorgio Uboldi, and Matteo Azzi. “RAWGraphs: A Visualisation Platform to Create Open Outputs.” 2017. https://doi.org/10.1145/3125571.3125585. RAWGraphs: [https://www.rawgraphs.io/](https://www.rawgraphs.io/).
+Mauri, Michele, Tommaso Elli, Giorgio Caviglia, Giorgio Uboldi, and Matteo Azzi. “RAWGraphs: A Visualisation Platform to Create Open Outputs.” 2017. [https://doi.org/10.1145/3125571.3125585](https://doi.org/10.1145/3125571.3125585).
 
 ### Newspaper Clippings
 

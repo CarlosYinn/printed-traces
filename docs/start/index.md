@@ -53,7 +53,7 @@ Topics were evaluated using these diagnostics, and representative documents for 
 
 ## Topic Labeling
 
-After reviewing top words and representative documents, each of the 25 topics in both S1 and S2 was assigned two labels. The **analytic label** describes content in neutral terms (e.g., *Public School Admission*, *Missionary & Church Schools*). The **discourse label** offers a more interpretive, historically grounded title suited to public-facing presentation (e.g., *"Born on This Soil": The Courtroom Battle over School Access*; *Saving Heathen Girls: Missionary Schooling and Christian Conversion*).
+After reviewing top words and representative documents, each of the 25 topics in both S1 and S2 was assigned an **analytic label** describing content in neutral terms (e.g., Public School Admission, Missionary & Church Schools).
 
 Topics from S1 and S2 were then cross-referenced in a **merged label table**. Where a topic appeared in both runs with similar content, the two were matched and assigned shared attributes. Topics unique to one run were retained separately.
 

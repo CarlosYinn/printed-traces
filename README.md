@@ -12,7 +12,7 @@ A digital humanities project that combines close historical analysis with corpus
 
 This project examines how U.S. newspapers between 1880 and 1885 wrote about Chinese children: their schooling, their presence in American communities, and their place in national debates over race, citizenship, and belonging. The window is bracketed by the Chinese Exclusion Act of 1882 and the *Tape v. Hurley* school-access case of 1885, a contested period for how the press portrayed Chinese youth.
 
-The underlying corpus is 1,535 newspaper pages drawn from the Library of Congress's *Chronicling America* archive across seven keyword searches (*Chinese student*, *Chinese school*, *Chinese girl*, *Chinese children*, *Chinese child*, *Chinese boy*, *Chinese education*), spanning 323 titles and 53 states and territories. Pages were OCR-extracted, classified into core/secondary relevance tiers, and passed through a reprint-detection pipeline that reconstructs propagation chains for telegraphically reprinted stories. Two LDA topic models were then trained with MALLET at K=25: S1 over 946 originals and S2 over a 161-document deduplicated subset. The resulting topics were labeled and grouped into ten thematic categories that drive filtering and color encoding across the site's interactive map and analysis pages.
+The underlying corpus is 1,535 newspaper pages drawn from the Library of Congress's *Chronicling America* archive across seven keyword searches ("Chinese student," "Chinese school," "Chinese girl," "Chinese children," "Chinese child," "Chinese boy," "Chinese education"), spanning 323 titles and 53 states and territories. Pages were OCR-extracted, classified into core/secondary relevance tiers, and passed through a reprint-detection pipeline that reconstructs propagation chains for telegraphically reprinted stories. Two LDA topic models were then trained with MALLET at K=25: S1 over 946 originals and S2 over a 161-document deduplicated subset. The resulting topics were labeled and grouped into ten thematic categories that drive filtering and color encoding across the site's interactive map and analysis pages.
 
 ## Repository Layout
 
@@ -47,9 +47,9 @@ npm run preview  # preview the built site locally
 
 | Resource | Provider |
 |---|---|
-| Corpus of digitized newspaper articles | [*Chronicling America*](https://www.loc.gov/collections/chronicling-america/about-this-collection/), Library of Congress |
+| Digitized newspaper records | [*Chronicling America*](https://www.loc.gov/collections/chronicling-america/about-this-collection/), Library of Congress |
 | Historical county and state boundaries | [*Atlas of Historical County Boundaries*](https://publications.newberry.org/ahcb/), Newberry Library |
-| OpenStreetMap base map | [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL. |
+| OpenStreetMap basemap | [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL. |
 | 1882 railroad and county map | [Rand McNally and Company](https://collections.leventhalmap.org/search/commonwealth:1257b834v), Norman B. Leventhal Map & Education Center at the Boston Public Library |
 
 ## License
