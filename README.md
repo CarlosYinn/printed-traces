@@ -37,11 +37,11 @@ npm run preview  # preview the built site locally
 
 ## Methods & Tools
 
-- **Site:** [VitePress](https://vitepress.dev/)
+- **Site:** [Vue.js](https://vuejs.org/) and [VitePress](https://vitepress.dev/)
 - **Topic modeling:** [MALLET](https://mimno.github.io/Mallet/)
 - **Map:** [MapLibre GL JS](https://maplibre.org/) with 1882 county and state boundaries from the Newberry Library's *Atlas of Historical County Boundaries*
-- **Charts:** [Datawrapper](https://www.datawrapper.de/) and [RAWGraphs](https://www.rawgraphs.io/), with chart data prepared by Python scripts in [`scripts/build_datawrapper_data/`](scripts/build_datawrapper_data/)
-- **Typefaces:** Wordmark set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky) typeface by Fredrick R. Brennan (converted to SVG paths)
+- **Charts:** [Datawrapper](https://www.datawrapper.de/) and [RAWGraphs](https://www.rawgraphs.io/), with chart data prepared by Python scripts in `scripts/build_datawrapper_data/`
+- **Typefaces:** Wordmark set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky) typeface by Fredrick R. Brennan under SIL OFL 1.1 (converted to SVG paths)
 
 ## Data Sources
 
@@ -53,4 +53,4 @@ npm run preview  # preview the built site locally
 
 ## License
 
-The site code is released under the [MIT License](LICENSE). Newspaper clippings from *Chronicling America* are in the public domain. See [About the Project](https://carlosyinn.github.io/printed-traces/introduction/about#credits) for full credits.
+The site code is released under the [MIT License](LICENSE). Newspaper clippings from *Chronicling America* are in the public domain. See [About the Project](https://carlosyinn.github.io/printed-traces/introduction/about#credits) and [Map References](https://carlosyinn.github.io/printed-traces/map/references)for full credits.
