@@ -237,7 +237,7 @@ function toggleAllExpanded(): void {
 </template>
 
 <style scoped>
-/* ── Panel shell ─────────────────────────────────────────────────────────── */
+/* ── Panel shell ── */
 
 .legend-panel {
   position: relative;
@@ -263,7 +263,7 @@ function toggleAllExpanded(): void {
   max-height: 48px;
 }
 
-/* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */
+/* ── Panel bar (non-scrolling) ── */
 
 .panel-bar {
   flex-shrink: 0;
@@ -274,7 +274,7 @@ function toggleAllExpanded(): void {
   padding-right: 8px;
 }
 
-/* ── Toggle button ───────────────────────────────────────────────────────── */
+/* ── Toggle button ── */
 
 .panel-toggle {
   flex-shrink: 0;
@@ -296,7 +296,7 @@ function toggleAllExpanded(): void {
   color: var(--ctp-text);
 }
 
-/* ── Panel body ──────────────────────────────────────────────────────────── */
+/* ── Panel body ── */
 
 .panel-body {
   padding: 0 16px 16px;
@@ -315,7 +315,7 @@ function toggleAllExpanded(): void {
   pointer-events: none;
 }
 
-/* ── Header ──────────────────────────────────────────────────────────────── */
+/* ── Header ── */
 
 .panel-label {
   flex: 1;
@@ -361,7 +361,7 @@ function toggleAllExpanded(): void {
   }
 }
 
-/* ── Switch ──────────────────────────────────────────────────────────────── */
+/* ── Switch ── */
 
 .switch-btn {
   display: flex;
@@ -401,7 +401,7 @@ function toggleAllExpanded(): void {
   transform: translateX(14px);
 }
 
-/* ── Category groups ─────────────────────────────────────────────────────── */
+/* ── Category groups ── */
 
 .topic-groups {
   display: flex;
@@ -510,7 +510,7 @@ function toggleAllExpanded(): void {
   transform: rotate(90deg);
 }
 
-/* ── Topic rows ──────────────────────────────────────────────────────────── */
+/* ── Topic rows ── */
 
 .topic-list {
   display: flex;
@@ -579,14 +579,14 @@ function toggleAllExpanded(): void {
   opacity: 0.3;
 }
 
-/* ── Noise divider ───────────────────────────────────────────────────────── */
+/* ── Noise divider ── */
 
 .noise-divider {
   margin: 6px 0 4px;
   border-top: 1px solid var(--ctp-surface0);
 }
 
-/* ── Focus rings ─────────────────────────────────────────────────────────── */
+/* ── Focus rings ── */
 
 .legend-panel button {
   -webkit-tap-highlight-color: transparent;

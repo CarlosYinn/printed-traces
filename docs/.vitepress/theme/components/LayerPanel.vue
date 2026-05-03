@@ -118,7 +118,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
 </template>
 
 <style scoped>
-/* ── Panel shell ─────────────────────────────────────────────────────────── */
+/* ── Panel shell ── */
 
 .layer-panel {
   position: relative;
@@ -143,7 +143,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   max-height: 48px;
 }
 
-/* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */
+/* ── Panel bar (non-scrolling) ── */
 
 .panel-bar {
   flex-shrink: 0;
@@ -154,7 +154,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   padding-right: 8px;
 }
 
-/* ── Toggle button ───────────────────────────────────────────────────────── */
+/* ── Toggle button ── */
 
 .panel-toggle {
   flex-shrink: 0;
@@ -179,7 +179,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   }
 }
 
-/* ── Panel body ──────────────────────────────────────────────────────────── */
+/* ── Panel body ── */
 
 .panel-body {
   padding: 0 16px 16px;
@@ -193,7 +193,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   pointer-events: none;
 }
 
-/* ── Header label ────────────────────────────────────────────────────────── */
+/* ── Header label ── */
 
 .panel-label {
   flex: 1;
@@ -206,7 +206,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   overflow: hidden;
 }
 
-/* ── Section labels ──────────────────────────────────────────────────────── */
+/* ── Section labels ── */
 
 .section-label {
   font-size: 0.72rem;
@@ -231,7 +231,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   margin: 0;
 }
 
-/* ── Basemap fieldset ────────────────────────────────────────────────────── */
+/* ── Basemap fieldset ── */
 
 .panel-fieldset {
   border: none;
@@ -239,7 +239,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   margin: 0;
 }
 
-/* ── Checkbox ────────────────────────────────────────────────────────────── */
+/* ── Checkbox ── */
 
 .check-list {
   display: flex;
@@ -272,7 +272,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   overflow: hidden;
 }
 
-/* ── Switch ──────────────────────────────────────────────────────────────── */
+/* ── Switch ── */
 
 .switch-list {
   display: flex;
@@ -334,7 +334,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   transform: translateX(14px);
 }
 
-/* ── Reset north button ──────────────────────────────────────────────────── */
+/* ── Reset north button ── */
 
 .reset-north-btn {
   display: inline-flex;
@@ -361,7 +361,7 @@ function toggleBaseLayer(key: 'rand_mcnally' | 'modern') {
   color: var(--ctp-text);
 }
 
-/* ── Focus rings ─────────────────────────────────────────────────────────── */
+/* ── Focus rings ── */
 
 button:focus-visible,
 .check-input:focus-visible {

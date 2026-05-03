@@ -11,7 +11,7 @@ import {
   initActiveEvents,
 } from './useFilters'
 
-// ─── module-level shared state ────────────────────────────────────────────────
+// ─── module-level shared state ───
 
 export const allRecords: Ref<RecordFeature[]> = ref([])
 export const topicTree: Ref<TopicTree | null> = ref(null)
@@ -19,7 +19,7 @@ export const events: Ref<HistoricalEvent[]> = ref([])
 export const counties: Ref<object | null> = ref(null)
 export const states: Ref<object | null> = ref(null)
 
-// ─── derived state ────────────────────────────────────────────────────────────
+// ─── derived state ───
 
 export const visibleRecords: ComputedRef<RecordFeature[]> = computed(() => {
   const records = allRecords.value
@@ -62,7 +62,7 @@ export const visibleRecords: ComputedRef<RecordFeature[]> = computed(() => {
   })
 })
 
-// ─── jitter ───────────────────────────────────────────────────────────────────
+// ─── jitter ───
 
 // Spread points that share identical coordinates into a small circle so they
 // remain individually clickable at high zoom. Offsets are deterministic (index-
@@ -109,7 +109,7 @@ function applyJitter(features: RecordFeature[]): RecordFeature[] {
   return out
 }
 
-// ─── fetch ────────────────────────────────────────────────────────────────────
+// ─── fetch ───
 
 let _fetchInitiated = false
 
@@ -148,7 +148,7 @@ async function loadAll(): Promise<void> {
   initActiveEvents((eventsJson as HistoricalEvent[]).map(event => event.id))
 }
 
-// ─── composable ───────────────────────────────────────────────────────────────
+// ─── composable ───
 
 export function useRecords() {
   onMounted(async () => {

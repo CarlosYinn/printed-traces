@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<{
 
 const emit = defineEmits<{ close: [], prev: [], next: [] }>()
 
-// ─── date formatting ──────────────────────────────────────────────────────────
+// ─── date formatting ───
 
 function formatDate(date: string): string {
   const parsed = new Date(`${date}T00:00:00`)
@@ -36,7 +36,7 @@ function formatDate(date: string): string {
   }).format(parsed)
 }
 
-// ─── anchor coordinate ────────────────────────────────────────────────────────
+// ─── anchor coordinate ───
 // Delegates to useMap.getAnchorForEvent — same FIPS resolution rules
 // (state prefix vs full county FIPS) shared with computeEventBbox /
 // getEventStateAbbreviations, so all three stay in sync.
@@ -45,7 +45,7 @@ const anchorLngLat = computed<[number, number] | null>(() =>
   getAnchorForEvent(props.event, props.countiesGeoJSON),
 )
 
-// ─── pixel projection, kept current via map events ───────────────────────────
+// ─── pixel projection, kept current via map events ───
 
 const anchorPixel = ref<{ x: number; y: number } | null>(null)
 
@@ -71,7 +71,7 @@ function updateAnchor() {
 // new key.
 watch(anchorLngLat, updateAnchor, { immediate: true })
 
-// ─── mobile detection (bottom-sheet layout) ──────────────────────────────────
+// ─── mobile detection (bottom-sheet layout) ───
 
 const isMobile = useIsMobile()
 
@@ -83,7 +83,7 @@ onUnmounted(() => {
   props.mapInstance.off('move', updateAnchor)
 })
 
-// ─── card position & side ─────────────────────────────────────────────────────
+// ─── card position & side ───
 
 const CARD_WIDTH = 290
 const CONNECTOR_OFFSET = 20
@@ -162,7 +162,7 @@ const anchorStyle = computed(() => {
   }
 })
 
-// ─── state abbreviation tags ──────────────────────────────────────────────────
+// ─── state abbreviation tags ───
 
 const stateAbbrs = computed(() =>
   getEventStateAbbreviations(props.event, props.countiesGeoJSON),
@@ -210,7 +210,7 @@ const stateAbbrs = computed(() =>
 </template>
 
 <style scoped>
-/* ── Card shell ──────────────────────────────────────────────────────────────── */
+/* ── Card shell ── */
 
 .event-map-card {
   position: relative; /* containing block for .card-connector */
@@ -228,7 +228,7 @@ const stateAbbrs = computed(() =>
   pointer-events: all;
 }
 
-/* ── Accent bar ──────────────────────────────────────────────────────────────── */
+/* ── Accent bar ── */
 
 /* overflow: visible on the card means we can't rely on clip for corner rounding;
    give the accent bar its own matching top border-radius instead. */
@@ -239,7 +239,7 @@ const stateAbbrs = computed(() =>
   border-radius: 9px 9px 0 0;
 }
 
-/* ── Close button ────────────────────────────────────────────────────────────── */
+/* ── Close button ── */
 
 .card-close {
   position: absolute;
@@ -266,7 +266,7 @@ const stateAbbrs = computed(() =>
   color: var(--ctp-text);
 }
 
-/* ── Card body ───────────────────────────────────────────────────────────────── */
+/* ── Card body ── */
 
 .card-body {
   display: flex;
@@ -373,7 +373,7 @@ const stateAbbrs = computed(() =>
   letter-spacing: 0.04em;
 }
 
-/* ── Connector hairline ──────────────────────────────────────────────────────── */
+/* ── Connector hairline ── */
 /*
   .card-connector is a zero-size div whose `top` is set inline to the exact
   pixel row of the anchor dot within the card.  CSS positions it against the
@@ -420,7 +420,7 @@ const stateAbbrs = computed(() =>
   background: color-mix(in oklch, var(--ctp-overlay0), transparent 50%);
 }
 
-/* ── Anchor pulse dot ────────────────────────────────────────────────────────── */
+/* ── Anchor pulse dot ── */
 
 .anchor-pulse {
   position: relative; /* containing block for ::after inset */
@@ -447,7 +447,7 @@ const stateAbbrs = computed(() =>
   100% { transform: scale(2.8); opacity: 0;    }
 }
 
-/* ── Card enter / leave transition ──────────────────────────────────────────── */
+/* ── Card enter / leave transition ── */
 
 @keyframes card-rise {
   0%   { opacity: 0; transform: translateY(14px) scale(0.96); }
@@ -468,7 +468,7 @@ const stateAbbrs = computed(() =>
   animation: card-sink 1000ms ease-in forwards;
 }
 
-/* ── Mobile bottom-sheet variant ────────────────────────────────────────────── */
+/* ── Mobile bottom-sheet variant ── */
 
 .event-map-card.is-mobile {
   max-height: 45vh;

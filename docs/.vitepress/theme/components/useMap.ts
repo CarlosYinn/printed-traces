@@ -3,7 +3,7 @@ import type { Feature, FeatureCollection } from 'geojson'
 import type { Map, StyleSpecification } from 'maplibre-gl'
 import type { Category, HistoricalEvent, RecordFeature, TopicTree } from './types'
 
-// ─── cluster helpers (internal) ───────────────────────────────────────────────
+// ─── cluster helpers (internal) ───
 
 function catKey(name: string) {
   return `n_${name.replace(/\W/g, '_')}`
@@ -32,7 +32,7 @@ function buildDominantColorExpr(cats: Category[]): unknown {
   return expr
 }
 
-// ─── style helpers ────────────────────────────────────────────────────────────
+// ─── style helpers ───
 
 // Always registers BOTH tile sources so baseLayer can be toggled by setting
 // layer visibility rather than calling setStyle() (which would flush all
@@ -111,7 +111,7 @@ function buildStyle(baseLayers: BaseLayers, isDark = false): StyleSpecification 
   }
 }
 
-// ─── public API ───────────────────────────────────────────────────────────────
+// ─── public API ───
 
 /** Dynamically imports MapLibre and mounts a new map on `container`. */
 export async function createMap(

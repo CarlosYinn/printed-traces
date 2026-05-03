@@ -41,7 +41,7 @@ import {
 } from './useRecords'
 import type { HistoricalEvent, RecordProperties } from './types'
 
-// ─── props ────────────────────────────────────────────────────────────────────
+// ─── props ───
 
 const props = withDefaults(defineProps<{
   height?: string
@@ -53,15 +53,15 @@ const props = withDefaults(defineProps<{
   enableClusterZoom: true,
 })
 
-// ─── data loading ─────────────────────────────────────────────────────────────
+// ─── data loading ───
 
 useRecords()
 
-// ─── dark mode ───────────────────────────────────────────────────────────────
+// ─── dark mode ───
 
 const { isDark } = useData()
 
-// ─── event colour helper ──────────────────────────────────────────────────────
+// ─── event colour helper ───
 
 const { getEventAccentColor } = useEventColor()
 
@@ -79,7 +79,7 @@ let map: MapLibreMap | null = null
 // wrapping the MapLibre object in a deep Proxy.
 const mapReady = shallowRef<MapLibreMap | null>(null)
 
-// ─── template refs & popup state ─────────────────────────────────────────────
+// ─── template refs & popup state ───
 
 const containerRef = ref<HTMLDivElement>()
 const hoveredRecord = ref<RecordProperties | null>(null)
@@ -137,7 +137,7 @@ function navigateEvent(delta: -1 | 1) {
   activeEventId.value = events.value[(idx + delta + total) % total].id
 }
 
-// ─── empty-state computed ─────────────────────────────────────────────────────
+// ─── empty-state computed ───
 
 const isEmptyState = computed(
   () => visibleRecords.value.length === 0 && timeFilter.value !== null && !activeEvent.value,
@@ -150,7 +150,7 @@ const displayMonthLabel = computed(() => {
   return tf.ym
 })
 
-// ─── watcher teardown list ────────────────────────────────────────────────────
+// ─── watcher teardown list ───
 
 const stoppers: Array<() => void> = []
 
@@ -292,7 +292,7 @@ function focusEvent(evt: HistoricalEvent, duration: number): void {
   flyToEventView(map, evt, box, duration)
 }
 
-// ─── map mouse / click handlers ───────────────────────────────────────────────
+// ─── map mouse / click handlers ───
 
 function setupMapEvents() {
   if (!map) return
@@ -416,7 +416,7 @@ function initMapContent() {
   }
 }
 
-// ─── lifecycle ────────────────────────────────────────────────────────────────
+// ─── lifecycle ───
 
 onMounted(async () => {
   if (import.meta.env.SSR) return

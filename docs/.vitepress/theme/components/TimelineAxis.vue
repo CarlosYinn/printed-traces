@@ -104,7 +104,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
 </template>
 
 <style scoped>
-/* ── Panel shell ─────────────────────────────────────────────────────────── */
+/* ── Panel shell ── */
 
 .timeline-panel {
   position: relative;
@@ -130,7 +130,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   max-height: 48px;
 }
 
-/* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */
+/* ── Panel bar (non-scrolling) ── */
 
 .panel-bar {
   flex-shrink: 0;
@@ -140,7 +140,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   padding: 0 48px 0 6px;
 }
 
-/* ── Toggle button ───────────────────────────────────────────────────────── */
+/* ── Toggle button ── */
 
 .panel-toggle {
   position: absolute;
@@ -165,7 +165,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   color: var(--ctp-text);
 }
 
-/* ── Panel body ──────────────────────────────────────────────────────────── */
+/* ── Panel body ── */
 
 .panel-body {
   padding: 0 16px 16px;
@@ -184,7 +184,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   pointer-events: none;
 }
 
-/* ── Header ──────────────────────────────────────────────────────────────── */
+/* ── Header ── */
 
 .panel-label {
   padding-left: 16px;
@@ -197,7 +197,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   overflow: hidden;
 }
 
-/* ── Timeline track ──────────────────────────────────────────────────────── */
+/* ── Timeline track ── */
 
 .timeline-track {
   display: flex;
@@ -290,7 +290,7 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   white-space: nowrap;
 }
 
-/* ── Event dots ──────────────────────────────────────────────────────────── */
+/* ── Event dots ── */
 
 .event-dots {
   display: flex;
@@ -350,9 +350,9 @@ function handleEventDotClick(evt: { id: string; date: string }) {
   font-weight: 600;
 }
 
-/* ── Global event card ───────────────────────────────────────────────────── */
+/* ── Global event card ── */
 
-/* ── Focus rings ─────────────────────────────────────────────────────────── */
+/* ── Focus rings ── */
 
 .timeline-panel button {
   -webkit-tap-highlight-color: transparent;

@@ -2,14 +2,14 @@ import { ref, computed, watch } from 'vue'
 import type { TopicTree } from './types'
 import { MONTHS } from './useMonthIndex'
 
-// ─── time filter type ─────────────────────────────────────────────────────────
+// ─── time filter type ───
 
 export type TimeFilter =
   | { type: 'year'; year: number }
   | { type: 'month'; ym: string }
   | null
 
-// ─── opening state ────────────────────────────────────────────────────────────
+// ─── opening state ───
 
 export const DEFAULT_OPENING_STATE = {
   activeEventId: null as string | null,
@@ -19,7 +19,7 @@ export const DEFAULT_OPENING_STATE = {
   },
 }
 
-// ─── module-level shared state ────────────────────────────────────────────────
+// ─── module-level shared state ───
 
 export const timeFilter = ref<TimeFilter>(null)
 export const activeCategories = ref<Set<string>>(new Set())
@@ -36,7 +36,7 @@ export const selectedMonth = computed<string | null>(() =>
   timeFilter.value?.type === 'month' ? timeFilter.value.ym : null
 )
 
-// ─── public mutator ───────────────────────────────────────────────────────────
+// ─── public mutator ───
 
 export function setTimeFilter(filter: TimeFilter): void {
   timeFilter.value = filter
@@ -48,7 +48,7 @@ export function dismissActiveEvent(): void {
   timeFilter.value = null
 }
 
-// ─── internal helpers ─────────────────────────────────────────────────────────
+// ─── internal helpers ───
 
 let _topicTree: TopicTree | null = null
 let _urlTimer: ReturnType<typeof setTimeout> | null = null
@@ -123,7 +123,7 @@ function sanitizeCategories(raw: string | null): string[] | null {
   return filtered.length ? filtered : null
 }
 
-// ─── public API ───────────────────────────────────────────────────────────────
+// ─── public API ───
 
 /** Called by useRecords after topics.json is loaded. */
 export function initActiveCategories(tree: TopicTree): void {

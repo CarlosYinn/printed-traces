@@ -344,7 +344,7 @@ onUnmounted(stopPlay)
 </template>
 
 <style scoped>
-/* ── Panel shell ─────────────────────────────────────────────────────────── */
+/* ── Panel shell ── */
 
 .cal-panel {
   position: relative;
@@ -369,7 +369,7 @@ onUnmounted(stopPlay)
   max-height: 48px;
 }
 
-/* ── Panel bar (non-scrolling) ───────────────────────────────────────────── */
+/* ── Panel bar (non-scrolling) ── */
 
 .panel-bar {
   flex-shrink: 0;
@@ -379,7 +379,7 @@ onUnmounted(stopPlay)
   padding: 0 48px 0 6px;
 }
 
-/* ── Toggle button ───────────────────────────────────────────────────────── */
+/* ── Toggle button ── */
 
 .panel-toggle {
   position: absolute;
@@ -407,7 +407,7 @@ onUnmounted(stopPlay)
   }
 }
 
-/* ── Panel body ──────────────────────────────────────────────────────────── */
+/* ── Panel body ── */
 
 .panel-body {
   padding: 0 16px 16px;
@@ -421,7 +421,7 @@ onUnmounted(stopPlay)
   pointer-events: none;
 }
 
-/* ── Header label ────────────────────────────────────────────────────────── */
+/* ── Header label ── */
 
 .panel-label {
   padding-left: 16px;
@@ -434,7 +434,7 @@ onUnmounted(stopPlay)
   overflow: hidden;
 }
 
-/* ── Status row ──────────────────────────────────────────────────────────── */
+/* ── Status row ── */
 
 .cal-top-row {
   display: flex;
@@ -475,7 +475,7 @@ onUnmounted(stopPlay)
   white-space: nowrap;
 }
 
-/* ── Action buttons ──────────────────────────────────────────────────────── */
+/* ── Action buttons ── */
 
 .cal-actions {
   display: flex;
@@ -522,7 +522,7 @@ onUnmounted(stopPlay)
   color: var(--vp-c-brand-1);
 }
 
-/* ── Wheel picker ────────────────────────────────────────────────────────── */
+/* ── Wheel picker ── */
 
 .wheel-picker {
   --wheel-row: 30px;
@@ -605,7 +605,7 @@ onUnmounted(stopPlay)
     0 0 0 1px color-mix(in oklch, var(--vp-c-brand-1), transparent 76%);
 }
 
-/* ── Wheel columns ───────────────────────────────────────────────────────── */
+/* ── Wheel columns ── */
 
 .wheel-column {
   position: relative;
@@ -673,7 +673,7 @@ onUnmounted(stopPlay)
   opacity: 1;
 }
 
-/* ── Focus rings ─────────────────────────────────────────────────────────── */
+/* ── Focus rings ── */
 
 button:focus-visible,
 .wheel-column:focus-visible {
