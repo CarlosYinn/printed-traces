@@ -16,36 +16,49 @@ The article traces a significant discursive shift across the study period. Early
 
 This project was developed as part of a broader study of Chinese American childhood during the exclusion era. It builds on a rich body of scholarship (including work by Wendy Rouse Jorae, Lucy Salyer, Charles McClain, and Erika Lee) while contributing a systematic, corpus-level view of the press environment in which these histories unfolded.
 
-The site is built with [VitePress](https://vitepress.dev/). Topic modeling was conducted with [MALLET](https://mimno.github.io/Mallet/). The corpus was assembled from [*Chronicling America*](https://chroniclingamerica.loc.gov/), the Library of Congress's digitized historical newspaper archive. The [spatial map](/map/) plots these records on 1882 county and state boundaries drawn from the Newberry Library's *Atlas of Historical County Boundaries*, allowing geographic patterns in press coverage to be explored alongside the textual analysis.
+The site is built with [Vue.js](https://vuejs.org/) using [VitePress](https://vitepress.dev/). Topic modeling was conducted with [MALLET](https://mimno.github.io/Mallet/). The corpus was assembled from [*Chronicling America*](https://www.loc.gov/collections/chronicling-america/about-this-collection/), the Library of Congress's digitized historical newspaper archive. The [spatial map](/map/) plots these records on 1882 county and state boundaries drawn from the Newberry Library's *Atlas of Historical County Boundaries*, allowing geographic patterns in press coverage to be explored alongside the textual analysis.
 
 
 ## Credits
+
+### Data Sources
+
+**Chronicling America**
+
+Library of Congress. “Chronicling America: Historic American Newspapers.” Washington, DC. [https://www.loc.gov/collections/chronicling-america/about-this-collection/](https://www.loc.gov/collections/chronicling-america/about-this-collection/).
+
+
+**Atlas of Historical County Boundaries**
+
+Newberry Library. *Atlas of Historical County Boundaries*. Chicago: Newberry Library, 2012. [https://publications.newberry.org/ahcb/](https://publications.newberry.org/ahcb/).
+
+### Tool Citations
+
+**MALLET**
+
+Andrew Kachites McCallum. “MALLET: A Machine Learning for Language Toolkit.” 2002. [http://mallet.cs.umass.edu](http://mallet.cs.umass.edu).
+
+**Datawrapper**
+
+Datawrapper GmbH. “Datawrapper.” [https://www.datawrapper.de/](https://www.datawrapper.de/).
+
+**RAWGraphs**
+
+Michele Mauri, Tommaso Elli, Giorgio Caviglia, Giorgio Uboldi, and Matteo Azzi. “RAWGraphs: A Visualisation Platform to Create Open Outputs.” 2017. https://doi.org/10.1145/3125571.3125585. RAWGraphs: [https://www.rawgraphs.io/](https://www.rawgraphs.io/).
+
+### Newspaper Clippings
+
+All newspaper clippings reproduced on this site are drawn from *Chronicling America: Historic American Newspapers*, digitized by the Library of Congress. These materials are in the public domain.
 
 ### Cover Image
 
 "Group of Chinese Children." *Chinese in California Virtual Collection.* California Historical Society Collection at the University of Southern California, via Calisphere.
 [https://calisphere.org/item/ark:/13030/hb8779n95r/](https://calisphere.org/item/ark:/13030/hb8779n95r/)
 
-### Newspaper Clippings
-
-All newspaper clippings reproduced on this site are drawn from *Chronicling America: Historic American Newspapers*, digitized by the Library of Congress. These materials are in the public domain.
-
 ### Typography
 
 The *Printed Traces* wordmark is set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky), a free display typeface designed by Fredrick R. Brennan and released under the SIL Open Font License, Version 1.1. The letterforms were converted to SVG paths for display on the site. Body text is set in Cambria (with Source Serif 4 and Georgia as fallbacks). Code samples use JetBrains Mono.
 
-### Data Sources
-
-| Resource | Provider |
-|---|---|
-| Corpus of digitized newspaper articles | [*Chronicling America*](https://chroniclingamerica.loc.gov/), Library of Congress |
-| Historical county and state boundaries | [*Atlas of Historical County Boundaries*](https://publications.newberry.org/ahcb/), Newberry Library |
-| Topic model | [MALLET 2.0](https://mimno.github.io/Mallet/) (Andrew McCallum, UMass Amherst) |
-
-### Charts
-
-All data visualizations were created with [Datawrapper](https://www.datawrapper.de/).
-
 ### Site
 
-Built with [Vue.js](https://vuejs.org/) and [VitePress](https://vitepress.dev/). Source available on [GitHub](https://github.com/CarlosYinn/printed-traces).
+Built with [Vue.js](https://vuejs.org/) using [VitePress](https://vitepress.dev/). Source available on [GitHub](https://github.com/CarlosYinn/printed-traces).

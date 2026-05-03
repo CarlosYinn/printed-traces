@@ -4,26 +4,26 @@ title: Map References
 
 # Map References
 
-## Primary Data Sources
+## Data Sources
 
-**Chronicling America: Historic American Newspapers**
+**Chronicling America**
 
-Library of Congress, Washington, D.C. [https://chroniclingamerica.loc.gov/](https://chroniclingamerica.loc.gov/)
+Library of Congress. “Chronicling America: Historic American Newspapers.” Washington, DC. [https://www.loc.gov/collections/chronicling-america/about-this-collection/](https://www.loc.gov/collections/chronicling-america/about-this-collection/).
 
 
 **Atlas of Historical County Boundaries**
 
-*Atlas of Historical County Boundaries*. Chicago: Newberry Library, 2012. [https://publications.newberry.org/ahcb/](https://publications.newberry.org/ahcb/)
+Newberry Library. *Atlas of Historical County Boundaries*. Chicago: Newberry Library, 2012. [https://publications.newberry.org/ahcb/](https://publications.newberry.org/ahcb/).
 
-## Basemaps
+## Base maps
 
 **OpenStreetMap**
 
-© [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL.
+OpenStreetMap contributors. “OpenStreetMap.” Open Database License. [https://www.openstreetmap.org/copyright](https://www.openstreetmap.org/copyright).
 
 **Norman B. Leventhal Map & Education Center at the Boston Public Library**
 
-Rand McNally and Company. "Rand McNally & Co's new railroad and county map of the United States and Dominion of Canada." Map. Chicago: Rand McNally, 1882. Norman B. Leventhal Map & Education Center, https://collections.[leventhalmap.org/search/commonwealth:1257b834v](https://collections.leventhalmap.org/search/commonwealth:1257b834v).
+Rand McNally and Company. "Rand McNally & Co's new railroad and county map of the United States and Dominion of Canada." Map. Chicago: Rand McNally, 1882. Norman B. Leventhal Map & Education Center, [https://collections.leventhalmap.org/search/commonwealth:1257b834v](https://collections.leventhalmap.org/search/commonwealth:1257b834v).
 
 ## Geospatial Tools
 

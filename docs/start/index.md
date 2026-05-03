@@ -8,7 +8,7 @@ This site presents the research and data from *Printed Traces: Chinese Immigrant
 
 ## The Corpus
 
-The dataset consists of **1,535 newspaper pages** drawn from the Library of Congress's [*Chronicling America*](https://chroniclingamerica.loc.gov/) digital archive, covering the years **1880–1885**. Pages were retrieved through seven keyword searches (*Chinese student*, *Chinese school*, *Chinese girl*, *Chinese children*, *Chinese child*, *Chinese boy*, and *Chinese education*) chosen to capture the range of language through which Chinese youth appeared in the press.
+The dataset consists of **1,535 newspaper pages** drawn from the Library of Congress's [*Chronicling America*](https://www.loc.gov/collections/chronicling-america/about-this-collection/) digital archive, covering the years **1880–1885**. Pages were retrieved through seven keyword searches (*Chinese student*, *Chinese school*, *Chinese girl*, *Chinese children*, *Chinese child*, *Chinese boy*, and *Chinese education*) chosen to capture the range of language through which Chinese youth appeared in the press.
 
 | Keyword | Pages |
 | --- | --- |
