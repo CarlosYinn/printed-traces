@@ -56,6 +56,7 @@ onMounted(() => {
     for (const key in heights) {
       iframe.style.height = `${heights[key]}px`
     }
+    if (container) container.style.minHeight = '0'
   }
   window.addEventListener('message', messageHandler)
 })

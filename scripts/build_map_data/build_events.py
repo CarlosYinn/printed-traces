@@ -24,7 +24,7 @@ EVENTS = [
             "The treaty stopped short of outright exclusion but provided the legal foundation for the legislation that followed. "
             "It marked a pivotal shift in Sino-American diplomatic relations over the question of Chinese labor migration."
         ),
-        "highlight_level": "state",
+        "highlight_level": "global",
         # National-level event; no specific county highlight
         "highlight_fips": [],
         "related_topic_ids": [
@@ -80,7 +80,7 @@ EVENTS = [
             "The conflict exposed weaknesses in Qing military modernization and heightened anxieties among Chinese communities abroad. "
             "A ceasefire was reached in June 1885, with China effectively ceding suzerainty over Vietnam to France."
         ),
-        "highlight_level": "state",
+        "highlight_level": "global",
         # Overseas conflict; no U.S. county directly implicated
         "highlight_fips": [],
         "related_topic_ids": [
@@ -106,18 +106,20 @@ EVENTS = [
         ]
     },
     {
-        "id": "tacoma_expulsion_1885",
-        "title": "Tacoma Expulsion",
+        "id": "west_coast_expulsions_1885",
+        "title": "West Coast Anti-Chinese Expulsions",
         "date": "1885-11-03",
         "month_range": ["1885-11", "1886-02"],
         "description": (
             "On November 3, 1885, the mayor of Tacoma, Washington Territory, led an organized mob that forced "
-            "the entire Chinese community — roughly 200 people — from their homes and burned Chinatown to the ground. "
+            "the entire Chinese community (roughly 200 people) from their homes and burned Chinatown to the ground. "
             "Unlike Seattle, where a subsequent attempt met resistance, Tacoma's expulsion was carried out without immediate legal consequence. "
-            "The 'Tacoma Method' became a term used by anti-Chinese agitators elsewhere as a model for forced removal."
+            "The 'Tacoma Method' became a term used by anti-Chinese agitators elsewhere as a model for forced removal. "
+            "This card represents a broader West Coast and Pacific Northwest expulsion wave, including intimidation campaigns, "
+            "committee-led removals, and the Seattle Expulsion Attempt that continued into February 1886."
         ),
         "highlight_level": "county",
-        "highlight_fips": ["53053"],
+        "highlight_fips": ["53053", "53033"],
         "related_topic_ids": [
             "violence_anti_chinese_violence"
         ]
@@ -177,32 +179,37 @@ EVENTS = [
             "cem_administration"
         ]
     },
-    {
-        "id": "seattle_expulsion_1886",
-        "title": "Seattle Expulsion Attempt",
-        "date": "1886-02-07",
-        "month_range": ["1886-02", "1886-04"],
-        "description": (
-            "On February 7, 1886, a mob in Seattle, Washington Territory, began forcibly removing Chinese residents "
-            "to the waterfront to load them onto departing steamships. "
-            "Territorial Governor Watson Squire declared martial law, and Home Guard units intervened, preventing a full expulsion. "
-            "The confrontation left one man dead and several wounded, and demonstrated that organized resistance could blunt "
-            "the 'Tacoma Method' when authorities chose to act."
-        ),
-        "highlight_level": "county",
-        "highlight_fips": ["53033"],
-        "related_topic_ids": [
-            "violence_anti_chinese_violence"
-        ]
-    },
 ]
+
+EVENT_ORDER_IDS = [
+    "angell_treaty_1880",
+    "chinese_new_year_press_1881",
+    "cem_recall_1881",
+    "exclusion_act_1882",
+    "cem_first_yale_graduate_1883",
+    "tape_v_hurley_1884",
+    "sino_french_war_1884",
+    "rock_springs_1885",
+    "west_coast_expulsions_1885",
+]
+
+
+def ordered_events():
+    order = {event_id: index for index, event_id in enumerate(EVENT_ORDER_IDS)}
+    missing = set(EVENT_ORDER_IDS) - {event["id"] for event in EVENTS}
+    extra = {event["id"] for event in EVENTS} - set(EVENT_ORDER_IDS)
+    if missing or extra:
+        raise ValueError(f"Event order mismatch. Missing: {sorted(missing)} Extra: {sorted(extra)}")
+    return sorted(EVENTS, key=lambda event: order[event["id"]])
+
 
 def main():
     out_path = pathlib.Path(__file__).parents[2] / "docs" / "public" / "data" / "events.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(EVENTS, f, ensure_ascii=False, indent=2)
-    print(f"Wrote {len(EVENTS)} events -> {out_path}")
+        events = ordered_events()
+        json.dump(events, f, ensure_ascii=False, indent=2)
+    print(f"Wrote {len(events)} events -> {out_path}")
 
 
 if __name__ == "__main__":

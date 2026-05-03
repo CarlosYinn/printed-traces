@@ -26,7 +26,7 @@ export interface HistoricalEvent {
   month_range: [string, string]
   description: string
   highlight_fips: string[]
-  highlight_level: 'state' | 'county'
+  highlight_level: 'global' | 'state' | 'county'
   related_topic_ids?: string[]
 }
 

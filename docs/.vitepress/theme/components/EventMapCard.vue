@@ -167,6 +167,15 @@ const anchorStyle = computed(() => {
 const stateAbbrs = computed(() =>
   getEventStateAbbreviations(props.event, props.countiesGeoJSON),
 )
+
+function handleNavClick(event: MouseEvent, direction: 'prev' | 'next'): void {
+  if (direction === 'prev') {
+    emit('prev')
+  } else {
+    emit('next')
+  }
+  ;(event.currentTarget as HTMLButtonElement | null)?.blur()
+}
 </script>
 
 <template>
@@ -191,9 +200,9 @@ const stateAbbrs = computed(() =>
             <span v-for="abbr in stateAbbrs" :key="abbr" class="card-tag">{{ abbr }}</span>
           </div>
           <div v-if="eventTotal > 1" class="card-nav">
-            <button class="nav-btn" aria-label="Previous event" @click.stop="emit('prev')">&#8592;</button>
+            <button class="nav-btn" aria-label="Previous event" @click.stop="handleNavClick($event, 'prev')">&#8592;</button>
             <span class="nav-counter">{{ eventIndex + 1 }}&thinsp;/&thinsp;{{ eventTotal }}</span>
-            <button class="nav-btn" aria-label="Next event" @click.stop="emit('next')">&#8594;</button>
+            <button class="nav-btn" aria-label="Next event" @click.stop="handleNavClick($event, 'next')">&#8594;</button>
           </div>
         </div>
       </div>
@@ -336,18 +345,25 @@ const stateAbbrs = computed(() =>
   -webkit-tap-highlight-color: transparent;
 }
 
-@media (hover: hover) {
+.nav-btn:hover,
+.nav-btn:active {
+  background: color-mix(in oklch, var(--ctp-surface1), transparent 40%);
+  border-color: var(--ctp-overlay0);
+  color: var(--ctp-text);
+}
+
+@media (hover: none) {
   .nav-btn:hover {
+    background: transparent;
+    border-color: var(--ctp-surface1);
+    color: var(--ctp-subtext0);
+  }
+
+  .nav-btn:active {
     background: color-mix(in oklch, var(--ctp-surface1), transparent 40%);
     border-color: var(--ctp-overlay0);
     color: var(--ctp-text);
   }
-}
-
-.nav-btn:active {
-  background: var(--ctp-surface1);
-  border-color: var(--ctp-overlay0);
-  color: var(--ctp-text);
 }
 
 .nav-counter {
