@@ -73,7 +73,7 @@ For full descriptions of each category and the modeling methodology, see [Analyt
 
 ## Historical Events on the Map
 
-The map includes ten anchored events that serve as navigational waypoints through the period.
+The map includes nine anchored events that serve as navigational waypoints through the period.
 
 | Event | Date | Location |
 |---|---|---|
@@ -85,10 +85,9 @@ The map includes ten anchored events that serve as navigational waypoints throug
 | *Tape v. Hurley* School Desegregation Case | Sep 1884 | San Francisco |
 | Sino-French War, Battle of Fuzhou | Aug 1884 | (global) |
 | Rock Springs Massacre | Sep 1885 | Sweetwater County, WY |
-| Tacoma Expulsion | Nov 1885 | Pierce County, WA |
-| Seattle Expulsion Attempt | Feb 1886 | King County, WA |
+| West Coast Anti-Chinese Expulsions | Nov 1885 | Pierce County / King County, WA |
 
-Each event is linked to one or more topic categories and filtered to the months of its most intense press coverage.
+Each event is linked to one or more topic categories and filtered to the months of its most intense press coverage. The West Coast Anti-Chinese Expulsions card is anchored to the Tacoma Expulsion in November 1885, while its description includes related anti-Chinese expulsion efforts that continued into early 1886, including the Seattle Expulsion Attempt.
 
 ::: info
 Selecting an event automatically updates the time filter and topic filter together, so you can immediately browse the records most relevant to that moment. Deselect the event to return to your previous filter state. Clicking the year number on the timeline filters the map to show only records from that year.

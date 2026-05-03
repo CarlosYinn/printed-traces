@@ -25,7 +25,7 @@ Points are colored by **topic category**, the thematic cluster assigned by the L
 
 **Topic filters**: Nine thematic categories (Chinese Educational Mission, Education & Schools, Children & Family, Law & Exclusion, Violence & War, and more). Toggle categories, enter solo mode, or drill down to individual topics. Record counts update in real time.
 
-**Historical events**: Ten anchored events from the Angell Treaty (1880) to the Seattle Expulsion Attempt (1886). Selecting an event highlights the relevant state or county, filters records to the event's date window, and opens a description card anchored to the geography.
+**Historical events**: Nine anchored events from the Angell Treaty (1880) to the West Coast Anti-Chinese Expulsions (1885-86). Selecting an event highlights the relevant state or county, filters records to the event's date window, and opens a description card anchored to the geography.
 
 **Time filter**: Restrict visible records to a single year or month to trace how press coverage shifted around specific moments, such as the Exclusion Act debate in spring 1882 or the expulsion wave in fall 1885.
 

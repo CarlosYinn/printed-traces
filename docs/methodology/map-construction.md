@@ -160,7 +160,7 @@ Each GeoJSON feature includes the following properties:
 
 ## Step 4: Historical Event Overlays (`build_events.py`)
 
-`events.json` contains ten hardcoded historical events that serve as navigational anchors in the map interface. Each event can filter the record layer to its associated time window and highlight relevant counties on the boundary layer.
+`events.json` contains nine hardcoded historical events that serve as navigational anchors in the map interface. Each event can filter the record layer to its associated time window and highlight relevant counties on the boundary layer.
 
 ### Event structure
 
@@ -197,8 +197,7 @@ Each GeoJSON feature includes the following properties:
 | *Tape v. Hurley* Case Filed | 1884-09-01 | San Francisco |
 | Sino-French War, Battle of Fuzhou | 1884-08-23 | (international) |
 | Rock Springs Massacre | 1885-09-02 | Sweetwater County, WY |
-| Tacoma Expulsion | 1885-11-03 | Pierce County, WA |
-| Seattle Expulsion Attempt | 1886-02-07 | King County, WA |
+| West Coast Anti-Chinese Expulsions | 1885-11-03 | Pierce County / King County, WA |
 
 FIPS codes for county highlights were assigned manually after inspecting `counties_1882.geojson`.
 

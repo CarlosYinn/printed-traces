@@ -74,7 +74,7 @@ The full set of labeled topics was organized into ten thematic categories (plus 
 
 ## Exploring the Map
 
-The topic categories above are the primary lens through which the [interactive map](/map/interactive) can be read. Each newspaper record in the corpus is plotted as a point on a map of the United States using 1882 historical county and state boundaries from the Newberry Library's *Atlas of Historical County Boundaries*, reflecting the political geography of the exclusion era rather than present-day borders. Each point is positioned at the publication city of the paper that printed it and colored by topic category, and can be filtered by topic, time period, or one of ten anchored historical events:
+The topic categories above are the primary lens through which the [interactive map](/map/interactive) can be read. Each newspaper record in the corpus is plotted as a point on a map of the United States using 1882 historical county and state boundaries from the Newberry Library's *Atlas of Historical County Boundaries*, reflecting the political geography of the exclusion era rather than present-day borders. Each point is positioned at the publication city of the paper that printed it and colored by topic category, and can be filtered by topic, time period, or one of nine anchored historical events:
 
 | Event | Year |
 | --- | --- |
@@ -86,7 +86,6 @@ The topic categories above are the primary lens through which the [interactive m
 | *Tape v. Hurley* Public School Case | 1884 |
 | Sino-French War: Battle of Fuzhou | 1884 |
 | Rock Springs Massacre | 1885 |
-| Tacoma Expulsion | 1885 |
-| Seattle Expulsion Attempt | 1886 |
+| West Coast Anti-Chinese Expulsions | 1885 |
 
 The Topics panel on the map mirrors the category table above: any category can be toggled on or off, clicked to enter solo mode, or expanded to filter down to a single topic. Selecting a historical event filters the visible records to that event's date window and highlights the relevant state or county. The time filter further narrows records to a single year or month, making it possible to trace how coverage shifted around specific moments such as the Exclusion Act debate in spring 1882 or the expulsion wave in fall 1885.

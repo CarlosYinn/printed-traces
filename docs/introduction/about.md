@@ -18,7 +18,6 @@ This project was developed as part of a broader study of Chinese American childh
 
 The site is built with [Vue.js](https://vuejs.org/) using [VitePress](https://vitepress.dev/). Topic modeling was conducted with [MALLET](https://mimno.github.io/Mallet/). The corpus was assembled from [*Chronicling America*](https://www.loc.gov/collections/chronicling-america/about-this-collection/), the Library of Congress's digitized historical newspaper archive. The [spatial map](/map/) plots these records on 1882 county and state boundaries drawn from the Newberry Library's *Atlas of Historical County Boundaries*, allowing geographic patterns in press coverage to be explored alongside the textual analysis.
 
-
 ## Credits
 
 ### Data Sources
@@ -29,9 +28,9 @@ Newberry Library. *Atlas of Historical County Boundaries*. Chicago: Newberry Lib
 
 ### Tool Citations
 
-- **RAWGraphs:** [https://www.rawgraphs.io/](https://www.rawgraphs.io/).
-- **Datawrapper:** [https://www.datawrapper.de/](https://www.datawrapper.de/).
 - **MALLET:** [https://mimno.github.io/Mallet/](https://mimno.github.io/Mallet/)
+- **Datawrapper:** [https://www.datawrapper.de/](https://www.datawrapper.de/)
+- **RAWGraphs:** [https://www.rawgraphs.io/](https://www.rawgraphs.io/)
 
 McCallum, Andrew Kachites. “MALLET: A Machine Learning for Language Toolkit.” 2002. [http://mallet.cs.umass.edu](http://mallet.cs.umass.edu).
 
