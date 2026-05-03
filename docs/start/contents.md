@@ -17,7 +17,7 @@ title: Contents
 
 ## Dataset
 
-- [Browse the Dataset](/dataset/browse): search and filter all 1,535 records with links to Chronicling America
+- [Browse the Dataset](/dataset/browse): search and filter all 1,535 records with links to *Chronicling America*
 - [Dataset Reference](/dataset/dataset-readme): column descriptions, summary statistics, and an example record
 
 ## Analysis

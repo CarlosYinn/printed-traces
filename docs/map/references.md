@@ -6,29 +6,20 @@ title: Map References
 
 ## Data Sources
 
-**Chronicling America**
-
-Library of Congress. “Chronicling America: Historic American Newspapers.” Washington, DC. [https://www.loc.gov/collections/chronicling-america/about-this-collection/](https://www.loc.gov/collections/chronicling-america/about-this-collection/).
-
-
-**Atlas of Historical County Boundaries**
+Library of Congress. *Chronicling America: Historic American Newspapers*. Washington, DC. [https://www.loc.gov/collections/chronicling-america/about-this-collection/](https://www.loc.gov/collections/chronicling-america/about-this-collection/).
 
 Newberry Library. *Atlas of Historical County Boundaries*. Chicago: Newberry Library, 2012. [https://publications.newberry.org/ahcb/](https://publications.newberry.org/ahcb/).
 
-## Base maps
+## Basemaps
 
-**OpenStreetMap**
+OpenStreetMap contributors. Open Database License. [https://www.openstreetmap.org/copyright](https://www.openstreetmap.org/copyright).
 
-OpenStreetMap contributors. “OpenStreetMap.” Open Database License. [https://www.openstreetmap.org/copyright](https://www.openstreetmap.org/copyright).
-
-**Norman B. Leventhal Map & Education Center at the Boston Public Library**
-
-Rand McNally and Company. "Rand McNally & Co's new railroad and county map of the United States and Dominion of Canada." Map. Chicago: Rand McNally, 1882. Norman B. Leventhal Map & Education Center, [https://collections.leventhalmap.org/search/commonwealth:1257b834v](https://collections.leventhalmap.org/search/commonwealth:1257b834v).
+Rand McNally and Company. "Rand McNally & Co's New Railroad and County Map of the United States and Dominion of Canada." Map. Chicago: Rand McNally, 1882. *Norman B. Leventhal Map & Education Center*, [https://collections.leventhalmap.org/search/commonwealth:1257b834v](https://collections.leventhalmap.org/search/commonwealth:1257b834v).
 
 ## Geospatial Tools
 
-- Allmaps: [https://allmaps.org/](https://allmaps.org/)
-- QGIS: [https://qgis.org/](https://qgis.org/)
+- **Allmaps:** [https://allmaps.org/](https://allmaps.org/)
+- **QGIS:** [https://qgis.org/](https://qgis.org/)
 - `Turf.js`: [https://turfjs.org/](https://turfjs.org/)
 
 ## Map & Frontend Libraries
@@ -38,10 +29,11 @@ Rand McNally and Company. "Rand McNally & Co's new railroad and county map of th
 
 ## Historical Sources for Event Annotations
 
-- **Angell Treaty (1880):** U.S. Department of State. *Treaty Regulating Immigration from China*, November 17, 1880.
+- **Angell Treaty (1880):** U.S. Department of State. Treaty Regulating Immigration from China, November 17, 1880.
 - **Chinese Educational Mission Recall (1881):** LaFargue, Thomas E. *China's First Hundred: Educational Mission Students in the United States, 1872–1881*. Pullman: Washington State College Press, 1942.
-- **Chinese Exclusion Act (1882):** 47th Congress. *An Act to Execute Certain Treaty Stipulations Relating to Chinese*, May 6, 1882. 22 Stat. 58.
-- **Tape v. Hurley (1884–85):** *Tape v. Hurley*, 66 Cal. 473 (1885). Low, Victor. *The Unimpressible Race*. San Francisco: East/West Publishing, 1982.
+- **Chinese Exclusion Act (1882):** 47th Congress. An Act to Execute Certain Treaty Stipulations Relating to Chinese, May 6, 1882. 22 Stat. 58.
+- **Tape v. Hurley (1884–85):** *Tape v. Hurley*, 66 Cal. 473 (1885).
+- Low, Victor. *The Unimpressible Race*. San Francisco: East/West Publishing, 1982.
 - **Sino-French War: Battle of Fuzhou (1884):** Eastman, Lloyd E. *Throne and Mandarins*. Cambridge: Harvard University Press, 1967.
 - **Rock Springs Massacre (1885):** U.S. Senate. Executive Document No. 102, 49th Congress, 1st Session, 1886.
 - **Tacoma Expulsion (1885) & Seattle Expulsion Attempt (1886):** Pfaelzer, Jean. *Driven Out: The Forgotten War against Chinese Americans*. New York: Random House, 2007.

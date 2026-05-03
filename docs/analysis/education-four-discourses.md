@@ -19,7 +19,7 @@ Each represents a distinct way American newspapers framed the question of Chines
 
 ## Four discourses, one timeline
 
-The time series below tracks the monthly mean topic weight for all four education topics across the 1880–1885 window. Four labeled vertical lines mark key events: the CEM recall (mid-1881), the Exclusion Act (May 1882), Tape v. Hurley (early 1885), and the Rock Springs massacre (September 1885).
+The time series below tracks the monthly mean topic weight for all four education topics across the 1880–1885 window. Four labeled vertical lines mark key events: the CEM recall (mid-1881), the Exclusion Act (May 1882), *Tape v. Hurley* (early 1885), and the Rock Springs massacre (September 1885).
 
 <DatawrapperChart chartId="yHrwo" :minHeight="627" alt="Shifting Discourses: Four Education Topics in Press Coverage of Chinese Children" />
 
@@ -145,7 +145,7 @@ What unites all four is that education served as the *primary frame* through whi
 
 This is not the only way the conversation could have been organized. Coverage from the same period in newspapers focused on labor, immigration, or commerce talks about Chinese adults very differently: as workers, as a "Chinese question," as a tax base. But when the search vocabulary points at children (students, boys, girls, schools), what comes back is overwhelmingly an educational discourse. The American press in 1880–1885 understood Chinese children primarily through their schooling, their teachers, their potential conversion, and their legal right (or refused right) to a seat in a classroom.
 
-The Hartford mission collapsed in 1881. The Chinese Exclusion Act passed in 1882. Tape v. Hurley was decided in 1885. Across all of these moments, the press kept returning to schools. Education was not a side topic in the discourse about Chinese children. It was the discourse.
+The Hartford mission collapsed in 1881. The Chinese Exclusion Act passed in 1882. *Tape v. Hurley* was decided in 1885. Across all of these moments, the press kept returning to schools. Education was not a side topic in the discourse about Chinese children. It was the discourse.
 
 ## Notes
 

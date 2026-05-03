@@ -10,7 +10,7 @@ The early 1880s were a pivotal moment. The Chinese Exclusion Act of 1882 marked 
 
 This site brings together archival research, computational text analysis, and geographic visualization to trace how that debate unfolded across different regions, newspapers, and years. Rather than treating the Exclusion Act as the only story, it asks what the press reveals when the subject is a child sitting in a classroom.
 
-## What You'll Find Here
+## In This Section
 
 - **[About the Project](./about)**: The research questions, source materials, and analytical approach behind this work
 - **[Historical Context](./context)**: The political climate of the 1880s: exclusion legislation, the Chinese Educational Mission, and the *Tape v. Hurley* case

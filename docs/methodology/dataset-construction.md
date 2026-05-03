@@ -9,7 +9,7 @@ This document describes the pipeline for transforming raw archival newspaper dat
 
 ## Step 1: Corpus Assembly
 
-Articles were collected from the Library of Congress [Chronicling America](https://www.loc.gov/collections/chronicling-america/about-this-collection/) digitized newspaper archive. Seven keyword queries were used to retrieve page-level records containing references to Chinese children, students, and schools:
+Articles were collected from the Library of Congress [*Chronicling America*](https://www.loc.gov/collections/chronicling-america/about-this-collection/) digitized newspaper archive. Seven keyword queries were used to retrieve page-level records containing references to Chinese children, students, and schools:
 
 > "Chinese student" · "Chinese boy" · "Chinese girl" · "Chinese child" · "Chinese children" · "Chinese school" · "Chinese education"
 
@@ -22,7 +22,7 @@ Exact phrase matching was chosen over proximity-based or stemmed search to minim
 
 ## Step 2: Geographic Standardization
 
-The raw metadata from Chronicling America contains geographic information in loosely formatted text fields. This step transforms that information into structured variables suitable for regional analysis and mapping.
+The raw metadata from *Chronicling America* contains geographic information in loosely formatted text fields. This step transforms that information into structured variables suitable for regional analysis and mapping.
 
 ### Parsing location metadata
 

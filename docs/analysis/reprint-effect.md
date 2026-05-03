@@ -19,7 +19,7 @@ This dumbbell chart compares each topic's mean weight across the two corpora: th
 
 The connecting bar for each topic reveals the magnitude and direction of the reprint effect.
 
-Several patterns are immediately visible. **Chinese Educational Mission** appears only on the right side: its sub-topics dominate the all-corpus view because the deduplicated baseline split CEM into a single merged topic (18.1%) while the all-corpus view broke it into four narrower sub-topics, the largest being *CEM: Government Policy & Institutional Recall* at 13.8%. The recall story was, in raw terms, the single most reprinted thread of the period.
+Several patterns are immediately visible. **Chinese Educational Mission** appears only on the right side: its sub-topics dominate the all-corpus view because the deduplicated baseline split CEM into a single merged topic (18.1%) while the all-corpus view broke it into four narrower sub-topics, the largest being CEM: Government Policy & Institutional Recall at 13.8%. The recall story was, in raw terms, the single most reprinted thread of the period.
 
 **Children & Family Life** drops sharply, from 12.5% in the deduplicated corpus to 7.7% in the full corpus. Family stories were written often but reprinted rarely. They were locally interesting filler, not network-level news.
 
@@ -95,7 +95,7 @@ What this diagram makes clearest of all is the asymmetry of growth. Education & 
 
 To make these patterns concrete, consider how individual stories actually behaved in the network.
 
-The Tape v. Hurley decision generated short, copy-friendly reports like this one: "The Chinese Must Go — to School. Superior Judge Maguire decided today, in the case of Mamie Tape, a Chinese girl ten years of age, against Mrs. Jennie M. Hurley, principal of a public school of this city, that Chinese children born in this country are entitled to admission to the public schools."[^1]
+The *Tape v. Hurley* decision generated short, copy-friendly reports like this one: "The Chinese Must Go — to School. Superior Judge Maguire decided today, in the case of Mamie Tape, a Chinese girl ten years of age, against Mrs. Jennie M. Hurley, principal of a public school of this city, that Chinese children born in this country are entitled to admission to the public schools."[^1]
 
 <div class="clip-spread">
 <figure class="clip">

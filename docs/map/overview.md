@@ -97,7 +97,7 @@ Selecting an event automatically updates the time filter and topic filter togeth
 
 ## Data Sources
 
-**Newspaper records:** Chronicling America digital archive, Library of Congress. Retrieved via keyword searches for terms including *Chinese student*, *Chinese children*, *Chinese school*, and *Chinese education*. Approximately 2,100 excerpts cover the period January 1880 to December 1885.
+**Newspaper records:** *Chronicling America* digital archive, Library of Congress. Retrieved via keyword searches for terms including *Chinese student*, *Chinese children*, *Chinese school*, and *Chinese education*. Approximately 2,100 excerpts cover the period January 1880 to December 1885.
 
 **Historical boundaries:** Atlas of Historical County Boundaries, Newberry Library (2012 edition). County and state shapefiles representing administrative divisions as of 1882.
 

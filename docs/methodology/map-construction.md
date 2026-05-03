@@ -150,7 +150,7 @@ Each GeoJSON feature includes the following properties:
 | `pub_city` | Publication city |
 | `pub_state` | Publication state |
 | `region` | U.S. Census region |
-| `page_url` | Persistent Chronicling America link |
+| `page_url` | Persistent *Chronicling America* link |
 | `is_reprint` | Boolean reprint flag |
 | `reprint_count` | Total size of reprint chain |
 | `chain_position` | Position within reprint chain |

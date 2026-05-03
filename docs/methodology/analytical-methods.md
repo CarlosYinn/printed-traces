@@ -89,7 +89,6 @@ Running two parallel models rather than a single combined one was a deliberate m
 Each of the 25 topics in both models was manually reviewed using the highest-probability words and the top documents. Five topics were excluded as OCR noise (empty or near-empty vocabulary, dominated by symbols and garbled tokens). The remaining 20 substantive topics were labeled at two levels:
 
 - **Analytic label**: a short descriptive title (e.g., "Public School Admission")
-- **Discourse label**: a longer interpretive phrase capturing the register (e.g., *"Born on This Soil": The Courtroom Battle over School Access*)
 
 Topics were then grouped into 9 thematic categories:
 
