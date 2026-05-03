@@ -37,19 +37,20 @@ npm run preview  # preview the built site locally
 
 ## Methods & Tools
 
-- **Site:** [Vue.js](https://vuejs.org/) and [VitePress](https://vitepress.dev/)
+- **Site:** built with [Vue.js](https://vuejs.org/) using [VitePress](https://vitepress.dev/)
 - **Topic modeling:** [MALLET](https://mimno.github.io/Mallet/)
-- **Map:** [MapLibre GL JS](https://maplibre.org/) with 1882 county and state boundaries from the Newberry Library's *Atlas of Historical County Boundaries*
-- **Charts:** [Datawrapper](https://www.datawrapper.de/) and [RAWGraphs](https://www.rawgraphs.io/), with chart data prepared by Python scripts in `scripts/build_datawrapper_data/`
-- **Typefaces:** Wordmark set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky) typeface by Fredrick R. Brennan under SIL OFL 1.1 (converted to SVG paths)
+- **Data visualization:** [Datawrapper](https://www.datawrapper.de/) and [RAWGraphs](https://www.rawgraphs.io/)
+- **Map:** [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/), [Allmaps](https://allmaps.org/), [QGIS](https://qgis.org/), and [Turf.js](https://turfjs.org/)
+- **Typefaces:** Wordmark set in [Chomsky](https://github.com/ctrlcctrlv/Chomsky) typeface (converted to SVG paths)
 
 ## Data Sources
 
 | Resource | Provider |
 |---|---|
-| Corpus of digitized newspaper articles | [*Chronicling America*](https://chroniclingamerica.loc.gov/), Library of Congress |
+| Corpus of digitized newspaper articles | [*Chronicling America*](https://www.loc.gov/collections/chronicling-america/about-this-collection/), Library of Congress |
 | Historical county and state boundaries | [*Atlas of Historical County Boundaries*](https://publications.newberry.org/ahcb/), Newberry Library |
-| Topic model | [MALLET 2.0](https://mimno.github.io/Mallet/) (Andrew McCallum, UMass Amherst) |
+| OpenStreetMap base map | [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL. |
+| 1882 railroad and county map | [Rand McNally and Company](https://collections.leventhalmap.org/search/commonwealth:1257b834v), Norman B. Leventhal Map & Education Center at the Boston Public Library |
 
 ## License
 
